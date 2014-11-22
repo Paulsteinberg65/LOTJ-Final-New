@@ -1,0 +1,371 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: WaterfallPlatform Collection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d546f34a90531a14eaba82a43b05b86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 0
+  spriteDefinitions:
+  - name: 
+    boundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    untrimmedBoundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.00312500005, y: -.196875006, z: 0}
+    - {x: .196875006, y: -.196875006, z: 0}
+    - {x: -.00312500005, y: .00312499702, z: 0}
+    - {x: .196875006, y: .00312499702, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .968753934, y: .00781640597}
+    - {x: .976558566, y: .00781640597}
+    - {x: .968753934, y: .015621094}
+    - {x: .976558566, y: .015621094}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: 
+    boundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    untrimmedBoundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.00312500005, y: -.196875006, z: 0}
+    - {x: .196875006, y: -.196875006, z: 0}
+    - {x: -.00312500005, y: .00312499702, z: 0}
+    - {x: .196875006, y: .00312499702, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .968753934, y: .00781640597}
+    - {x: .976558566, y: .00781640597}
+    - {x: .968753934, y: .015621094}
+    - {x: .976558566, y: .015621094}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: 
+    boundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    untrimmedBoundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.00312500005, y: -.196875006, z: 0}
+    - {x: .196875006, y: -.196875006, z: 0}
+    - {x: -.00312500005, y: .00312499702, z: 0}
+    - {x: .196875006, y: .00312499702, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .968753934, y: .00781640597}
+    - {x: .976558566, y: .00781640597}
+    - {x: .968753934, y: .015621094}
+    - {x: .976558566, y: .015621094}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: 
+    boundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    untrimmedBoundsData:
+    - {x: .0968750045, y: -.0968750045, z: 0}
+    - {x: .200000003, y: .200000003, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.00312500005, y: -.196875006, z: 0}
+    - {x: .196875006, y: -.196875006, z: 0}
+    - {x: -.00312500005, y: .00312499702, z: 0}
+    - {x: .196875006, y: .00312499702, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .968753934, y: .00781640597}
+    - {x: .976558566, y: .00781640597}
+    - {x: .968753934, y: .015621094}
+    - {x: .976558566, y: .015621094}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: waterfallplatform/0
+    boundsData:
+    - {x: -.017187506, y: .00156249851, z: 0}
+    - {x: .590624988, y: .153125003, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.3125, y: -.075000003, z: 0}
+    - {x: .278124988, y: -.075000003, z: 0}
+    - {x: -.3125, y: .078125, z: 0}
+    - {x: .278124988, y: .078125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .00781640597, y: .00781640597}
+    - {x: .746089816, y: .00781640597}
+    - {x: .00781640597, y: .199214846}
+    - {x: .746089816, y: .199214846}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2cd315c52242dbe4ebb94e111ca1055a
+    extractRegion: 1
+    regionX: 0
+    regionY: 50
+    regionW: 200
+    regionH: 50
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: waterfallplatform/1
+    boundsData:
+    - {x: -.017187506, y: .00156249851, z: 0}
+    - {x: .590624988, y: .153125003, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.3125, y: -.075000003, z: 0}
+    - {x: .278124988, y: -.075000003, z: 0}
+    - {x: -.3125, y: .078125, z: 0}
+    - {x: .278124988, y: .078125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .761722684, y: .00781640597}
+    - {x: .761722684, y: .746089816}
+    - {x: .953121066, y: .00781640597}
+    - {x: .953121066, y: .746089816}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2cd315c52242dbe4ebb94e111ca1055a
+    extractRegion: 1
+    regionX: 200
+    regionY: 50
+    regionW: 200
+    regionH: 50
+    flipped: 1
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: waterfallplatform/2
+    boundsData:
+    - {x: -.017187506, y: .00156249851, z: 0}
+    - {x: .590624988, y: .153125003, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.3125, y: -.075000003, z: 0}
+    - {x: .278124988, y: -.075000003, z: 0}
+    - {x: -.3125, y: .078125, z: 0}
+    - {x: .278124988, y: .078125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .00781640597, y: .761722684}
+    - {x: .746089816, y: .761722684}
+    - {x: .00781640597, y: .953121066}
+    - {x: .746089816, y: .953121066}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2cd315c52242dbe4ebb94e111ca1055a
+    extractRegion: 1
+    regionX: 0
+    regionY: 0
+    regionW: 200
+    regionH: 50
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: waterfallplatform/3
+    boundsData:
+    - {x: -.017187506, y: .00156249851, z: 0}
+    - {x: .590624988, y: .153125003, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.3125, y: -.075000003, z: 0}
+    - {x: .278124988, y: -.075000003, z: 0}
+    - {x: -.3125, y: .078125, z: 0}
+    - {x: .278124988, y: .078125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .00781640597, y: .214847654}
+    - {x: .746089816, y: .214847654}
+    - {x: .00781640597, y: .406246096}
+    - {x: .746089816, y: .406246096}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2cd315c52242dbe4ebb94e111ca1055a
+    extractRegion: 1
+    regionX: 200
+    regionY: 0
+    regionW: 200
+    regionH: 50
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  premultipliedAlpha: 0
+  material: {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 25ff8291dd1084760a865d595b59b062, type: 2}
+  textures:
+  - {fileID: 2800000, guid: fa376e4a18ee24a7583ef2acf0679d30, type: 3}
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: ea9da39c6454549d8a3f56dee3fc5a1a
+  spriteCollectionName: WaterfallPlatform Collection
+  assetName: 
+  loadable: 0
+  invOrthoSize: 1
+  halfTargetHeight: 320
+  buildKey: 759434894
+  dataGuid: 4a784d8bc13f442f499d46b20fcc9ecd
+  managedSpriteCollection: 0
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

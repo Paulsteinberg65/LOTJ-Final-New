@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/splashScreens/titleCard.unity
+  - enabled: 1
+    path: Assets/splashScreens/introScreen.unity
+  - enabled: 1
+    path: Assets/splashScreens/instructionScreen.unity
+  - enabled: 1
+    path: Assets/splashScreens/charSelect.unity
+  - enabled: 1
+    path: Assets/splashScreens/levelSelect.unity
+  - enabled: 1
+    path: Assets/splashScreens/intro1.unity
+  - enabled: 1
+    path: Assets/splashScreens/intro2.unity
+  - enabled: 1
+    path: Assets/splashScreens/intro3.unity
+  - enabled: 1
+    path: Assets/splashScreens/intro4.unity
+  - enabled: 1
+    path: Assets/Town1.unity
+  - enabled: 1
+    path: Assets/splashScreens/enterForest.unity
+  - enabled: 1
+    path: Assets/Maze.unity
+  - enabled: 1
+    path: Assets/searchParty1.unity
+  - enabled: 0
+    path: Assets/demoEnd.unity
+  - enabled: 0
+    path: Assets/demoEnd2.unity
+  - enabled: 0
+    path: Assets/town2.unity
+  - enabled: 1
+    path: Assets/splashScreens/enterWaterfall.unity
+  - enabled: 1
+    path: Assets/waterfall.unity
+  - enabled: 1
+    path: Assets/splashScreens/enterCave.unity
+  - enabled: 1
+    path: Assets/waterfallCave.unity
+  - enabled: 1
+    path: Assets/searchParty2.unity
+  - enabled: 1
+    path: Assets/splashScreens/enterAwareness.unity
+  - enabled: 1
+    path: Assets/awareness.unity
+  - enabled: 1
+    path: Assets/splashScreens/enterRules.unity
+  - enabled: 1
+    path: Assets/rules.unity
+  - enabled: 1
+    path: Assets/splashScreens/rulesExit.unity
+  - enabled: 1
+    path: Assets/policeOfficer.unity
+  - enabled: 1
+    path: Assets/town3.unity
+  - enabled: 1
+    path: Assets/splashScreens/drive1.unity
+  - enabled: 1
+    path: Assets/splashScreens/drive2.unity
+  - enabled: 1
+    path: Assets/splashScreens/enterCapital.unity
+  - enabled: 1
+    path: Assets/capitol.unity
+  - enabled: 0
+    path: Assets/waterfall.unity
+  - enabled: 0
+    path: Assets/splashScreens/titleCard.unity
+  - enabled: 0
+    path: Assets/town2.unity
+  - enabled: 0
+    path: Assets/splashScreens/titleCard.unity

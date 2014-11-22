@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{41564163-F1D7-8143-8EFA-57CDA67A2563}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Awareness\AwarenessGUI.js" />
+     <Compile Include="Assets\Awareness\AwarenessObstacle.js" />
+     <Compile Include="Assets\Awareness\AwarenessPlayer.js" />
+     <Compile Include="Assets\Awareness\Awareness_TextContainer.js" />
+     <Compile Include="Assets\CameraFollow.js" />
+     <Compile Include="Assets\Capitol\Capitol_TextContainer.js" />
+     <Compile Include="Assets\CharacterMotor.js" />
+     <Compile Include="Assets\CollisionManager.js" />
+     <Compile Include="Assets\CutsceneManager.js" />
+     <Compile Include="Assets\GLOBAL.js" />
+     <Compile Include="Assets\GUIController.js" />
+     <Compile Include="Assets\GUITest.js" />
+     <Compile Include="Assets\Maze\Maze_TextContainer.js" />
+     <Compile Include="Assets\MusicSingleton.js" />
+     <Compile Include="Assets\ObstacleGenerator.js" />
+     <Compile Include="Assets\ObstacleGeneratorTown1.js" />
+     <Compile Include="Assets\PlayerMovement.js" />
+     <Compile Include="Assets\Playergender.js" />
+     <Compile Include="Assets\RiverObstacle.js" />
+     <Compile Include="Assets\Rules\RulesGUI.js" />
+     <Compile Include="Assets\Rules\Rules_TextContainer.js" />
+     <Compile Include="Assets\TextContainer.js" />
+     <Compile Include="Assets\TextManager.js" />
+     <Compile Include="Assets\Town1\Town1_TextContainer.js" />
+     <Compile Include="Assets\Town2\OnLoad.js" />
+     <Compile Include="Assets\Waterfall_TextContainer.js" />
+     <Compile Include="Assets\splashScreens\levelSelect.js" />
+     <Compile Include="Assets\splashScreens\splashScreen.js" />
+     <Compile Include="Assets\splashScreens\spriteSelection.js" />
+     <Compile Include="Assets\timerScript.js" />
+     <None Include="Assets\UniMerge\readme.txt" />
+     <None Include="Assets\Images\Tiles\Buildings\Cropping.txt" />
+     <None Include="Assets\Resources\LWFShaders\BitmapFont.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\LitSolidVertexColor.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\SolidVertexColor.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFNormalAdditiveAdditional.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFNormalAdditiveCombined.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFPreMultipliedAlphaCombined.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFNormal.shader" />
+     <None Include="Assets\Resources\LWFShaders\SystemFont.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFNormalAdditive.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\LitPremulVertexColor.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\PremulVertexColor.shader" />
+     <None Include="Assets\TK2DROOT\tk2d_demo\Credits.txt" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\goodies\PackedTextMesh.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\Blend2TexVertexColor.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFNormalCombined.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFPreMultipliedAlphaAdditiveCombined.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFPreMultipliedAlphaAdditive.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\resources\BlendVertexColor.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\LitCutoutVertexColor.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFPreMultipliedAlpha.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFPreMultipliedAlphaAdditional.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\CutoutVertexColor.shader" />
+     <None Include="Assets\TK2DROOT\tk2d_demo\demobmfont\test.fnt" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\LitBlendVertexColor.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFPreMultipliedAlphaAdditiveAdditional.shader" />
+     <None Include="Assets\Resources\LWFShaders\LWFNormalAdditional.shader" />
+     <None Include="Assets\TK2DROOT\tk2d\Shaders\AdditiveVertexColor.shader" />
+     <None Include="Assets\TK2DROOT\tk2d_demo\democameradata\source\democamerafont.fnt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{5FEEC19B-827C-7F64-CAE7-04DF824265CD}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{2ED8E1BD-FA55-71FC-822C-EC6F163B3680}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

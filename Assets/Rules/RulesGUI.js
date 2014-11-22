@@ -1,0 +1,151 @@
+var boo : AudioClip;
+var applause : AudioClip;
+var slider1Value : float = 0.0;
+var slider2Value : float = 0.0;
+private var slider1Text : String;
+private var slider2Text : String;
+private var mayorText : String;
+private var subText1 : String;
+private var subText2 : String;
+private var approval1 : int;
+private var approval2 : int;
+private var approval3 : int;
+private var approvalTotal : int;
+
+private var currentQuestion : int = 0;
+private var ruleAccepted : boolean = false;
+private var changeScene : boolean = false;
+
+private var tc : Object;
+
+var questionStyle : GUIStyle;
+var labelStyle : GUIStyle;
+var sliderStyle1 : GUIStyle;
+var thumbStyle1 : GUIStyle;
+var sliderStyle2 : GUIStyle;
+var thumbStyle2 : GUIStyle;
+var submitStyle : GUIStyle;
+var approvalStyle : GUIStyle;
+var approvalThumbStyle : GUIStyle;
+var approvalLabelStyle : GUIStyle;
+
+var submitImg : Texture2D;
+
+// Use this for initialization
+function Start () {
+	tc = GameObject.Find("TextContainer").GetComponent("Rules_TextContainer");
+	ResetValues();
+}
+
+// Update is called once per frame
+function Update () {
+	if (Input.GetButtonDown("Space")) {
+		if (ruleAccepted) {
+			if (changeScene) {
+				Application.LoadLevel("rulesExit");
+			}
+			else {
+				ruleAccepted = false;
+				AdvanceQuestion();
+			}
+		}
+	}
+}
+
+function OnGUI () {
+	//question displays
+	GUI.Box(Rect(455,28,215,115),mayorText,questionStyle);
+	GUI.Box(Rect(65,50,290,95),subText1,questionStyle);
+	GUI.Box(Rect(65,243,290,95),subText2,questionStyle);
+	
+	//answer sliders
+	if (!ruleAccepted) {
+		slider1Value = GUI.HorizontalSlider(Rect(460,160,135,50), slider1Value, 0.0, 98.0, sliderStyle1, thumbStyle1);
+		slider2Value = GUI.HorizontalSlider(Rect(460,345,135,50), slider2Value, 0.0, 98.0, sliderStyle1, thumbStyle1);
+	}
+	else {
+		GUI.HorizontalSlider(Rect(460,160,135,50), slider1Value, 0.0, 98.0, sliderStyle1, thumbStyle1);
+		GUI.HorizontalSlider(Rect(460,345,135,50), slider2Value, 0.0, 98.0, sliderStyle1, thumbStyle1);
+	}
+	
+	var answer1 : int = Mathf.Floor(slider1Value / (100.0/tc.answer1LabelArray[currentQuestion].length));
+	var answer2 : int = Mathf.Floor(slider2Value / (100.0/tc.answer2LabelArray[currentQuestion].length));
+	
+	slider1Text = tc.answer1LabelArray[currentQuestion][answer1];
+	slider2Text = tc.answer2LabelArray[currentQuestion][answer2];
+		
+	GUI.Label(Rect(63,155,Screen.width/2,20),slider1Text,labelStyle);
+	GUI.Label(Rect(63,345,Screen.width/2,20),slider2Text,labelStyle);
+	
+	//approval sliders
+	GUI.HorizontalSlider(Rect(150,Screen.height-85,150,25), approval1, 0.0, 100.0, approvalStyle, approvalThumbStyle);
+	GUI.HorizontalSlider(Rect(150,Screen.height-40,150,25), approval2, 0.0, 100.0, approvalStyle, approvalThumbStyle);
+	GUI.HorizontalSlider(Rect(Screen.width-250,Screen.height-85,150,25), approval3, 0.0, 100.0, approvalStyle, approvalThumbStyle);
+	GUI.HorizontalSlider(Rect(Screen.width-250,Screen.height-40,150,25), approvalTotal, 0.0, 100.0, approvalStyle, approvalThumbStyle);
+	
+	GUI.Label(Rect(50,Screen.height-125,250,30),"Audience Approval",approvalLabelStyle);
+	
+	GUI.Label(Rect(50,Screen.height-85,100,30),"Subsistence Farmers",approvalLabelStyle);
+	GUI.Label(Rect(50,Screen.height-40,100,30),"Commercial Farmers",approvalLabelStyle);
+	GUI.Label(Rect(Screen.width-350,Screen.height-85,100,30),"Preservation Advocates",approvalLabelStyle);
+	GUI.Label(Rect(Screen.width-350,Screen.height-40,100,30),"Total Popular Support",approvalLabelStyle);
+	
+	GUI.Label(Rect(300,Screen.height-85,50,25),approval1.ToString()+"%",approvalLabelStyle);
+	GUI.Label(Rect(300,Screen.height-40,50,25),approval2.ToString()+"%",approvalLabelStyle);
+	GUI.Label(Rect(Screen.width-100,Screen.height-85,50,25),approval3.ToString()+"%",approvalLabelStyle);
+	GUI.Label(Rect(Screen.width-100,Screen.height-40,50,25),approvalTotal.ToString()+"%",approvalLabelStyle);
+	
+	if (GUI.Button(Rect(680,360,84,75),submitImg,submitStyle) && !ruleAccepted) {
+		EvaluateAnswer(answer1, answer2);
+	}
+	
+}
+
+function EvaluateAnswer (answer1 : int, answer2 : int) {
+	approval1 = tc.approval1Vals[currentQuestion][0][answer1]+tc.approval1Vals[currentQuestion][1][answer2];
+	approval2 = tc.approval2Vals[currentQuestion][0][answer1]+tc.approval2Vals[currentQuestion][1][answer2];
+	approval3 = tc.approval3Vals[currentQuestion][0][answer1]+tc.approval3Vals[currentQuestion][1][answer2];
+	approvalTotal = (approval1+approval2+approval3)/3;
+	Debug.Log(currentQuestion);
+	Debug.Log(tc.mainQuestionArray.length);
+	
+	mayorText = "";
+	
+	if (answer1 != tc.correctAnswerArray[currentQuestion][0]) {
+		mayorText += tc.wrongAnswerArray[currentQuestion][0][answer1];
+		audio.PlayOneShot(boo);
+	}
+	else if (answer2 != tc.correctAnswerArray[currentQuestion][1]){
+		mayorText += tc.wrongAnswerArray[currentQuestion][1][answer2];
+		audio.PlayOneShot(boo);
+	}
+	if (answer1 == tc.correctAnswerArray[currentQuestion][0] && answer2 == tc.correctAnswerArray[currentQuestion][1]) {
+		ruleAccepted = true;
+		audio.PlayOneShot(applause);
+		if (currentQuestion+1 == tc.mainQuestionArray.length) {
+			changeScene = true;
+			mayorText = "Congratulations, everybody. Maybe now our forest has a chance. \n\n Press space to continue.";
+		}
+		else {
+			mayorText = "Your proposed rule has been accepted! \n\nPress space to continue.";
+		}
+	}
+}
+
+function AdvanceQuestion () {
+	currentQuestion ++;
+	ResetValues();
+}
+
+function ResetValues () {
+	approval1 = 0;
+	approval2 = 0;
+	approval3 = 0;
+	approvalTotal = 0;
+	
+	mayorText = tc.mainQuestionArray[currentQuestion];
+	subText1 = tc.question1Array[currentQuestion];
+	subText2 = tc.question2Array[currentQuestion];
+	slider1Value = 0;
+	slider2Value = 0;
+}

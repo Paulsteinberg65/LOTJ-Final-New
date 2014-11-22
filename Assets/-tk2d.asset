@@ -1,0 +1,1538 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cb500cf0f58e74f9a52a8af931edde, type: 3}
+  m_Name: -tk2d
+  m_EditorClassIdentifier: 
+  version: 3
+  spriteAnimationIndex:
+  - assetGUID: 18a39674a9b14f54b97497254e83b349
+    dataGUID: 
+    managed: 0
+    loadable: 0
+  - assetGUID: 68cc4da10d501f9439d1507a1a2c46c1
+    dataGUID: 
+    managed: 0
+    loadable: 0
+  - assetGUID: f5d78ffeebaaf7f4b8b48018e947993d
+    dataGUID: 
+    managed: 0
+    loadable: 0
+  - assetGUID: 1f747380d49b4a24fac718670fcbc610
+    dataGUID: 
+    managed: 0
+    loadable: 0
+  - assetGUID: 37fa0d420fe8145e3a09fa702f2fa569
+    dataGUID: 
+    managed: 0
+    loadable: 0
+  - assetGUID: 6e32c796d669f4ebf8774f2808c42486
+    dataGUID: 
+    managed: 0
+    loadable: 0
+  - assetGUID: 752b4c011b82546129152f43a1560f7c
+    dataGUID: 
+    managed: 0
+    loadable: 0
+  fontIndex:
+  - assetGUID: 063b15d80dbb4604d890600a64c79cf8
+    dataGUID: e7a6b09a73c6b2b4f8060096ddbd3b5e
+    managed: 0
+    loadable: 0
+  - assetGUID: 5b9fac241be038041b70ac7e84cd6151
+    dataGUID: 3082bbcb45b417041963b6b8562266c1
+    managed: 0
+    loadable: 0
+  - assetGUID: db60ffa92fa16ea478fc7ad4f595a0e6
+    dataGUID: 44e006873ca04f741b2ac3ba5dec92ad
+    managed: 0
+    loadable: 0
+  spriteCollectionIndex:
+  - name: placeholders
+    spriteCollectionGUID: 015fbdb0ede74844196502e58c120ff3
+    spriteCollectionDataGUID: 87c6cc4dc9c45ef4d90d60b550e558ef
+    spriteNames:
+    - purple
+    - grey
+    - brown
+    - blue
+    - red
+    - green
+    spriteTextureGUIDs:
+    - 4ed0dba73874e5b4d9fe6b96f6c396f5
+    - 501d0ae6902903046bc457d029b6cb99
+    - 68b639410a23ef54586622a205cf35bc
+    - b8a39b799d17e2840a234932410d31af
+    - f68426b679dc18a438cacbafa6b00825
+    - f82c2ae380beefc48be77d223f031a5d
+    spriteTextureTimeStamps:
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: DemoSpiderSpriteCollection
+    spriteCollectionGUID: 1fe2f34d6bac2b440944f04ac87d9e8a
+    spriteCollectionDataGUID: 822f1f9eedf119f4eaca33509ba7b549
+    spriteNames:
+    - body
+    - lowerleg
+    - mouth
+    - upperleg
+    spriteTextureGUIDs:
+    - 17a4fe5393d6f6048b0a96839cd54591
+    - 731aac236e6d1724fb48cd35227e8998
+    - 871eb2b697bff4f4e832b95668b9b3cc
+    - 75f62f68bfc69b04d876f87672036e09
+    spriteTextureTimeStamps:
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: DemoMultiAtlas
+    spriteCollectionGUID: 6abdf3241ce81204293a7d50f971e3d7
+    spriteCollectionDataGUID: e40f26e01721f87448061d44beed20dd
+    spriteNames:
+    - explosion_44FR/0
+    - explosion_44FR/1
+    - explosion_44FR/2
+    - explosion_44FR/3
+    - explosion_44FR/4
+    - explosion_44FR/5
+    - explosion_44FR/6
+    - explosion_44FR/7
+    - explosion_44FR/8
+    - explosion_44FR/9
+    - explosion_44FR/10
+    - explosion_44FR/11
+    - explosion_44FR/12
+    - explosion_44FR/13
+    - explosion_44FR/14
+    - explosion_44FR/15
+    - explosion_44FR/16
+    - explosion_44FR/17
+    - explosion_44FR/18
+    - explosion_44FR/19
+    - explosion_44FR/20
+    - explosion_44FR/21
+    - explosion_44FR/22
+    - explosion_44FR/23
+    - explosion_44FR/24
+    - explosion_44FR/25
+    - explosion_44FR/26
+    - explosion_44FR/27
+    - explosion_44FR/28
+    - explosion_44FR/29
+    - explosion_44FR/30
+    - explosion_44FR/31
+    - explosion_44FR/32
+    - explosion_44FR/33
+    - explosion_44FR/34
+    - explosion_44FR/35
+    - explosion_44FR/36
+    - explosion_44FR/37
+    - explosion_44FR/38
+    - explosion_44FR/39
+    - explosion_44FR/40
+    - explosion_44FR/41
+    - explosion_44FR/42
+    - explosion_44FR/43
+    spriteTextureGUIDs:
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    - f38c1e9651d69654c87ea0956466e36d
+    spriteTextureTimeStamps:
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    - 1410617879.74501
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: DemoSpriteCollection
+    spriteCollectionGUID: 71d75aef51c47034082eca27f2eb6e30
+    spriteCollectionDataGUID: b5aec6ebd1a8ffc458a2e46a3236acab
+    spriteNames:
+    - bubble_green
+    - bubble_red
+    - bubble_orange
+    - sun
+    - bg
+    - smoke0
+    - smoke4
+    - smoke2
+    - smoke3
+    - smoke1
+    - explosion_beam
+    - smoke
+    - core
+    - bg1
+    - sheep_0
+    - sheep_1
+    - sheep_2
+    - cloud1
+    - cloud2
+    - Brown Block
+    - Chest Closed
+    - Stone Block
+    - Rock
+    - crate
+    - ground
+    - smoke5
+    - animdemo_4
+    - animdemo_5
+    - animdemo_1
+    - animdemo_3
+    - animdemo_2
+    - button_down
+    - button_up
+    - wavyground
+    - starspike
+    - platform
+    - platform_spiked
+    - 2dtoolkit_logo
+    - background
+    - slicedButton_down
+    - slicedButton_up
+    spriteTextureGUIDs:
+    - 7aca923e78526cd4b984265f396e04d8
+    - bb6c9fb18b1dc46499fc0567ff873e42
+    - 4a3adedb01045d0458d6e6330d1dd25d
+    - 60ab1d7b85ae054498eb9122996758d9
+    - b5e1233ff1ab3d14a8b3e3910c4c8281
+    - c9b9253339e73124bbe3b5012f4bc936
+    - 39734a83ab620ae42b7fd778891e490e
+    - 287c70551d47fed40aaed1d763b2c586
+    - f54a71b7ee1fcd541859ccce61c15d4f
+    - e89d30fcbd3b3cb4f81b9f612565cd15
+    - 972d12151f1a30d4fb5c0457807734e9
+    - 6109dd1f0c6a20e40b9a5cc3cd4bbfaa
+    - 41539258830f7a24abc38d8bbe487af3
+    - 0d86fdb28836c6445974f98f412dfbf2
+    - c25d0635778cf614eb2cca727e071fd6
+    - d20c61a95bed34948a4408be780c3d55
+    - df162a39ace0bbb4dbbe4c348669075c
+    - 4a902aa2ec2deaa469755f61aa3e8134
+    - a329c3266c887ba44b0bf7c627043688
+    - 9fc5fcd3fc8803f4caf11d337579f6c8
+    - 6b3b26a1fb4ebcf448d47859ec1cb66f
+    - 2deb4cd15b4f4144894c8b9f4f1a19a3
+    - 82f0ed3ac7232ae4c8b948fb7654f205
+    - f6724743a506f464ea1684044c461aef
+    - 2f1986f4c79909a4ca592f02dec914e4
+    - 3fe04aba96e31d748a88af0fdc870d13
+    - 27e59c976f45f48488bd746d93f38085
+    - ce42d39374f446b43974cdf748be1594
+    - 7a1c114efdc6f1548b40b62b7666cf2e
+    - caa05169d2cbf6b4d8d7748e71781a40
+    - e84a1e8c2679c6347b789eb93ff1893f
+    - f31ec590f22df524e97e5d2f9139ec46
+    - a6bc359a914e1df468afe824439ede88
+    - abd2d4d8e662ace4c961589c5d18e01f
+    - fe18dfa9012243c4ea82497709a18b26
+    - c6c9f7d3fb91a8d4db53b929d3b367df
+    - 129360c4101c34f4f8a5650c70863c8c
+    - d4b13e5fdf4b0f540be8e00a364ddd35
+    - d87ec7b1d50a9164f85cac54c36371e8
+    - 8eecf2da5d1c91845ac19745f5828760
+    - e322d00650c45ff49ad06ce7a54418a6
+    spriteTextureTimeStamps:
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    - 1410617880
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: DemoCameraSpriteCollection
+    spriteCollectionGUID: ff338294f6bf0b345850bad080ef85dc
+    spriteCollectionDataGUID: 4864518b0693631458553f73aaa86021
+    spriteNames:
+    - heart_empty
+    - heart_full
+    - heart_half
+    - window
+    spriteTextureGUIDs:
+    - c3cedcf3f2f726c4ea2af2b350a9ce88
+    - 5083dbb889212cf4082bbce0e506a093
+    - 775e311b21d73a74c93ca74a71671b1e
+    - 03fff0d1701d7e14399d5ee2209561dc
+    spriteTextureTimeStamps:
+    - 1410617878
+    - 1410617878
+    - 1410617878
+    - 1410617878
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: NPCSprites
+    spriteCollectionGUID: 709eb206825213740835384adf0bf29f
+    spriteCollectionDataGUID: 76b59ac7fc5375044ad4201e2266ba69
+    spriteNames:
+    - Evita
+    - Ynez
+    - Politician6
+    - Natalio
+    - Politician10
+    - Manuel
+    - Diego
+    - Bibiana
+    - Politician2
+    - Sergio
+    - Pablo
+    - Gabriela
+    - Politician9
+    - Quique
+    - Clerk
+    - Sol
+    - Camilo
+    - Felipe
+    - Mayor
+    - Modesto
+    - Dad
+    - Visitacion
+    - Carlos
+    - Lita
+    - Idoya
+    - Adolpho
+    - Politician8
+    - Juana
+    - Ximenez
+    - Biologist
+    - Mom
+    - Politician4
+    - Politician1
+    - Pepe
+    - Dante
+    - Politician7
+    - Eloisa
+    - Estrella
+    - Politician11
+    - Tere
+    - Politician5
+    - Nacho
+    - Politician12
+    - Politician3
+    spriteTextureGUIDs:
+    - f89785901d9d46840829af17717d9c8a
+    - ec4ee3b05c2beba4bbd6af203d9c4264
+    - 97bfca220b9fb2e4180b7494da4d38c0
+    - f8466eb21f866d64f8401012e1498b87
+    - b7f548f277464644b96af9f26d287936
+    - b167fdf2c13563242b5a8d9340b380df
+    - 724186032454fc44c887209187888ad9
+    - 2aab45a32035a0347ac0d9e5874cbe49
+    - 224242b3718189e4baed4197f49640ee
+    - 6ea36114d5e37fc4bb8d700a433c23e5
+    - 30168444caf7ea94f8a32126ac94e9ae
+    - 45d68f5401b440146bc33371de2c472b
+    - 644cf6d4c25c7634d9a2dadbfed3a3f3
+    - 633d0706ee3281e4c96197a5a3942f98
+    - 9f120a0629c019e42b40f64f8272a090
+    - d651ed369981e9a43850442e26a70d7f
+    - 5523e49692a8820469ef4e94a05494d4
+    - aceda7a686add7f429323b0b9804cc65
+    - 0e7b276835afa574589640f6963bad55
+    - 72799d98d01e82f4f95b7d7287cd1412
+    - 96958bf8dc5203f41b78a4323c8a16c8
+    - 6ba1a719a60d441448d8628efc1a58be
+    - 9493d35a6f61b7444994594ffea2ed2c
+    - 64a6f8aab989b6c43b1f696ed2525b7f
+    - abd6ecaa8cbff9d43957c35bd90a8af2
+    - 213e3a1bf1e34fe4b90b6f74541928a4
+    - 6ea5572bbd4236d4092de482b74e90df
+    - d533963b36d84924a8c24bdf00b909da
+    - 0e67549b37c7c804aa5fb3e27ce7774f
+    - 525dafbb2872ba046bd68b5e27cecd7d
+    - 876a6adb09c816f47b25f9468a97d43f
+    - 5cdbeddbf7780c14d98f726439eaa203
+    - d0d7c8ec2f137934791c2f6d20a6986a
+    - db125b0d8f6deac41b68f99b66724d6c
+    - 9618214dbe4eddf4489c729858b21995
+    - 20ba009d398e8854396187de86707ed8
+    - 7aeb78ed38941644d8d40d52d8bd3d03
+    - ddd163fde60cb2f44bed1f1f1d5674b4
+    - 12d05a2e48cc30d4dab7f5a7d92bcc43
+    - a30db35e2eefcc442bfe9afe46e9c8cb
+    - 86da929ee4ee6824a8b585bd338cd558
+    - 3aa21bae9687c5a44b2e77e7f91f27c0
+    - 01cb80ce7b65a084f9a9f27e545a71cd
+    - b66d3a4ff32b6db439cc616239311a1a
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: ObjectSprites
+    spriteCollectionGUID: cf9f32ecbf3791945b150b5930e61f0d
+    spriteCollectionDataGUID: 8dc24e2f990a1fd478a7557658fa74fc
+    spriteNames:
+    - flock3
+    - flock
+    - flock2
+    - flock1
+    - sign2
+    - streamlog
+    - car3
+    - car1
+    - car2
+    - car4
+    spriteTextureGUIDs:
+    - 3bd38cc0166bb1943bc5bc9c6321b763
+    - 97b8b0555524ad9418e6ac824f826d25
+    - 2f3e9b06559db614e8aa368ed2fbc6de
+    - a608cca83fcb1874cb643e626f64ba57
+    - 7b227db56119b9a499b5a7a0bd71f5f9
+    - 104aa437b5d87df4aa04eeaacbab4fa4
+    - d2a1d61159cbd2c4dace80689ba5056a
+    - cb5a11155963eca40bd30df010ea61e3
+    - 3eab1fa73a318934a8f1fb802c35cd24
+    - 195b00cf28186ee4bbbaf9b6590c025b
+    spriteTextureTimeStamps:
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: awarenessSprites
+    spriteCollectionGUID: bc4d8880d3c5b7146a51bfb8bcbb8353
+    spriteCollectionDataGUID: c0ba91ffbb1965445b40292e750e93fe
+    spriteNames:
+    - 
+    - yellowheart
+    - 
+    - yellowguy
+    - farmerbutton
+    - stall4
+    - stall1
+    - greyheart
+    - 
+    - 
+    - 
+    - bushlane1
+    - redbutton
+    - stall5
+    - 
+    - 
+    - greenheart
+    - stall2
+    - yellowbutton
+    - 
+    - 
+    - redheart
+    - artisanbutton
+    - 
+    - 
+    - bushlane4
+    - heartbars
+    - 
+    - bushlane2
+    - stall3
+    - fishermanplayer
+    - 
+    - smokebg
+    - 
+    - 
+    - fishermanbutton
+    - bushlane3
+    - 
+    - 
+    - players
+    - 
+    - studentbutton
+    - bushlane5
+    - 
+    - heartbox
+    spriteTextureGUIDs:
+    - 
+    - 634aeed058c5bf240bf1fb3ace5b50df
+    - 
+    - a2374d425955fc24c8b351d93878df08
+    - 199751a295cfa954a883ae047b6aa740
+    - 16afa2a23b7ae0c48b0a273729c639ed
+    - 84d6ac13fbcf59349946aa22b6eeab1a
+    - 2ce2eb43824c4e54bada809d0fc99f41
+    - 
+    - 
+    - 
+    - 6f383f64952d1fc4c803773f8c58460a
+    - 5e2755841b504314a8b41055892c5b25
+    - 109e9ee40c9afea489f4d1efaaa551f5
+    - 
+    - 
+    - 6b4b03a66f6455945a11fdafdda51cb1
+    - 86eff4a608e45d947a79753816a49aeb
+    - b38f60071fe86244c84e2b9ae8a304be
+    - 
+    - 
+    - 85ea92b772721504aa8cebf9e0a30e30
+    - 63460ec74a703ad47bea51079a3b9c21
+    - 
+    - 
+    - 6adb3d093fbcf254fba855ead34582ba
+    - 1191fbd95c087c942b748efc244219bf
+    - 
+    - 651c5d2ac6f07bd4ca7d4dae267a994c
+    - 32b8a34ade624bd498fd9be92ffd4aec
+    - 0527e33bdf35ac84a9dcf179c54d600a
+    - 
+    - 7b911e4c15b1e0f4990421b3e6a4ded4
+    - 
+    - 
+    - 762a371d7a29fa0449cd4542eef82600
+    - 7c30076d82e974845baea02058dd3fc4
+    - 
+    - 
+    - aaee80dd472c1a640b60628e01eb82c6
+    - 
+    - 949b656e58cc217419476ce196a6f6ff
+    - dfd273ce0bf052e41b1d8d4cc6a71c07
+    - 
+    - 75991ffe08b79ce45b3c4824a7ded2ca
+    spriteTextureTimeStamps:
+    - 0
+    - 1410617868
+    - 0
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 0
+    - 0
+    - 0
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 0
+    - 0
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 0
+    - 0
+    - 1410617868
+    - 1410617868
+    - 0
+    - 0
+    - 1410617868
+    - 1410617868
+    - 0
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 0
+    - 1410617868
+    - 0
+    - 0
+    - 1410617868
+    - 1410617868
+    - 0
+    - 0
+    - 1410617868
+    - 0
+    - 1410617868
+    - 1410617868
+    - 0
+    - 1410617868
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: awarenessBg
+    spriteCollectionGUID: d0734c255d6631342a69641fb430c1ca
+    spriteCollectionDataGUID: 535e03fc6dd282143a1516c34cfaf4c7
+    spriteNames:
+    - rainbg
+    spriteTextureGUIDs:
+    - 00d490cda32e9d246b0d15cc3b3cd5ad
+    spriteTextureTimeStamps:
+    - 1410617868
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: awarenessNPCSprites
+    spriteCollectionGUID: 9c9d13304095f52459ef89d0e24af903
+    spriteCollectionDataGUID: dbb002b464e510747be34505f5be285c
+    spriteNames:
+    - artisanplayer
+    - artisanmale2
+    - artisanfemale2
+    - artisanmale1
+    - artisanfemale1
+    - farmerfemale2
+    - farmerfemale1
+    - farmermale1
+    - farmermale2
+    - farmerplayer
+    - fishermanmale1
+    - fishermanmale2
+    - fishermanfemale2
+    - fishermanplayer
+    - fishermanfemale1
+    - studentplayer
+    - studentfemale1
+    - studentmale1
+    - studentfemale2
+    - studentmale2
+    spriteTextureGUIDs:
+    - 8b9bf6e1529665e45b4deefe8f7f5531
+    - 6677b663e987b0b4aaa485e889e34bd6
+    - 6df194d8f2ff8a44b9454e3ad03d36c8
+    - 4f6d6b9da70f1b64abdef7e87d1d453e
+    - d2fd3bddfc057ed4ea8717266a31a015
+    - 1480b03789ba1c043b54a3b5719107a8
+    - cb094b77903d155449d7cf2642501811
+    - 4c302fe9aa9c946459eb447b5128f341
+    - 96e131ac29fd7a54f807bad5c1c370e2
+    - a37109bd05d53e04684bbe044f19e93c
+    - 503d1f802bbb99a4fb7beeb73b7b6f80
+    - cd7569a354bbeaa4696580dea578e1e1
+    - 15601a6629548ab4d95bfc9c0700d111
+    - 0527e33bdf35ac84a9dcf179c54d600a
+    - ecf85e5c80c87134b9b1c7614f12e4cb
+    - fd952454a64581a46ba4f64bdac7894d
+    - 434b4e1586b67d0429a1b973febf95cc
+    - c16414c8038f456479ba50442c4d8c36
+    - fc685a1c7a0906d4f9d8b8a55598b68f
+    - 832f28eec7b1325418a82c0829b39206
+    spriteTextureTimeStamps:
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: RulesBg
+    spriteCollectionGUID: d71268315270bd644871af4528bbca59
+    spriteCollectionDataGUID: 1ac47fff72b817f4ea953bb18191fc8e
+    spriteNames:
+    - gymnasium2
+    spriteTextureGUIDs:
+    - 8715b6c14d4c2a04a94c32fe17f79a71
+    spriteTextureTimeStamps:
+    - 1410617868
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: tileSpriteCollection
+    spriteCollectionGUID: 3ce9d3abc52ba7841805130e37f018ec
+    spriteCollectionDataGUID: e0fb1158fbd474242a20ada20a160ffe
+    spriteNames:
+    - forestdoor2
+    - OfficeChairRightTile
+    - WoodTile
+    - flowerhtile
+    - plant1
+    - tinytree1
+    - WaterShore
+    - TreeBorderBottomRight
+    - ChairDownTile
+    - note
+    - tinyforest
+    - Cabinet1UpTile
+    - TreeBorderUpTile
+    - BlackTile
+    - TableTile
+    - manylogs
+    - ForestTile_new
+    - Log3
+    - waterfallplatform
+    - pavement
+    - TreeBorderRightTile
+    - OfficeChairLeftTile
+    - OfficeChairUpTile
+    - VDeskTile
+    - CaveWallTile
+    - Cabinet1DownTile
+    - TreesHorizontalTile
+    - ReedsDownTile
+    - PlotTile
+    - Cabinet1RightTile
+    - TreeBorderTopRight
+    - LDeskTile
+    - ClerkDeskTile
+    - fire
+    - Pavement1
+    - waterfallplatform 1
+    - WaterfallPath
+    - TreeBorderBottomTile
+    - WaterfallBG3
+    - TreeBorderTopLeft
+    - tinytree3
+    - log
+    - ChairUpTile
+    - BlackTIle_
+    - grassTile
+    - streamlog
+    - Cabinet2RightTile
+    - Cabinet2LeftTile
+    - sidewalkLeft
+    - CarpetTile
+    - Cabinet2DownTile
+    - TreeBorderLeftTile
+    - ReedsRightTile
+    - vinesleft
+    - WaterfallBG1
+    - ReedsLeftTile
+    - tree1
+    - TreesVerticalTile
+    - sidewalkDownLeft
+    - DirtTile
+    - bush
+    - truck
+    - Cabinet2UpTile
+    - sidewalkUpLeft
+    - Cabinet1LeftTile
+    - sidewalkDown
+    - Log2
+    - plant2
+    - HDeskTile
+    - CavePlatformTile
+    - sidewalkUp
+    - plant3_moss
+    - RachelReeds
+    - OfficeChairDownTile
+    - Log1
+    - ChairLeftTile
+    - PlantTile
+    - ForestTile
+    - vinesright
+    - TreeBorderBottomLeft
+    - trees2
+    - sidewalkDownRight
+    - WaterfallBG2
+    - ReedsUpTile
+    - ForestSign
+    - sidewalkUpRight
+    - tinytree2
+    - waterfall 1
+    - sidewalkRight
+    - RachelWaterTile
+    - WaterfallSign
+    - MossTile
+    spriteTextureGUIDs:
+    - 17c3c2b4cfa94bc469dd6adf74e0931c
+    - 61928180c9a0f044491b8caa50d719b4
+    - d153a880b636e6f4787da70197868453
+    - c54184c0bd6b220459416234ab1cde53
+    - 3a78cdf00df566b48a5c2b6ddca5b95d
+    - d8be0441e10a0b4488a165f456e96731
+    - 2dc5eb61bf77f1e478733d07ce50afd7
+    - 59ce157175f57434c94251147d98d233
+    - 98026c7144f74244c841cfd3ea343c2e
+    - bd8e6ddf02761bb42a88d69afbb55d36
+    - 7fb1d09187fd5e04f87f1a5756df61a9
+    - da9ed3c1ce4cada4cbe945055c3d7204
+    - 0ad56ed155e3fe14b8b9b07d1cbec7c9
+    - 16c5cde18894b18449a6bfdc395ee441
+    - 06feb402f5b790241881fecaa38337ef
+    - 82a22612ddcb38646bb4398c5f6cfcb0
+    - 7fd1c832c881a4f4bb3e12c09c64df21
+    - 7ff7525259b9b2e4a8a735dfcd6567f2
+    - faa2db92d9e9325498fac6e6f043080b
+    - 8411fe6350cbb1c4ebc8ee87c95e1b22
+    - 22670ed2c8469d04a917692177c56057
+    - 4ecbfd0366fce4a4899082022f947a30
+    - 1eb78f537485e7c49b06eb1c943ad85b
+    - bcdd35738057af048a44890bca4bfed3
+    - 8ac9bcc3b0201914a8cecc1f8941a515
+    - a3a3b104ba0775a41833ef4abcc10380
+    - 5b8b344405186f94796a498a89911b3f
+    - d62ea48491ccf154481e819e08675368
+    - 412834c444d294e43862c614c0521771
+    - c690a935aaea27a46b8b6ba5abfb0846
+    - 87bed4455f6e7af429b09cff5a0d3862
+    - 6c6b2175746efc1499fd237ac70bf318
+    - 4a65aaa5d4268824bbfb9e6ca76e4d08
+    - 32a66fa508d7c5947bf9d96457b99977
+    - 749a83cca3c53fb43b982f2a8020c9bf
+    - 2cd315c52242dbe4ebb94e111ca1055a
+    - da521906400d06940a8902b2fa3dd42e
+    - 95ba4126b5427b343a50fab6c00ed7a8
+    - fef54d46d814a3249a45797ea341539a
+    - a7c86086fd9712048ace1cce0fa24453
+    - 57ee5aa614420464884cdf52c603dc25
+    - bf548bc6d7b97074f98706effb39ee69
+    - aa3426d60511b4d46a61a7ac97c1a48d
+    - 7fee7bf6b0baa9a45ad1615f8f3766b7
+    - 8ed2fa47aa9380a40ab1e488638415e8
+    - 104aa437b5d87df4aa04eeaacbab4fa4
+    - f8cfee37f27dedf47af59a19c8dd3b06
+    - 80013867abbdcc94eb7b203aaf548716
+    - a5303f60648118240be42321eb857993
+    - d43493f7b06835d4ba3a03d6e10b0725
+    - 75fc91688802a07479191b6faa5c22b3
+    - 818156883db33d44985a03b3ef9140fd
+    - 3bf7e898ddc628146965470ec94fb8ee
+    - 0fd698e858ef9054a982bf570505b480
+    - 9e422509049920d41a75fd297ba53b48
+    - c1fafb09d5bbdfd4887b873b5f49265c
+    - 9dce6119e26219442b72372a01ae2624
+    - a841d779046714447ae5b8fdd56ada7e
+    - 1b5951158cd426844bd798ca6287f8e7
+    - 8f0676993ac7fee48ab1ee996dd5bcbb
+    - 74d394d973f5e984e91038ce9bbb7190
+    - ac04c7f96c19b854b989063bf3c1cd44
+    - e019330a245305743905c6ce773fb392
+    - e1e68648132d10f41b68cc436155fea2
+    - ba9aad4ac6d948b4186bedae0a2d6691
+    - 6308411a3e3b94b438abb985819c54f9
+    - 4a295edbb71e8184f874ccc231e0a8f7
+    - e24824fbc84128d49bcd5d8c32638fe5
+    - aa380b3c72cccc84493b872e95a1bd1e
+    - 9ec9166cc3652794fb42e570a386038d
+    - fba236fb240c9e546a0153745195a22b
+    - 0598977c243d32c43b8b800bd147e80a
+    - 4a11f1cc44eb4ba4a815f41e914263ed
+    - 9938314d8d363214599a943be44639f1
+    - 973c8a4dfd880d441a6a80b9d9882487
+    - 25a15c5da2d88a142914cf5e20425614
+    - 21f5a56dd5d02bc4f80ca9f3dda2d76f
+    - f329d38d8445b30468d4b6a8cc13097c
+    - 64d92cadba75c6447965bff1bc8b3ef1
+    - 280519ddebe72234c97cb7aa34059c48
+    - 4219dcdd28f2c014e94f5fe9fcfee6da
+    - db25977d058044e4eb5d526cd8189657
+    - 5baf7f4ef0b52184aab9d842de108c55
+    - 2432a45e0d036534a9793869311d5ec4
+    - 6ed5ec5e473c3524fbbe530c104f99c8
+    - 42dc057e945364146bbd873d57d955ab
+    - a6b1ddce4370c3e4386cea093ca66731
+    - a2315fee2f0a95242b89576a34d218e6
+    - 31e2badf50159b3458de5c53f3d53d2a
+    - ffd4d53f2058f3647b2929db9f7998fb
+    - 7e889e3fd89a3d846a2a05ee57ea3a1e
+    - 36b70a6f4d996ec42826950c47e062c9
+    spriteTextureTimeStamps:
+    - 1410617868
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617868
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: largeTileCollection
+    spriteCollectionGUID: fc42efcfdf2fa0a4f99fd6c25e2fe6e0
+    spriteCollectionDataGUID: 4c18a45b90cd9f54880a3142b89bab65
+    spriteNames:
+    - BridgeTile
+    - Church3Lower
+    - Church3Upper
+    - HouseOther3Lower
+    - HouseOther3Upper
+    - HouseYours3Lower
+    - HouseYours3Upper
+    - School3Lower
+    - School3Upper
+    - TownHall3Lower
+    - TownHall3Upper
+    - Flags
+    - Smoke1Tile
+    - SmokeTile
+    - car
+    - carSaved
+    spriteTextureGUIDs:
+    - 8a5df13e59d3d47478f17cf1d903dd0a
+    - 2e578f057d490f543830a0d92d2c51f8
+    - c1247f0b6ac5dee4fae710d326c6b5c0
+    - 994f67a4dd997ea489b49fba865de8c4
+    - fdd0e4867b6f32a4ab52618fa5c45e4d
+    - 1d02bd58f06bfd84e85e3e2271fea133
+    - 5e4bbafead48f4e4788e796b489a6d46
+    - d687236549ffc684a8fe8120cc6db653
+    - a4be8f2836e0f8e4087b6f7e1d8fe5c8
+    - e0acbd39c16f35f4dae2ee03856c7ad8
+    - fcb14de9db12472458ba3123475cdabe
+    - 14da9ee796ac3f943b34ca0dd9d08847
+    - 4df14c6c493ba764d8459c466d735553
+    - cd32b42fa24cc2e4bb7b41883d53dbec
+    - 10c479c2f372f1e439ce8fd5824d31c2
+    - 033cd84a849771d46bb6907b891bdb41
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: charSprites
+    spriteCollectionGUID: 01dd93d5c75e9054cbb9203b3c37d90c
+    spriteCollectionDataGUID: ec6b6c0dedcf7a845bec4693da5f53a4
+    spriteNames:
+    - SpritesheetMale/0
+    - SpritesheetMale/1
+    - SpritesheetMale/2
+    - SpritesheetMale/3
+    - SpritesheetMale/4
+    - SpritesheetMale/5
+    - SpritesheetMale/6
+    - SpritesheetMale/7
+    - SpritesheetMale/8
+    - SpritesheetMale/9
+    - SpritesheetMale/10
+    - SpritesheetMale/11
+    - SpritesheetMale/12
+    - SpritesheetMale/13
+    - SpritesheetMale/14
+    - SpritesheetMale/15
+    - SpritesheetMale/16
+    - SpritesheetMale/17
+    - SpritesheetMale/18
+    - SpritesheetMale/19
+    - SpritesheetMale/20
+    - SpritesheetMale/21
+    - SpritesheetMale/22
+    - SpritesheetMale/23
+    - SpritesheetMale/24
+    - SpritesheetMale/25
+    - SpritesheetMale/26
+    - SpritesheetMale/27
+    - SpritesheetMale/28
+    - SpritesheetMale/29
+    - SpritesheetMale/30
+    - SpritesheetMale/31
+    - SpritesheetMale/32
+    - SpritesheetMale/33
+    - SpritesheetMale/34
+    - SpritesheetFemale/0
+    - SpritesheetFemale/1
+    - SpritesheetFemale/2
+    - SpritesheetFemale/3
+    - SpritesheetFemale/4
+    - SpritesheetFemale/5
+    - SpritesheetFemale/6
+    - SpritesheetFemale/7
+    - SpritesheetFemale/8
+    - SpritesheetFemale/9
+    - SpritesheetFemale/10
+    - SpritesheetFemale/11
+    - SpritesheetFemale/12
+    - SpritesheetFemale/13
+    - SpritesheetFemale/14
+    - SpritesheetFemale/15
+    - SpritesheetFemale/16
+    - SpritesheetFemale/17
+    - SpritesheetFemale/18
+    - SpritesheetFemale/19
+    - SpritesheetFemale/20
+    - SpritesheetFemale/21
+    - SpritesheetFemale/22
+    - SpritesheetFemale/23
+    - SpritesheetFemale/24
+    - SpritesheetFemale/25
+    - SpritesheetFemale/26
+    - SpritesheetFemale/27
+    - SpritesheetFemale/28
+    - SpritesheetFemale/29
+    - SpritesheetFemale/30
+    - SpritesheetFemale/31
+    - SpritesheetFemale/32
+    - SpritesheetFemale/33
+    - SpritesheetFemale/34
+    spriteTextureGUIDs:
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 3a4e4c7df63294c4e8e7bd71bbb7d8c7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    - 0741b1a85bd02a14fb29e9b630f1dcf7
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: smokeSprite
+    spriteCollectionGUID: dce2ffc61abc8024e97a149829e49b12
+    spriteCollectionDataGUID: 1b791642f64519f45bce1a6999159a8b
+    spriteNames:
+    - smokeMask
+    - black
+    spriteTextureGUIDs:
+    - c62c6629d09b76c49b818c7b1806699a
+    - 28e3d18ea263d5b48b2dd40bdcb3db62
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: WaterfallCollection
+    spriteCollectionGUID: d8334682555ff431abc8c9fdc3735266
+    spriteCollectionDataGUID: 7e63c024897e1455eac0f990baaee964
+    spriteNames:
+    - fall1
+    - fall2
+    - fall3
+    - fall4
+    - fall5
+    - fall6
+    - fall7
+    - fall8
+    spriteTextureGUIDs:
+    - bd22d8a41d0fa4abe981d87796e50d84
+    - a527cfea85bd045699336c4165d39023
+    - ca056930620d7473c85e635ebb0be21f
+    - 5c65667c64b70475dada81dcf6c9fda6
+    - f4592ccbf0e59430a88ed705b957299c
+    - 3fde30eb7684844399352ce239df4fd9
+    - c9a869896aa2841eda8a14637274dd5c
+    - 81b77acf54ee34de18a678f5786da21d
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: WaterfallPlatform Collection
+    spriteCollectionGUID: ea9da39c6454549d8a3f56dee3fc5a1a
+    spriteCollectionDataGUID: 4a784d8bc13f442f499d46b20fcc9ecd
+    spriteNames:
+    - 
+    - 
+    - 
+    - 
+    - waterfallplatform/0
+    - waterfallplatform/1
+    - waterfallplatform/2
+    - waterfallplatform/3
+    spriteTextureGUIDs:
+    - 
+    - 
+    - 
+    - 
+    - 2cd315c52242dbe4ebb94e111ca1055a
+    - 2cd315c52242dbe4ebb94e111ca1055a
+    - 2cd315c52242dbe4ebb94e111ca1055a
+    - 2cd315c52242dbe4ebb94e111ca1055a
+    spriteTextureTimeStamps:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: WaterfallBG Collection
+    spriteCollectionGUID: 49a68879dc4404578b99194c4bfa15c8
+    spriteCollectionDataGUID: 5253e37a73f0a4d7eb15f72ff43111ca
+    spriteNames:
+    - WaterfallBG3
+    - WaterfallBG1
+    - WaterfallBG2
+    - waterfalldoor
+    - vinesleft
+    - vinesright
+    spriteTextureGUIDs:
+    - fef54d46d814a3249a45797ea341539a
+    - 9e422509049920d41a75fd297ba53b48
+    - 5baf7f4ef0b52184aab9d842de108c55
+    - 26e1faaf20ecac14798b37da4e7d2bb4
+    - 0fd698e858ef9054a982bf570505b480
+    - 64d92cadba75c6447965bff1bc8b3ef1
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617868
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: WaterfallCaveCollection
+    spriteCollectionGUID: 5e8b4d59909194e86adf46f21111ace2
+    spriteCollectionDataGUID: ad6ec865873254f28982e09f1157e8a5
+    spriteNames:
+    - caveoverlay
+    - CavePlatformTile
+    spriteTextureGUIDs:
+    - b8a8c7c2bea73d1478b726c6d182de5f
+    - 9ec9166cc3652794fb42e570a386038d
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3
+  - name: NPCSpritesCave
+    spriteCollectionGUID: a2c6da2906dc94da3967e211c1593e31
+    spriteCollectionDataGUID: 4794adc1f35124733902436ad7fec117
+    spriteNames:
+    - Dad
+    - Dad/0
+    - Dad/1
+    spriteTextureGUIDs:
+    - 96958bf8dc5203f41b78a4323c8a16c8
+    - 96958bf8dc5203f41b78a4323c8a16c8
+    - 96958bf8dc5203f41b78a4323c8a16c8
+    spriteTextureTimeStamps:
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    managedSpriteCollection: 0
+    loadable: 0
+    assetName: 
+    version: 3

@@ -1,0 +1,3 @@
+Church3Lower.png | Left -54 pixels | Right -30 pixels | 400 -> 316 | center 12 right
+School           | Left -14 pixels | Right -28 pixels | 400 -> 358 | center 7 left
+Town Hall        | Left -18 pixels | Right -14 pixels | 400 -> 368 | center 2 right

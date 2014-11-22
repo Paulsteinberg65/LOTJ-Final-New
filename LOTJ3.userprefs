@@ -1,0 +1,23 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerMovement.js">
+    <Files>
+      <File FileName="Assets\PlayerMovement.js" Line="142" Column="3" />
+      <File FileName="Assets\GLOBAL.js" Line="1" Column="1" />
+      <File FileName="Assets\GUIController.js" Line="129" Column="16" />
+      <File FileName="Assets\CollisionManager.js" Line="1" Column="1" />
+      <File FileName="Assets\TextManager.js" Line="1" Column="1" />
+      <File FileName="Assets\CharacterMotor.js" Line="1" Column="1" />
+      <File FileName="Assets\Awareness\AwarenessPlayer.js" Line="1" Column="1" />
+      <File FileName="Assets\Rules\RulesGUI.js" Line="1" Column="1" />
+      <File FileName="Assets\Maze\Maze_TextContainer.js" Line="1" Column="1" />
+      <File FileName="Assets\Awareness\AwarenessGUI.js" Line="1" Column="1" />
+      <File FileName="Assets\splashScreens\splashScreen.js" Line="1" Column="1" />
+      <File FileName="Assets\splashScreens\levelSelect.js" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
