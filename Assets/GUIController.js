@@ -25,6 +25,8 @@ private var infoTitle;
 private var infoDisplay : boolean = false;
 
 var quiz : boolean = false;
+var sQuizAnswer : int = 0;
+var quizAnswers : String[];
 var dialogueHeaderStyle : GUIStyle;
 var dialogueTextStyle : GUIStyle;
 var questHeaderStyle : GUIStyle;
@@ -129,6 +131,8 @@ function Update () {
 		}
 	}
 	quiz = tm.quiz;
+	sQuizAnswer = tm.selectedQuizAnswer;
+	quizAnswers = tm.quizAnswers;
 	if((Time.time - startTime) >= 60.0 && GLOBAL.questNum == 0 && secondPopUp == false){
 		DisplayQuest();
 		secondPopUp = true;
@@ -155,6 +159,21 @@ function OnGUI () {
 		Debug.Log("Hello there, finish!");
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", questTextStyle);
 		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "DO NOT ENTER.", questHeaderStyle);
+	}
+	if (player.transform.position.x > 24 && player.transform.position.x < 26.5 && player.transform.position.y > -16.5 && player.transform.position.y < -15.5 
+				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum < 7){
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A.", questTextStyle);
+		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+	} 
+	else if (player.transform.position.x > 24 && player.transform.position.x < 26.5 && player.transform.position.y > -16.5 && player.transform.position.y < -15.5 
+				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg != 0)){
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Visit the other building to talk to more politicians.", questTextStyle);
+		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have already convinced the Senators", questHeaderStyle);
+	}
+	else if (player.transform.position.x > 24 && player.transform.position.x < 26.5 && player.transform.position.y > -5.5 && player.transform.position.y < -3.5 
+				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg < 4) && GLOBAL.questNum < 7){
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A and then visit the Senate building to the South.", questTextStyle);
+		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
 	}
 	
 	
@@ -224,8 +243,22 @@ function OnGUI () {
 	
 		if (quiz) {
 			GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/2,Screen.height/2), "");
-			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), "Answer 1");
-			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+45,Screen.width/2,Screen.height/2), "Answer 2");
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0]);
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+75,Screen.width/2,Screen.height/2), quizAnswers[1]);
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+135,Screen.width/2,Screen.height/2), quizAnswers[2]);
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[3]);
+			if (sQuizAnswer == 0){
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+10,Screen.width/60,Screen.height/20), "");
+			}
+			else if (sQuizAnswer == 1){
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+70,Screen.width/60,Screen.height/20), "");
+			}
+			else if (sQuizAnswer == 2){
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+130,Screen.width/60,Screen.height/20), "");
+			}
+			else if (sQuizAnswer == 3){
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+190,Screen.width/60,Screen.height/20), "");
+			}
 		}
 	}
 	

@@ -15,6 +15,7 @@ var questHeaderStyle : GUIStyle;
 var questTextStyle : GUIStyle;
 var sprite : tk2dAnimatedSprite;
 
+var ts : Object;
 var footsteps : AudioClip; //the footsteps audio clip to be used
 
 var collisionManager : GameObject;
@@ -24,6 +25,7 @@ private var newLib : tk2dSpriteAnimation;
 function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	GLOBAL.FindGUI();
+	ts = GameObject.Find("TIMER").GetComponent("timerScript");
 	//gui = GameObject.Find("GUIController").GetComponent("GUIController");
 	//code to change gender of player
 	if (GLOBAL.playerGender == 1 ){
@@ -91,10 +93,22 @@ function Start () {
 			if (endPosition.x == 37 && endPosition.y > 0 && Application.loadedLevelName == "town2") {
 				Application.LoadLevel("enterWaterfall");
 			}
+			//if (endPosition.x > 24 && endPosition.x < 26.5 && endPosition.y > -16.5 && endPosition.y < -15.5 
+			//	&& input.y == 1.0 && Application.loadedLevelName == "capitol"){
+			//	myPosition.position.x = 24;
+			//	myPosition.position.y = 0;
+			//}
 			if (endPosition.x > 24 && endPosition.x < 26.5 && endPosition.y > -16.5 && endPosition.y < -15.5 
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol"){
-				myPosition.position.x = 24;
-				myPosition.position.y = 0;
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum == 8){
+				senateReset();
+			}
+			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
+				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 9){
+				senateExit();
+			}
+			if (endPosition.x > 24 && endPosition.x < 26.5 && endPosition.y > -5.5 && endPosition.y < -3.5 
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 10){
+				houseReset();
 			}
 			myTransform.rotation = Quaternion(0.0, 1.0, 0.0, 0.0);
 			yield;
@@ -140,6 +154,32 @@ function Start () {
 				
 }
 */
+
+function senateReset() {
+	myPosition.position.x = 105;
+	myPosition.position.y = -23;
+	ts.senateRollback();
+	ts.showTimer();
+	ts.runTimer();
+	GLOBAL.SenateToggle();
+}
+function senateExit(){
+	myPosition.position.x = 25;
+	myPosition.position.y = -15;
+	ts.hideTimer();
+}
+function houseReset() {
+	myPosition.position.x = 110;
+	myPosition.position.y = 33.5;
+	ts.houseRollback();
+	if(ts.finished){
+	ts.toggleFinish();
+	}
+	ts.showTimer();
+	ts.runTimer();
+	GLOBAL.HouseToggle();
+}
+
 
 function Update () {
 	if (sprite.Playing) {

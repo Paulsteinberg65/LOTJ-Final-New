@@ -6,6 +6,10 @@ var numPages : int = 9;
 var totalPages : int = 0;
 var playerGender : int = 0; //0 for boy; 1 for girl
 
+var quizProg : int = 0;		//increases for every politician met and answered correctly
+var inSenate : boolean = false;	//true if in the senate building in the capitol
+var inHouse : boolean = false; //true if in the house of reps in the capitol
+
 var GUIController : Object;
 
 var dialogueHeaderStyle : GUIStyle;
@@ -68,6 +72,16 @@ function Start () {
 	questArray.push("Let the search party know that you found your father.");
 	questHArray.push("Locate transportation");
 	questArray.push("Travel to the capital with the mayor and the biologist. See if you can convince lawmakers to consider supporting the new model of community forest governance you have created.");
+	questHArray.push("Find Senator A");
+	questArray.push("");
+	questHArray.push("Lobby for change");
+	questArray.push("You still need to find Senator G - Member, Natural Resources Committee,Senator C - Chair, Natural Resources Committee,Senator Z - Head of the National Justice Party, Senator X - President of the Senate", "The key to influencing national laws is to meet with the right people.  Convince politicians in the parliament building to revise the forestry law so that local communities can participate in forest governance.  By meeting with lower-level politicians you will make personal connections that allow you to talk to more influential legislators.  But don't take too long - Dante is simultaneously lobbying against community forestry.");
+	questHArray.push("Continue lobbying for change");
+	questArray.push("There is a great deal of clamor at the capital about the need for a change in forestry legislation, but more still needs to be done!  Continue convincing politicians in the parliament building to implement these reforms before Dante convinces them otherwise!");
+	questHArray.push("You have succeeded!");
+	questArray.push("The legislation has been passed! Congratulations!");
+	questHArray.push("You have succeeded!");
+	questArray.push("The legislation has been passed! Congratulations!");
 }
 
 function Update () {
@@ -93,6 +107,27 @@ function refreshGender (gender : int) { //takes gender number and saves it to pl
 
 function getGender () {
 	return playerGender;
+}
+
+function SenateToggle(){	//toggle state for in senate building or not
+	if (inSenate){
+		inSenate = false;
+	}
+	else{
+		inSenate = true;
+	}
+}
+function HouseToggle(){	//toggle state for in house of reps or not
+	if (inHouse){
+		inHouse = false;
+	}
+	else{
+		inHouse = true;
+	}
+}
+
+function AdvanceQuiz(){
+	quizProg += 1;
 }
 
 function AddPage (pageNum : int) {

@@ -15,6 +15,7 @@ private var quizAnswers : String[];
 private var quizResponses : String[];
 private var quizA0 : String;
 private var quizA1 : String;
+private var quizProg : int = 0;
 
 var collisionManager : GameObject;
 private var collisionDict : Object;
@@ -24,6 +25,7 @@ private var wMovement : Object;
 var textContainer : GameObject;
 var tcName : String = "enter name";
 var tcScript : Object;
+var ts : Object;	//timer script
 
 private var GLOBAL : Object;
 private var questDisplay : boolean = false;
@@ -40,6 +42,9 @@ var endCamilo : float;
 
 // Use this for initialization
 function Start () {
+	if (Application.loadedLevelName == "capitol"){
+		ts = GameObject.Find("TIMER").GetComponent("timerScript");
+	}
 	if (collisionManager) {
 		collisionDict = collisionManager.GetComponent("CollisionManager").collisionDict;
 	}
@@ -68,6 +73,7 @@ function Update () {
 		charMotor.movement.velocity.z = 0.0;
 		charSprite.Stop();
 	}
+	
 	if (Input.GetButtonDown("Space")) {
 		if (questDisplay) {
 			questDisplay = false;
@@ -103,13 +109,43 @@ function Update () {
 					quizA1 = quizAnswers[1];
 					Debug.Log("quizzing");
 				}
+			
 				//end quiz
 				else if (quiz) {
 					quizAnswer = quizAnswers[selectedQuizAnswer];
 					Debug.Log(quizAnswer);
 					quiz = false;
 					currentLine = quizResponses[selectedQuizAnswer];
-					currentLineNum = currentTextLength;
+					if (currentLine == "Correct!"){
+						GLOBAL.AdvanceQuiz();	//advances quiz progress
+						Debug.Log("Quiz is now on: " + GLOBAL.quizProg);
+					//	currentLineNum = currentTextLength; //don't think this is necessary for correct answer
+						currentLineNum += 2; //skips displaying the "quiz" line that activates quiz
+						currentLine = currentText[currentLineNum]; //continues text
+						if (GLOBAL.quizProg == 1){
+							tcScript.NextDialogue();
+						}
+						else if (GLOBAL.quizProg == 2){
+							tcScript.ChangeAides(1);
+						}
+						else if (GLOBAL.quizProg == 3){
+							tcScript.ChangeAides(2);
+						}
+						else if (GLOBAL.quizProg == 9){
+							tcScript.ChangeAides(3);
+						}
+						else if (GLOBAL.quizProg == 5){
+							tcScript.NextDialogue();
+						}
+						else if (GLOBAL.quizProg == 6){
+							tcScript.NextDialogue();
+						}						
+					}
+					else{ //wrong answer
+						ts.skip();
+						currentLineNum = currentTextLength;
+						currentLine = "That's not quite right... Check the pages you have collected and try again";
+					}
 				}
 				else {
 					Debug.Log("End interaction");
@@ -133,6 +169,46 @@ function Update () {
 					}
 					
 					if (GLOBAL.questNum == 5 && currentText == tcScript.dialogueDict["Father"]) {
+						GLOBAL.AdvanceQuest();
+					}
+					if (facedObject.name == "LAideZ" && GLOBAL.quizProg == 2){
+						Destroy(facedObject);
+					}
+					if (facedObject.name == "LAideX" && GLOBAL.quizProg == 3){
+						Destroy(facedObject);
+					}
+					if (facedObject.name == "LAideW" && GLOBAL.quizProg == 9){
+						Destroy(facedObject);
+					}
+					if (facedObject.name == "Dante" || facedObject.name == "Dante "){
+						Destroy(facedObject);
+					}
+					//these add to the quiz progress counter for NPC's that don't give quizzes
+					if (facedObject.name == "Senator A" && ((GLOBAL.questNum <= 7)||(GLOBAL.questNum == 9)) ){
+						GLOBAL.AdvanceQuest();
+					}
+					if (facedObject.name == "SenatorG" && GLOBAL.quizProg == 0){
+						Debug.Log("Should advance dialogue");
+						GLOBAL.AdvanceQuiz();
+						tcScript.NextDialogue();
+					}
+					else if (facedObject.name == "SenatorX" && GLOBAL.quizProg == 3){
+						ts.toggleFinish();
+						ts.stopTimer();
+						GLOBAL.AdvanceQuiz();
+						GLOBAL.AdvanceQuest();
+						Debug.Log("One quest #: "+GLOBAL.questNum);
+					}
+					else if (facedObject.name == "RepR" && GLOBAL.quizProg == 6){
+						GLOBAL.AdvanceQuiz();
+					}
+					else if (facedObject.name == "RepQ" && GLOBAL.quizProg == 7){
+						GLOBAL.AdvanceQuiz();
+					}
+					else if (facedObject.name == "RepW" && GLOBAL.quizProg == 10){
+						ts.toggleFinish();
+						ts.stopTimer();
+						GLOBAL.AdvanceQuiz();
 						GLOBAL.AdvanceQuest();
 					}
 					

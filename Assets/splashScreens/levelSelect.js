@@ -57,7 +57,7 @@ function Update () {
 			GLOBAL.totalPages = 9;
 			nextScene = "rules";
 		} else if (selection == 4) {
-			GLOBAL.questNum = 6;
+			GLOBAL.questNum = 7;
 			for (k = 0;k < GLOBAL.pagesObtained.length;k++) {
 				GLOBAL.pagesObtained[k] = "y";
 			}

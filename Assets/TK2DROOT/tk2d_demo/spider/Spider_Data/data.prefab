@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1002 &400001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -209,7 +210,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 320
-  buildKey: 1180129557
+  buildKey: 1359778563
   dataGuid: 822f1f9eedf119f4eaca33509ba7b549
   managedSpriteCollection: 0
   hasPlatformData: 0
