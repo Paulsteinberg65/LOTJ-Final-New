@@ -25,7 +25,9 @@ private var newLib : tk2dSpriteAnimation;
 function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	GLOBAL.FindGUI();
-	ts = GameObject.Find("TIMER").GetComponent("timerScript");
+	if(Application.loadedLevelName == "capitol") {
+		ts = GameObject.Find("TIMER").GetComponent("timerScript"); //find the timer script for capitol
+	}
 	//gui = GameObject.Find("GUIController").GetComponent("GUIController");
 	//code to change gender of player
 	if (GLOBAL.playerGender == 1 ){

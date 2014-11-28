@@ -58,8 +58,12 @@ private var playedManuel: boolean = false;
 
 function Start () {
 	tm = player.GetComponent(TextManager);
-	movement = player.GetComponent("PlayerMovement");
-	wMovement = player.GetComponent("CharacterMotor");
+	if(Application.loadedLevelName != "waterfall" && Application.loadedLevelName != "waterfallCave") {
+		movement = player.GetComponent("PlayerMovement");
+	}
+	else if (Application.loadedLevelName == "waterfall" || Application.loadedLevelName == "waterfallCave") {
+		wMovement = player.GetComponent("CharacterMotor");
+	}
 	tc = textContainer.GetComponent(tcName);
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	dialogueHeaderStyle = GLOBAL.dialogueHeaderStyle;

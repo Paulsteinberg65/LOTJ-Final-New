@@ -48,11 +48,15 @@ function Start () {
 	if (collisionManager) {
 		collisionDict = collisionManager.GetComponent("CollisionManager").collisionDict;
 	}
-	movementScript = GetComponent("PlayerMovement");
+	if(Application.loadedLevelName != "waterfall" && Application.loadedLevelName != "waterfallCave") {
+		movementScript = GetComponent("PlayerMovement");
+	}
+	else if (Application.loadedLevelName == "waterfall" || Application.loadedLevelName == "waterfallCave") {
+		charMotor = GameObject.Find("Player").GetComponent("CharacterMotor");
+	}
 	wMovement = GetComponent("CharacterMotor");
 	tcScript = textContainer.GetComponent(tcName);
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
-	charMotor = GameObject.Find("Player").GetComponent("CharacterMotor");
 	
 	//populate maze list
 	//["Gabriela","Manuel","Lita","Carlos","Camilo"];
