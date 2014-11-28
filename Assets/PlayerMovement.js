@@ -57,6 +57,7 @@ function Start () {
 	var moveSpeed = walkSpeed;
 	facing = "down";
 	
+	Debug.Log("I'm working!");
 	
  	collisionDict = collisionManager.GetComponent("CollisionManager").collisionDict;
 	while (true) {
@@ -183,12 +184,10 @@ function houseReset() {
 
 function Update () {
 	if (sprite.Playing) {
-		Debug.Log("sprite.Playing = true");
 		if (!audio.isPlaying) {
 			audio.Play();
 		}
 	} else if (!sprite.Playing) {
-		Debug.Log("sprite.Playing = false");
 		audio.Stop();
 	}
 	//if you're in Town1, change z position near all NPCs and signs to stop overlap

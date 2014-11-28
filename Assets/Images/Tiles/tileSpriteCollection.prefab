@@ -27,7 +27,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -62,7 +61,7 @@ MonoBehaviour:
   atlasWidth: 2048
   atlasHeight: 2048
   forceSquareAtlas: 0
-  atlasWastage: 47.6711273
+  atlasWastage: 47.4327087
   allowMultipleAtlases: 0
   textureParams:
   - name: forestdoor2
@@ -3532,6 +3531,44 @@ MonoBehaviour:
     anchor: 4
     anchorX: 75
     anchorY: 75
+    overrideMesh: {fileID: 0}
+    doubleSidedSprite: 0
+    customSpriteGeometry: 0
+    geometryIslands: []
+    dice: 0
+    diceUnitX: 64
+    diceUnitY: 0
+    pad: 0
+    extraPadding: 0
+    source: 0
+    fromSpriteSheet: 0
+    hasSpriteSheetId: 0
+    spriteSheetId: 0
+    spriteSheetX: 0
+    spriteSheetY: 0
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    regionId: 0
+    colliderType: 0
+    boxColliderMin: {x: 0, y: 0}
+    boxColliderMax: {x: 0, y: 0}
+    polyColliderIslands: []
+    polyColliderCap: 0
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    colliderColor: 0
+  - name: pathTile
+    disableTrimming: 0
+    additive: 0
+    scale: {x: 1, y: 1, z: 1}
+    texture: {fileID: 2800000, guid: 370a4615b2f717e4fa2fb4d2ffc716cf, type: 3}
+    materialId: 0
+    anchor: 4
+    anchorX: 50
+    anchorY: 50
     overrideMesh: {fileID: 0}
     doubleSidedSprite: 0
     customSpriteGeometry: 0

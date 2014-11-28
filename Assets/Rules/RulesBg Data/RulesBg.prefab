@@ -27,7 +27,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,7 +92,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 320
-  buildKey: 78695415
+  buildKey: 742809495
   dataGuid: 1ac47fff72b817f4ea953bb18191fc8e
   managedSpriteCollection: 0
   hasPlatformData: 0
