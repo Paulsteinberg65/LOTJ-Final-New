@@ -3779,6 +3779,43 @@ MonoBehaviour:
     colliderIndicesBack: 
     colliderConvex: 0
     colliderSmoothSphereCollisions: 0
+  - name: ClerkDeskTile 1
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .46875, y: .46875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .46875, y: .46875, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.234375, y: -.234375, z: 0}
+    - {x: .234375, y: -.234375, z: 0}
+    - {x: -.234375, y: .234375, z: 0}
+    - {x: .234375, y: .234375, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .102051273, y: .434082508}
+    - {x: .175292477, y: .434082508}
+    - {x: .102051273, y: .507323742}
+    - {x: .175292477, y: .507323742}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 5863cff64be7d5f4f93a81090b61974e, type: 2}
+    materialId: 0
+    sourceTextureGUID: 4a65aaa5d4268824bbfb9e6ca76e4d08
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
   premultipliedAlpha: 0
   material: {fileID: 0}
   materials:
@@ -3792,7 +3829,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 320
-  buildKey: 2075853458
+  buildKey: 303618073
   dataGuid: e0fb1158fbd474242a20ada20a160ffe
   managedSpriteCollection: 0
   hasPlatformData: 0
