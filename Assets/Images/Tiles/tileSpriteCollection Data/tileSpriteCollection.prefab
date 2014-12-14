@@ -3816,6 +3816,191 @@ MonoBehaviour:
     colliderIndicesBack: 
     colliderConvex: 0
     colliderSmoothSphereCollisions: 0
+  - name: OfficeChairRightTile 1
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .150000006, y: .15625, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .15625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.075000003, y: -.078125, z: 0}
+    - {x: .075000003, y: -.078125, z: 0}
+    - {x: -.075000003, y: .078125, z: 0}
+    - {x: .075000003, y: .078125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .136719242, y: .602539539}
+    - {x: .136719242, y: .625976086}
+    - {x: .161132321, y: .602539539}
+    - {x: .161132321, y: .625976086}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 5863cff64be7d5f4f93a81090b61974e, type: 2}
+    materialId: 0
+    sourceTextureGUID: 61928180c9a0f044491b8caa50d719b4
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: OfficeChairLeftTile 1
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .150000006, y: .15625, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .15625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.075000003, y: -.078125, z: 0}
+    - {x: .075000003, y: -.078125, z: 0}
+    - {x: -.075000003, y: .078125, z: 0}
+    - {x: .075000003, y: .078125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .185547367, y: .584473133}
+    - {x: .185547367, y: .607909679}
+    - {x: .209960446, y: .584473133}
+    - {x: .209960446, y: .607909679}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 5863cff64be7d5f4f93a81090b61974e, type: 2}
+    materialId: 0
+    sourceTextureGUID: 4ecbfd0366fce4a4899082022f947a30
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: OfficeChairUpTile 1
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .15625, y: .150000006, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .15625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.078125, y: -.075000003, z: 0}
+    - {x: .078125, y: -.075000003, z: 0}
+    - {x: -.078125, y: .075000003, z: 0}
+    - {x: .078125, y: .075000003, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .136719242, y: .579102039}
+    - {x: .161132321, y: .579102039}
+    - {x: .136719242, y: .602538586}
+    - {x: .161132321, y: .602538586}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 5863cff64be7d5f4f93a81090b61974e, type: 2}
+    materialId: 0
+    sourceTextureGUID: 1eb78f537485e7c49b06eb1c943ad85b
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: OfficeChairDownTile 1
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .15625, y: .150000006, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .15625, y: .15625, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.078125, y: -.075000003, z: 0}
+    - {x: .078125, y: -.075000003, z: 0}
+    - {x: -.078125, y: .075000003, z: 0}
+    - {x: .078125, y: .075000003, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .161133304, y: .584473133}
+    - {x: .185546383, y: .584473133}
+    - {x: .161133304, y: .607909679}
+    - {x: .185546383, y: .607909679}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 5863cff64be7d5f4f93a81090b61974e, type: 2}
+    materialId: 0
+    sourceTextureGUID: 9938314d8d363214599a943be44639f1
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+  - name: TableTile 1
+    boundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .3125, y: .3125, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: 0, z: 0}
+    - {x: .3125, y: .3125, z: 0}
+    texelSize: {x: .00312500005, y: .00312500005}
+    positions:
+    - {x: -.15625, y: -.15625, z: 0}
+    - {x: .15625, y: -.15625, z: 0}
+    - {x: -.15625, y: .15625, z: 0}
+    - {x: .15625, y: .15625, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: .896484852, y: .739746571}
+    - {x: .945312023, y: .739746571}
+    - {x: .896484852, y: .788573742}
+    - {x: .945312023, y: .788573742}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 5863cff64be7d5f4f93a81090b61974e, type: 2}
+    materialId: 0
+    sourceTextureGUID: 06feb402f5b790241881fecaa38337ef
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    colliderType: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
   premultipliedAlpha: 0
   material: {fileID: 0}
   materials:
@@ -3829,7 +4014,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 320
-  buildKey: 303618073
+  buildKey: 59381663
   dataGuid: e0fb1158fbd474242a20ada20a160ffe
   managedSpriteCollection: 0
   hasPlatformData: 0

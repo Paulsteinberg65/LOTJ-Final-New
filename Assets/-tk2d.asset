@@ -570,6 +570,15 @@ MonoBehaviour:
     - parliament2
     - parliament1
     - stairs
+    - Cabinet1UpTile
+    - Cabinet1DownTile
+    - Cabinet1RightTile
+    - Cabinet2RightTile
+    - Cabinet2LeftTile
+    - Cabinet2DownTile
+    - Cabinet2UpTile
+    - Cabinet1LeftTile
+    - PlantTile
     spriteTextureGUIDs:
     - 3bd38cc0166bb1943bc5bc9c6321b763
     - 97b8b0555524ad9418e6ac824f826d25
@@ -593,29 +602,47 @@ MonoBehaviour:
     - f32d6cf0f242727408e9e1173489fcee
     - 65f8fd9afe74ca547a3bcba0d77761fc
     - cd0324a25b6e8004faf3a270dc01c904
+    - da9ed3c1ce4cada4cbe945055c3d7204
+    - a3a3b104ba0775a41833ef4abcc10380
+    - c690a935aaea27a46b8b6ba5abfb0846
+    - f8cfee37f27dedf47af59a19c8dd3b06
+    - 80013867abbdcc94eb7b203aaf548716
+    - 75fc91688802a07479191b6faa5c22b3
+    - e019330a245305743905c6ce773fb392
+    - ba9aad4ac6d948b4186bedae0a2d6691
+    - 21f5a56dd5d02bc4f80ca9f3dda2d76f
     spriteTextureTimeStamps:
-    - 1410621468
-    - 1410621468
-    - 1410621468
-    - 1410621468
-    - 1410621468
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
-    - 1410621466
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617868
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
     managedSpriteCollection: 0
     loadable: 0
     assetName: 
@@ -967,6 +994,11 @@ MonoBehaviour:
     - roadTileVert
     - CarpetTile 1
     - ClerkDeskTile 1
+    - OfficeChairRightTile 1
+    - OfficeChairLeftTile 1
+    - OfficeChairUpTile 1
+    - OfficeChairDownTile 1
+    - TableTile 1
     spriteTextureGUIDs:
     - 17c3c2b4cfa94bc469dd6adf74e0931c
     - 61928180c9a0f044491b8caa50d719b4
@@ -1070,6 +1102,11 @@ MonoBehaviour:
     - f1707e5e0e2c3e247976b6a28400715d
     - d43493f7b06835d4ba3a03d6e10b0725
     - 4a65aaa5d4268824bbfb9e6ca76e4d08
+    - 61928180c9a0f044491b8caa50d719b4
+    - 4ecbfd0366fce4a4899082022f947a30
+    - 1eb78f537485e7c49b06eb1c943ad85b
+    - 9938314d8d363214599a943be44639f1
+    - 06feb402f5b790241881fecaa38337ef
     spriteTextureTimeStamps:
     - 1410617868
     - 1410617866
@@ -1081,6 +1118,11 @@ MonoBehaviour:
     - 1410617866
     - 1410617866
     - 1410617868
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
+    - 1410617866
     - 1410617866
     - 1410617866
     - 1410617866
