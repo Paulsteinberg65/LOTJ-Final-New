@@ -52,8 +52,10 @@ var endCamilo : float;
 private var playedWarblers : boolean = false;
 private var playedManuel: boolean = false;
 //TODO: STUFF FROM TIMER
+var repR: boolean = false;
+var repQ: boolean = false;
 private var tick: int = 0;
-private var playerCounter: int = 0;	//number of politicians player has convinced on a given level
+var playerCounter: int = 0;	//number of politicians player has convinced on a given level
 private var danteCounter: int = 0;	//number of politicians dante has convinced on a given level
 private var timer: float = 480;
 private var hours: int = 0;
@@ -216,6 +218,8 @@ function danteReset(location : int){//location = 1 for senate, 2 for house
 	}
 	danteCounter = 0;
 	playerCounter = 0;
+	repR = false;
+	repQ = false;
 }
 function playerUp(){
 	playerCounter++;
@@ -304,6 +308,11 @@ function OnGUI () {
 	else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
 				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg < 4) && GLOBAL.questNum < 10){
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A and then visit the Senate building to the South.", questTextStyle);
+		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+	}
+	else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
+				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4)){
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A before entering this building.", questTextStyle);
 		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
 	}
 	
@@ -462,4 +471,8 @@ function canControl (val : boolean) {
 		movement.canControl = val;
 	if (wMovement)
 		wMovement.canControl = val;
+}
+
+function GameOver (){
+	Application.LoadLevel("demoEnd");
 }

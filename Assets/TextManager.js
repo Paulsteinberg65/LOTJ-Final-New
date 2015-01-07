@@ -27,7 +27,6 @@ var tcName : String = "enter name";
 var tcScript : Object;
 var ts : Object;	//timer script
 var gui : Object;
-
 private var GLOBAL : Object;
 private var questDisplay : boolean = false;
 
@@ -100,6 +99,10 @@ function Update () {
 			}
 		}
 		else {
+		
+		Debug.Log("current dialogue = "+ tcScript.currentDialogue);
+				Debug.Log("current dialogue = "+ tcScript.currentDialogue);
+						Debug.Log("current dialogue = "+ tcScript.currentDialogue);
 			if (currentLineNum+1 < currentTextLength && currentText[currentLineNum+1] != "quiz") {
 				currentLineNum++;
 				currentLine = currentText[currentLineNum];
@@ -122,30 +125,63 @@ function Update () {
 					Debug.Log(quizAnswer);
 					quiz = false;
 					currentLine = quizResponses[selectedQuizAnswer];
+					
+					
 					if (currentLine == "Correct!"){
 						GLOBAL.AdvanceQuiz();	//advances quiz progress
 						Debug.Log("Quiz is now on: " + GLOBAL.quizProg);
 					//	currentLineNum = currentTextLength; //don't think this is necessary for correct answer
 						currentLineNum += 2; //skips displaying the "quiz" line that activates quiz
 						currentLine = currentText[currentLineNum]; //continues text
-						if (GLOBAL.quizProg == 1){
-							tcScript.NextDialogue();
-						}
-						else if (GLOBAL.quizProg == 2){
+//						if (GLOBAL.quizProg == 1){
+//							tcScript.NextDialogue();
+//						}
+//						if (gui.playerCounter == 1 && facedObject.name == "SenatorG"){	
+//							gui.playerUp();
+//							tcScript.NextDialogue();
+//						}
+//						else if (GLOBAL.quizProg == 2){
+//							tcScript.ChangeAides(1);
+//						}
+						if (gui.playerCounter == 1 && facedObject.name == "SenatorC"){
+							gui.playerUp();
 							tcScript.ChangeAides(1);
 						}
-						else if (GLOBAL.quizProg == 3){
+						else if (gui.playerCounter == 2 && facedObject.name == "SenatorZ"){
+							gui.playerUp();
 							tcScript.ChangeAides(2);
 						}
-						else if (GLOBAL.quizProg == 8){
+//						else if (GLOBAL.quizProg == 3){
+//							tcScript.ChangeAides(2);
+//						}
+//						else if (gui.playerCounter == 3 ){
+//							gui.playerUp();
+//							
+//						}
+//						else if (GLOBAL.quizProg == 8){
+//							tcScript.ChangeAides(3);
+//						}
+						else if (facedObject.name == "RepH" && gui.playerCounter <= 5){
 							tcScript.ChangeAides(3);
+							gui.playerUp();
 						}
-						else if (GLOBAL.quizProg == 5){
+//						else if (GLOBAL.quizProg == 5){
+//							tcScript.NextDialogue();
+//						}
+						else if (gui.playerCounter == 0 && GLOBAL.quizProg >= 5 && facedObject.name == "RepT"){
+							
+							tcScript.NextDialogue();
+							gui.playerUp();
+						}
+//						else if (GLOBAL.quizProg == 6){
+//							tcScript.NextDialogue();
+//						}
+						else if (gui.playerCounter == 1 && facedObject.name == "RepE"){
+							
+							gui.playerUp();
 							tcScript.NextDialogue();
 						}
-						else if (GLOBAL.quizProg == 6){
-							tcScript.NextDialogue();
-						}						
+					
 					}
 					else{ //wrong answer
 						//ts.skip();
@@ -178,13 +214,13 @@ function Update () {
 					if (GLOBAL.questNum == 5 && currentText == tcScript.dialogueDict["Father"]) {
 						GLOBAL.AdvanceQuest();
 					}
-					if (facedObject.name == "LAideZ" && GLOBAL.quizProg == 2){
+					if (facedObject.name == "LAideZ" && gui.playerCounter == 2){
 						Destroy(facedObject);
 					}
-					if (facedObject.name == "LAideX" && GLOBAL.quizProg == 3){
+					if (facedObject.name == "LAideX" && gui.playerCounter == 3){
 						Destroy(facedObject);
 					}
-					if (facedObject.name == "LAideW" && GLOBAL.quizProg == 8){
+					if (facedObject.name == "LAideW" && gui.playerCounter == 5){
 						Destroy(facedObject);
 					}
 					if (facedObject.name == "Dante" || facedObject.name == "Dante "){
@@ -200,29 +236,40 @@ function Update () {
 						tcScript.NextDialogue();
 						gui.playerUp();
 					}
-					else if (facedObject.name == "SenatorX" && GLOBAL.quizProg == 3){
+					else if (facedObject.name == "SenatorX"){
 						//ts.toggleFinish(); TODO: DEPRECATED
 						//ts.stopTimer();
 						gui.toggleFinish();
 						gui.stopTimer();
 						GLOBAL.AdvanceQuiz();
 						GLOBAL.AdvanceQuest();
+						gui.playerUp();
 						Debug.Log("One quest #: "+GLOBAL.questNum);
 					}
-					else if (facedObject.name == "RepR" && GLOBAL.quizProg == 6){
+					else if (facedObject.name == "RepR" && GLOBAL.quizProg >= 6 && gui.playerCounter < 6){
+						if (!gui.repR){
 						GLOBAL.AdvanceQuiz();
+						gui.playerUp();
+						gui.repR = true;
+						}
 					}
-					else if (facedObject.name == "RepQ" && GLOBAL.quizProg == 7){
+					else if (facedObject.name == "RepQ" && GLOBAL.quizProg >= 7 && gui.playerCounter < 6){
+						if(!gui.repQ){
 						GLOBAL.AdvanceQuiz();
+						gui.playerUp();
+						gui.repQ = true;
+						}
 					}
 					else if (facedObject.name == "RepW"){
 						//ts.toggleFinish(); TODO: DEPRECATED
 						//ts.stopTimer();
 						gui.toggleFinish();
 						gui.stopTimer();
+						gui.playerUp();
 //						GLOBAL.AdvanceQuiz();
 //						GLOBAL.AdvanceQuest();
-						Application.LoadLevel("demoEnd");
+						
+						gui.GameOver();
 					}
 					
 					//update dynamic text

@@ -4,6 +4,7 @@ private var questHArray : Array = [];
 private var quizDict : Object = {};
 private var quizResponseDict : Object = {};
 
+
 private var imgDict : Object = {};
 //main area npcs + Dante
 var biologistImg : Texture2D;
@@ -30,7 +31,7 @@ var repTImg : Texture2D;
 var lAideWImg : Texture2D;
 
 
-private var currentDialogue : int = 1;
+var currentDialogue : int = 1;
 
 function Start () {
 	//populate NPC dialogue dictionary for main area
@@ -84,7 +85,7 @@ function Start () {
 	RepQ = ["I'm busy at the moment"];
 	RepR = ["Come back later, perhaps next week"];
 	RepT = ["I'm surprised you found me.  They give junior lawmakers the most obscure rooms.  Senator A told me you were coming.", "So when you say you want to help local communities, what do you mean by 'local'?", "quiz", "Listen carefully: the rules of the game work differently here than in the senate.",  "If you want to get your forestry law passed, you need the support of the Green Coalition.  These are lawmakers from 3 major regions of the country who have formed an alliance to promote sustainability in our country.",  "Their names are Reps Q, E, and R.  But you must move fast!"];
-	RepW = ["By bringing this matter to the national legislature, you have demonstrated a sophisticated understanding of the fact that 'local' environmental outcomes are never truly local.  They are affected by larger sets of social rules including those created by national governments.  Would you happen to know what percent of the world's forests are owned by governments?", "quiz", "I have something to tell you... You did it!  The new Community Forestry Law has passed.  Dante?  Oh, I was never going to let him push me around.",  "I survived 3 years in a prison cell under the dictatorship; I'm not afraid of a common thug in a suit.  My aides told me about your father's ordeal.  I have asked the judicial police to look into Dante's activities.  Go now, your mayor called.  He says to meet him outside."];
+	RepW = ["By bringing this matter to the national legislature, you have demonstrated a sophisticated understanding of the fact that 'local' environmental outcomes are never truly local.",  "They are affected by larger sets of social rules including those created by national governments.  Would you happen to know what percent of the world's forests are owned by governments?", "quiz", "I have something to tell you... You did it!  The new Community Forestry Law has passed.  Dante?  Oh, I was never going to let him push me around.",  "I survived 3 years in a prison cell under the dictatorship; I'm not afraid of a common thug in a suit.  My aides told me about your father's ordeal.  I have asked the judicial police to look into Dante's activities.",  "Go now, your mayor called.  He says to meet him outside."];
 	
 	dialogueDict["Dante "] = DanteRep;
 	dialogueDict["LAideW"] = LAideW;

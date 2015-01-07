@@ -107,7 +107,7 @@ function Start () {
 				senateReset(0);
 			}
 			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
-				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 9){
+				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (gui.playerCounter == 4) && GLOBAL.questNum == 9){
 				senateExit();
 			}
 			if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
@@ -183,7 +183,7 @@ function houseReset(location: int) {
 	gui.danteReset(2);
 	canControl = true;
 	myPosition.position.x = 110;
-	myPosition.position.y = 33.5;
+	myPosition.position.y = 34.5;
 	gui.houseRollback();
 	if(gui.finished){
 	gui.toggleFinish();
