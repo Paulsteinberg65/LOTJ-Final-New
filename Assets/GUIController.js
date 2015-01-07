@@ -51,6 +51,20 @@ var endCamilo : float;
 
 private var playedWarblers : boolean = false;
 private var playedManuel: boolean = false;
+//TODO: STUFF FROM TIMER
+private var tick: int = 0;
+private var playerCounter: int = 0;	//number of politicians player has convinced on a given level
+private var danteCounter: int = 0;	//number of politicians dante has convinced on a given level
+private var timer: float = 480;
+private var hours: int = 0;
+private var minutes: int = 0;
+private var time: String;
+private var timerText: String;
+
+private var running : boolean = false;	//variable for whether timer is running or not
+private var showTime : boolean = false;
+var finished : boolean = false;
+//TODO: END OF STUFF FROM TIMER
 
 //private var speaking : boolean = false;		currently not used because redundant
 
@@ -141,10 +155,123 @@ function Update () {
 		DisplayQuest();
 		secondPopUp = true;
 	}
+	//TODO: THIS (UNTIL END OF UPDATE) IS ALL STUFF FROM TIMERSCRIPT 
+	//converts timer from seconds to "hours/minutes"
+	hours = Mathf.FloorToInt(timer / 60F);
+    minutes = Mathf.FloorToInt(timer - hours * 60);
+    time = String.Format("{0:0}:{1:00}", hours, minutes);
+    
+			if ((hours == 9 && tick == 0)||(hours == 10&& tick == 1)||(hours == 11&& tick == 2)||(hours == 12&& tick == 3)){
+				tick++;
+				danteCounter++;
+			}
+
+			else if ((hours == 3 && tick == 4)||(hours == 4&& tick == 5)||(hours == 5&& tick == 6)||(hours == 6&& tick == 7)||(hours == 7&& tick == 8)||(hours == 8&& tick == 9)){
+				tick++;
+				danteCounter++;
+			}
+
+			
+	  		if (danteCounter == 6 && !GLOBAL.inHouse){	//if timer runs out in senate
+				DisplayInfo("hFailure");
+				canControl(false);
+				movement.senateReset(1);
+	  		}
+	  		else if (danteCounter == 4 && !GLOBAL.inSenate) {	//if timer runs out in senate
+				DisplayInfo("sFailure");
+				canControl(false);
+				movement.houseReset(1);
+	  		}
+	//updates text to display current "time". displays success if finished with area
+	if(!finished){
+		if(timer>=480){
+			timerText = (time + " AM");
+		}
+		else{
+			timerText = (time + " PM");
+		}
+		
+	}
+	else{
+		timerText = "Success!";
+		
+	}
+	
+	if(running){
+			
+			timer += Time.deltaTime;
+			
+			//increment counter for dante every hour
+			
+
+	}
 	
 }
+function danteReset(location : int){//location = 1 for senate, 2 for house
+	if (location == 1){
+		tick = 0;
+	}
+	else{
+		tick = 4;
+	}
+	danteCounter = 0;
+	playerCounter = 0;
+}
+function playerUp(){
+	playerCounter++;
+}
+function showTimer (){
+	showTime = true;
+}
+
+function hideTimer (){
+	showTime = false;
+}
+
+function runTimer(){
+	running = true;
+}
+
+function stopTimer() {
+	running = false;
+}
+
+function skip(){	//for use when a quiz is answered incorrectly.  advances time by amount
+	timer += 10;
+}
+
+function senateRollback(){
+	timer = 480;
+}
+
+function houseRollback(){
+	timer = 120;
+}
+
+function toggleFinish(){
+	if (!finished){
+		finished = true;
+	}
+	else{
+		finished = false;
+	}
+}
+//TODO: END OF TIMER STUFF
 
 function OnGUI () {
+	//TODO: TIMER
+	if(showTime){
+		GUI.Box(Rect(Screen.width*0.5-(75*0.5),0,75,25),timerText);
+		if (!GLOBAL.inSenate){
+		GUI.Box(Rect(Screen.width*0.30-50,0,100,25), "You: "+playerCounter.ToString()+"/4");
+		GUI.Box(Rect(Screen.width*0.70-50,0,100,25), "Dante: "+danteCounter.ToString()+"/4");
+		}
+		else{
+		GUI.Box(Rect(Screen.width*0.30-50,0,100,25), "You: "+playerCounter.ToString()+"/6");
+		GUI.Box(Rect(Screen.width*0.70-50,0,100,25), "Dante: "+danteCounter.ToString()+"/6");
+		}
+	}
+	//TODO: END OF TIMER
 	//code for the do not enter signs
 	if (Application.loadedLevelName == "Town1" && player.transform.position.x == 41.0 && player.transform.position.y == 4.0) {
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "The path to the waterfall is not open right now.", questTextStyle);
@@ -164,18 +291,18 @@ function OnGUI () {
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", questTextStyle);
 		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "DO NOT ENTER.", questHeaderStyle);
 	}
-	if (player.transform.position.x > 24 && player.transform.position.x < 26.5 && player.transform.position.y > -16.5 && player.transform.position.y < -15.5 
-				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum < 7){
+	if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
+				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum < 8){
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A.", questTextStyle);
 		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
-	} 
-	else if (player.transform.position.x > 24 && player.transform.position.x < 26.5 && player.transform.position.y > -16.5 && player.transform.position.y < -15.5 
+	}
+	else if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
 				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg != 0)){
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Visit the other building to talk to more politicians.", questTextStyle);
 		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have already convinced the Senators", questHeaderStyle);
 	}
-	else if (player.transform.position.x > 24 && player.transform.position.x < 26.5 && player.transform.position.y > -5.5 && player.transform.position.y < -3.5 
-				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg < 4) && GLOBAL.questNum < 7){
+	else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
+				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg < 4) && GLOBAL.questNum < 10){
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A and then visit the Senate building to the South.", questTextStyle);
 		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
 	}
@@ -246,22 +373,22 @@ function OnGUI () {
 		}
 	
 		if (quiz) {
-			GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/2,Screen.height/2), "");
+			GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/2), "");
 			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0]);
 			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+75,Screen.width/2,Screen.height/2), quizAnswers[1]);
 			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+135,Screen.width/2,Screen.height/2), quizAnswers[2]);
 			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[3]);
 			if (sQuizAnswer == 0){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+10,Screen.width/60,Screen.height/20), "");
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+15,Screen.width/35,Screen.height/25), "");
 			}
 			else if (sQuizAnswer == 1){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+70,Screen.width/60,Screen.height/20), "");
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+75,Screen.width/35,Screen.height/25), "");
 			}
 			else if (sQuizAnswer == 2){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+130,Screen.width/60,Screen.height/20), "");
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+135,Screen.width/35,Screen.height/25), "");
 			}
 			else if (sQuizAnswer == 3){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+190,Screen.width/60,Screen.height/20), "");
+				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+195,Screen.width/35,Screen.height/25), "");
 			}
 		}
 	}
@@ -297,7 +424,7 @@ function OnGUI () {
 function DisplayQuest () {
 	if (journalDisplay) {
 		displayQuestOnExit = true;
-		Debug.Log(GLOBAL.questNum);
+		Debug.Log("Quest advanced to: " +GLOBAL.questNum);
 	}
 	else {
 		Debug.Log(GLOBAL.questNum);

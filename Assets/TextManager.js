@@ -26,6 +26,7 @@ var textContainer : GameObject;
 var tcName : String = "enter name";
 var tcScript : Object;
 var ts : Object;	//timer script
+var gui : Object;
 
 private var GLOBAL : Object;
 private var questDisplay : boolean = false;
@@ -43,7 +44,8 @@ var endCamilo : float;
 // Use this for initialization
 function Start () {
 	if (Application.loadedLevelName == "capitol"){
-		ts = GameObject.Find("TIMER").GetComponent("timerScript");
+		//ts = GameObject.Find("TIMER").GetComponent("timerScript"); TODO: ALL INSTANCES OF ts. became gui.
+		gui = GameObject.Find("GUIController").GetComponent("GUIController");
 	}
 	if (collisionManager) {
 		collisionDict = collisionManager.GetComponent("CollisionManager").collisionDict;
@@ -135,7 +137,7 @@ function Update () {
 						else if (GLOBAL.quizProg == 3){
 							tcScript.ChangeAides(2);
 						}
-						else if (GLOBAL.quizProg == 9){
+						else if (GLOBAL.quizProg == 8){
 							tcScript.ChangeAides(3);
 						}
 						else if (GLOBAL.quizProg == 5){
@@ -146,7 +148,8 @@ function Update () {
 						}						
 					}
 					else{ //wrong answer
-						ts.skip();
+						//ts.skip();
+						gui.skip();
 						currentLineNum = currentTextLength;
 						currentLine = "That's not quite right... Check the pages you have collected and try again";
 					}
@@ -181,7 +184,7 @@ function Update () {
 					if (facedObject.name == "LAideX" && GLOBAL.quizProg == 3){
 						Destroy(facedObject);
 					}
-					if (facedObject.name == "LAideW" && GLOBAL.quizProg == 9){
+					if (facedObject.name == "LAideW" && GLOBAL.quizProg == 8){
 						Destroy(facedObject);
 					}
 					if (facedObject.name == "Dante" || facedObject.name == "Dante "){
@@ -195,10 +198,13 @@ function Update () {
 						Debug.Log("Should advance dialogue");
 						GLOBAL.AdvanceQuiz();
 						tcScript.NextDialogue();
+						gui.playerUp();
 					}
 					else if (facedObject.name == "SenatorX" && GLOBAL.quizProg == 3){
-						ts.toggleFinish();
-						ts.stopTimer();
+						//ts.toggleFinish(); TODO: DEPRECATED
+						//ts.stopTimer();
+						gui.toggleFinish();
+						gui.stopTimer();
 						GLOBAL.AdvanceQuiz();
 						GLOBAL.AdvanceQuest();
 						Debug.Log("One quest #: "+GLOBAL.questNum);
@@ -209,11 +215,14 @@ function Update () {
 					else if (facedObject.name == "RepQ" && GLOBAL.quizProg == 7){
 						GLOBAL.AdvanceQuiz();
 					}
-					else if (facedObject.name == "RepW" && GLOBAL.quizProg == 10){
-						ts.toggleFinish();
-						ts.stopTimer();
-						GLOBAL.AdvanceQuiz();
-						GLOBAL.AdvanceQuest();
+					else if (facedObject.name == "RepW"){
+						//ts.toggleFinish(); TODO: DEPRECATED
+						//ts.stopTimer();
+						gui.toggleFinish();
+						gui.stopTimer();
+//						GLOBAL.AdvanceQuiz();
+//						GLOBAL.AdvanceQuest();
+						Application.LoadLevel("demoEnd");
 					}
 					
 					//update dynamic text

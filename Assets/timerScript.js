@@ -7,23 +7,27 @@ private var timer: float = 120;
 private var hours: int = 0;
 private var minutes: int = 0;
 private var time: String;
+private var text: String;
 private var GLOBAL : Object; //TODO delete if unnecessary
 private var tm : Object;
 private var running : boolean = false;	//variable for whether timer is running or not
+private var show : boolean = false;
 var finished : boolean = false;
 
 function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");  //TODO delete if unnecessary
 	tm = player.GetComponent(TextManager); //can use the tm.interacting variable if we want to stop timer during conversations TODO Delete if unnecessary
-	guiText.enabled = false;
+	//guiText.enabled = false;
 }
 
 function showTimer (){
 	guiText.enabled = true;
+	//show = true;
 }
 
 function hideTimer (){
 	guiText.enabled = false;
+	//show = false;
 }
 
 function runTimer(){
@@ -55,8 +59,16 @@ function toggleFinish(){
 	}
 }
 
-function Update () {
+//function OnGui (){
+//	//if (!show){
+//	GUI.Box(new Rect(10, 10, 20, 10), text);
+//	//}
+//
+//}
 
+function Update () {
+	
+	guiText.enabled = true;
 	//converts timer from seconds to "hours/minutes"
 	hours = Mathf.FloorToInt(timer / 60F);
     minutes = Mathf.FloorToInt(timer - hours * 60);
@@ -65,9 +77,11 @@ function Update () {
 	//updates text to display current "time"
 	if(!finished){
 		guiText.text = (time + " PM");
+		
 	}
 	else{
 		guiText.text = "Success!";
+		
 	}
 	if(running){
 			

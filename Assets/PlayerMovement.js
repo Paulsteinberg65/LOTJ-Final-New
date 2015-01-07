@@ -6,16 +6,16 @@ enum Orientation {Horizontal, Vertical}
 var gridOrientation = Orientation.Horizontal;
 var allowDiagonals = false;
 var correctDiagonalSpeed = true;
-private var canControl : boolean = true;
+var canControl : boolean = true;
 private var input = Vector2.zero;
 private var facing : String;
 private var GLOBAL : Object;
-private var gui : GameObject;
+private var gui : Object;
 var questHeaderStyle : GUIStyle;
 var questTextStyle : GUIStyle;
 var sprite : tk2dAnimatedSprite;
 
-var ts : Object;
+var ts : Object; //TODO: DEPRECATED (All instances of ts. became gui.)
 var footsteps : AudioClip; //the footsteps audio clip to be used
 
 var collisionManager : GameObject;
@@ -26,9 +26,9 @@ function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	GLOBAL.FindGUI();
 	if(Application.loadedLevelName == "capitol") {
-		ts = GameObject.Find("TIMER").GetComponent("timerScript"); //find the timer script for capitol
+		//ts = GameObject.Find("TIMER").GetComponent("timerScript"); //find the timer script for capitol TODO: DEPRECATED
+		gui = GameObject.Find("GUIController").GetComponent("GUIController");
 	}
-	//gui = GameObject.Find("GUIController").GetComponent("GUIController");
 	//code to change gender of player
 	if (GLOBAL.playerGender == 1 ){
 		newLib = Resources.Load("femaleSpriteAnimation",tk2dSpriteAnimation); //load the spriteAnimation prefab
@@ -101,24 +101,26 @@ function Start () {
 			//	myPosition.position.x = 24;
 			//	myPosition.position.y = 0;
 			//}
-			if (endPosition.x > 24 && endPosition.x < 26.5 && endPosition.y > -16.5 && endPosition.y < -15.5 
+
+			if (endPosition.x > 30.5 && endPosition.x < 32.5 && endPosition.y > -20.0 && endPosition.y < -18.0
 				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum == 8){
-				senateReset();
+				senateReset(0);
 			}
 			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
 				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 9){
 				senateExit();
 			}
-			if (endPosition.x > 24 && endPosition.x < 26.5 && endPosition.y > -5.5 && endPosition.y < -3.5 
+			if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
 				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 10){
-				houseReset();
+				houseReset(0);
 			}
 			myTransform.rotation = Quaternion(0.0, 1.0, 0.0, 0.0);
 			yield;
+
 		}
 		tx = t - 1.0;	// Used to prevent slight visual hiccups on "grid lines" due to Time.deltaTime variance
 		GetAxes();
-		
+
 		if (input.y == 1.0) {
 			if (!sprite.IsPlaying("up"))
 				sprite.Play("up");
@@ -149,6 +151,7 @@ function Start () {
 //			Debug.Log("stop");
 //			sprite.StopAndResetFrame();
 //		}
+
 	}
 }
 /*function OnGUI(){
@@ -158,33 +161,44 @@ function Start () {
 }
 */
 
-function senateReset() {
-	myPosition.position.x = 105;
+function senateReset(location: int) {// 0 if coming from outside, 1 if from inside
+	gui.danteReset(1);
+	canControl = true;
+	myPosition.position.x = 104;
 	myPosition.position.y = -23;
-	ts.senateRollback();
-	ts.showTimer();
-	ts.runTimer();
+	gui.senateRollback();
+	gui.showTimer();
+	gui.runTimer();
+	if (location == 0){
 	GLOBAL.SenateToggle();
+	}
 }
 function senateExit(){
-	myPosition.position.x = 25;
-	myPosition.position.y = -15;
-	ts.hideTimer();
+	myPosition.position.x = 32;
+	myPosition.position.y = -20;
+	GLOBAL.SenateToggle();
+	gui.hideTimer();
 }
-function houseReset() {
+function houseReset(location: int) {
+	gui.danteReset(2);
+	canControl = true;
 	myPosition.position.x = 110;
 	myPosition.position.y = 33.5;
-	ts.houseRollback();
-	if(ts.finished){
-	ts.toggleFinish();
+	gui.houseRollback();
+	if(gui.finished){
+	gui.toggleFinish();
 	}
-	ts.showTimer();
-	ts.runTimer();
+	gui.showTimer();
+	gui.runTimer();
 	GLOBAL.HouseToggle();
+	if (location == 0){
+	GLOBAL.SenateToggle();
+	}
 }
 
 
 function Update () {
+						
 	if (sprite.Playing) {
 		if (!audio.isPlaying) {
 			audio.Play();
