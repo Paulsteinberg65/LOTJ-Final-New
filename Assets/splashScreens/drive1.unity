@@ -180,6 +180,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &829703047
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: drive2
-  img: {fileID: 2800000, guid: 2f8f08a7c5147e0459f88d6704e608bd, type: 3}
+  img: {fileID: 2800000, guid: d53ac6a0b5f19f044b76b1b1b7ea3869, type: 3}
 --- !u!4 &829703049
 Transform:
   m_ObjectHideFlags: 0
@@ -220,6 +221,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &1796346616
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,8 +289,11 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &1796346621
 Transform:
   m_ObjectHideFlags: 0
@@ -300,3 +305,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 1

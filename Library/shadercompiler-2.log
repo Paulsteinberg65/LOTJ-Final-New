@@ -1,25 +1,117 @@
-Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-2-6608
+Base path: /Applications/Unity/Unity.app/Contents
+Pipe name: \\.\pipe\UnityShaderCompiler-2--1334542336
 Cmd: getPlatforms
 Cmd: compileSnippet
-  error: 2 plat 4 at (49): 'vert': function return value missing semantics
-  api=4 type=0 insize=868 outsize=0 kw= ok=0
+  api=1 type=0 insize=1008 outsize=158 kw= ok=1
 Cmd: compileSnippet
-  error: 2 plat 4 at (58): 'frag': input parameter 'i' missing semantics
-  api=4 type=1 insize=868 outsize=0 kw= ok=0
+  api=1 type=1 insize=1008 outsize=81 kw= ok=1
 Cmd: compileSnippet
-  error: 2 plat 4 at (51): 'vert': function return value missing semantics
-  api=4 type=0 insize=893 outsize=0 kw= ok=0
+  api=1 type=0 insize=788 outsize=175 kw= ok=1
 Cmd: compileSnippet
-  error: 2 plat 4 at (60): 'frag': input parameter 'i' missing semantics
-  api=4 type=1 insize=893 outsize=0 kw= ok=0
+  api=1 type=1 insize=788 outsize=81 kw= ok=1
 Cmd: compileSnippet
-  error: 2 plat 4 at (58): 'frag': input parameter 'i' missing semantics
-  api=4 type=1 insize=857 outsize=0 kw= ok=0
+  api=8 type=1 insize=788 outsize=1048 kw= ok=1
 Cmd: compileSnippet
-  error: 2 plat 4 at (49): 'vert': function return value missing semantics
-  api=4 type=0 insize=857 outsize=0 kw= ok=0
-Unhandled exception: Readfile from pipe failed. GLE=The pipe has been ended.
-
+  api=1 type=0 insize=894 outsize=250 kw= ok=1
+Cmd: compileSnippet
+  error: 2 plat 8 at (49): 'vert': function return value missing semantics
+  api=8 type=0 insize=894 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  api=1 type=1 insize=894 outsize=103 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=920 outsize=187 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=920 outsize=103 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=799 outsize=175 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=799 outsize=81 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=909 outsize=187 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=909 outsize=103 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=910 outsize=171 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=910 outsize=134 kw= ok=1
+Cmd: compileSnippet
+  api=8 type=1 insize=910 outsize=1300 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=883 outsize=250 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=883 outsize=103 kw= ok=1
+Cmd: compileSnippet
+  error: 2 plat 8 at (49): 'vert': function return value missing semantics
+  api=8 type=0 insize=883 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (58): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=883 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (51): 'vert': function return value missing semantics
+  api=8 type=0 insize=909 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (60): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=909 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (49): 'vert': function return value missing semantics
+  api=8 type=0 insize=894 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (58): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=894 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (51): 'vert': function return value missing semantics
+  api=8 type=0 insize=920 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (60): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=920 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (49): 'vert': function return value missing semantics
+  api=8 type=0 insize=894 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (58): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=894 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (51): 'vert': function return value missing semantics
+  api=8 type=0 insize=920 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (60): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=920 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (51): 'vert': function return value missing semantics
+  api=8 type=0 insize=909 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (60): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=909 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (49): 'vert': function return value missing semantics
+  api=8 type=0 insize=883 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (58): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=883 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (49): 'vert': function return value missing semantics
+  api=8 type=0 insize=883 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (58): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=883 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (51): 'vert': function return value missing semantics
+  api=8 type=0 insize=909 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (60): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=909 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (49): 'vert': function return value missing semantics
+  api=8 type=0 insize=894 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (58): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=894 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (51): 'vert': function return value missing semantics
+  api=8 type=0 insize=920 outsize=0 kw= ok=0
+Cmd: compileSnippet
+  error: 2 plat 8 at (60): 'frag': input parameter 'i' missing semantics
+  api=8 type=1 insize=920 outsize=0 kw= ok=0
+End of pipe
 
 Quitting shader compiler process
