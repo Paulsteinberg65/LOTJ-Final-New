@@ -7,6 +7,7 @@ private var currentString : String;
 private var NPCName : String;
 private var speakerTex : Texture2D;
 private var questDisplay : boolean = false;
+private var jumpInfoDisplay : boolean = false; //is the GUI showing the jump info for the waterfall?
 var journalDisplay : boolean = false;
 private var displayQuestOnExit : boolean = false;
 private var currentQuestText : String;
@@ -109,15 +110,22 @@ function Start () {
 		DisplayQuest();
 		startTime = Time.time;
 	}
+	else if (Application.loadedLevelName == "waterfall") { //should the jump info be displayed?
+		jumpInfoDisplay = true;
+		canControl(false);
+	}
 }
 
 function Update () {
-	if (Input.GetButtonDown("Space")) {
-		if (questDisplay || infoDisplay) {
-			Debug.Log("closing quest");
+	if (Input.GetButtonDown("Space")) { //the player has pressed space
+		if (jumpInfoDisplay) { //are we currently showing the jumping instructions in the waterfall?
+			jumpInfoDisplay = false; //if so, stop, and allow the player to control themselves once again
+			canControl(true);
+		}
+		if (questDisplay || infoDisplay) { //are we currently showing quets or info?
 			if(Application.loadedLevelName == "Maze" && questDisplay){
-			questDisplay = false;
-			Application.LoadLevel("searchParty1");
+				questDisplay = false;
+				Application.LoadLevel("searchParty1");
 			}
 			questDisplay = false;
 			if (infoDisplay && infoTitle == "capital") {
@@ -126,7 +134,7 @@ function Update () {
 			}
 			infoDisplay = false;
 			if(!journalDisplay){
-			canControl(true);
+				canControl(true);
 			}
 		}
 		if (journalDisplay) {
@@ -153,7 +161,7 @@ function Update () {
 	quiz = tm.quiz;
 	sQuizAnswer = tm.selectedQuizAnswer;
 	quizAnswers = tm.quizAnswers;
-	if((Time.time - startTime) >= 60.0 && GLOBAL.questNum == 0 && secondPopUp == false){
+	if((Time.time - startTime) >= 60.0 && GLOBAL.questNum == 0 && secondPopUp == false && Application.loadedLevelName == "Town1"){
 		DisplayQuest();
 		secondPopUp = true;
 	}
@@ -277,43 +285,42 @@ function OnGUI () {
 	}
 	//TODO: END OF TIMER
 	//code for the do not enter signs
-	if (Application.loadedLevelName == "Town1" && player.transform.position.x == 41.0 && player.transform.position.y == 4.0) {
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "The path to the waterfall is not open right now.", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "DO NOT ENTER.", questHeaderStyle);
+	if (Application.loadedLevelName == "Town1") { //do not enter signs for Town1 are contained here
+		if (player.transform.position.x == 41.0 && player.transform.position.y == 4.0) {
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", infoBoxStyle);
 		} 
-	else if (Application.loadedLevelName == "Town1" && player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have to talk to the biologist first!", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "THE MAZE IS CLOSED", questHeaderStyle);
+		else if (player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", infoBoxStyle);
 		}
-		
-	if (Application.loadedLevelName == "Maze" && player.transform.position.x == 34.0 && (player.transform.position.y == 19.0 || player.transform.position.y == 18.0 ) && GLOBAL.questNum < 3){
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You must talk to all the people in the forest before moving to the waterfall", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "DO NOT ENTER", questHeaderStyle);
+		else if (player.transform.position.x == 41.0 && (player.transform.position.y == -24.0 || player.transform.position.y == -23.0)) {
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Before traveling anywhere, you should learn more about what’s going on in your village.", infoBoxStyle);
+		}
 	}
+	//do not enter sign for the waterfall
 	if (Application.loadedLevelName == "waterfall" && player.transform.position.x < -7.6 && player.transform.position.y > 5.0 && GLOBAL.questNum < 4) {
-		Debug.Log("Hello there, finish!");
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "DO NOT ENTER.", questHeaderStyle);
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", infoBoxStyle);
 	}
-	if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
-				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum < 8){
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A.", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
-	}
-	else if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
-				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg != 0)){
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Visit the other building to talk to more politicians.", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have already convinced the Senators", questHeaderStyle);
-	}
-	else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
-				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg < 4) && GLOBAL.questNum < 10){
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A and then visit the Senate building to the South.", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
-	}
-	else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
-				&& Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4)){
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A before entering this building.", questTextStyle);
-		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+	if (Application.loadedLevelName == "capitol") { //do not enter signs for the capitol are here
+		if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
+					&& (GLOBAL.quizProg == 0) && GLOBAL.questNum < 8){
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A.", questTextStyle);
+			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+		}
+		else if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
+					&& (GLOBAL.quizProg != 0)){
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Visit the other building to talk to more politicians.", questTextStyle);
+			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have already convinced the Senators", questHeaderStyle);
+		}
+		else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
+					&& (GLOBAL.quizProg < 4) && GLOBAL.questNum < 10){
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A and then visit the Senate building to the South.", questTextStyle);
+			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+		}
+		else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
+					&& (GLOBAL.quizProg >= 4)){
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A before entering this building.", questTextStyle);
+			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+		}
 	}
 	
 	
@@ -424,9 +431,12 @@ function OnGUI () {
 	}
 	
 	if (infoDisplay) {
-		Debug.Log("Hello2");
 		currentString = GLOBAL.infoDict[infoTitle];
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, infoBoxStyle);
+	}
+	
+	if (jumpInfoDisplay) { //show the jump info if we should be
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", infoBoxStyle);
 	}
 }
 
@@ -450,7 +460,7 @@ function DisplayJournal (currentPage : int) {
 	journalPart = 0;
 	currentJournalPage = currentPage;
 	if (GLOBAL.pagesObtained[currentPage] == "n") {
-		currentJournalText = "You haven't found this page yet.";
+		currentJournalText = "You have no entries in your journal yet.";
 	}
 	else {
 		currentJournalText = tc.journalDict[currentPage][journalPart];

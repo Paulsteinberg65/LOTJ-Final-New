@@ -41,7 +41,7 @@ function Update () {
 			GLOBAL.questNum = 3;
 			GLOBAL.pagesObtained[0] = "y";
 			GLOBAL.totalPages = GLOBAL.totalPages + 1;
-			nextScene = "waterfall";
+			nextScene = "enterWaterfall";
 		} else if (selection == 2) {
 			GLOBAL.questNum = 6;
 			for (i = 0; i < GLOBAL.pagesObtained.length; i++) {

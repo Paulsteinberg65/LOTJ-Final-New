@@ -1,10 +1,12 @@
 var player : Transform;
+private var GLOBAL : Object;
 
 private var playerSprite : tk2dSprite;
 private var playerScript : Object;
 var textContainer : GameObject;
 private var tcScript : Object;
 var questTextStyle : GUIStyle;
+var menuButtonStyle : GUIStyle;
 var buttonStyle : GUIStyle;
 var sliderStyle : GUIStyle;
 var thumbStyle1 : GUIStyle;
@@ -22,8 +24,17 @@ private var showingMsg : boolean = false;
 
 private var currentString : String;
 
+//images for buttons
+var helpImg : Texture2D;
+var muteImg : Texture2D;
+var volumeImg : Texture2D;
+var journalImg : Texture2D;
+var soundIconImg : Texture2D;
+
 // Use this for initialization
 function Start () {
+	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
+	menuButtonStyle = GLOBAL.menuButtonStyle;
 	playerSprite = player.GetComponent(tk2dSprite);
 	playerScript = player.GetComponent("AwarenessPlayer");
 	tcScript = textContainer.GetComponent("Awareness_TextContainer");
@@ -63,7 +74,33 @@ function OnGUI () {
 		
 	if (showingMsg) {
 		GUI.Box(Rect(222, 200, 535, 200), currentString, questTextStyle);
-	} 
+	}
+	
+	if (GUI.Button(Rect(Screen.width-32,0,32,32), helpImg, menuButtonStyle)) {
+			if (!showingMsg) {
+				DisplayMessage("helpMsg");
+			}
+			else {
+				showingMsg = false;
+				playerScript.canControl = true;
+			}
+	}
+	if (GUI.Button(Rect(Screen.width-74,0,32,32), soundIconImg, menuButtonStyle)) {
+		var volume : float = GameObject.Find("Main Camera").GetComponent("AudioListener").volume;
+		if (volume == 0) {
+			GameObject.Find("Main Camera").GetComponent("AudioListener").volume = 1.0;
+			soundIconImg = volumeImg;
+			GLOBAL.muted = false;
+		}
+		else {
+			GameObject.Find("Main Camera").GetComponent("AudioListener").volume = 0.0;
+			soundIconImg = muteImg;
+			GLOBAL.muted = true;
+		}
+	}
+	if (GUI.Button(Rect(Screen.width-116,0,32,32), journalImg, menuButtonStyle)) { //player pressed the inventory button
+		//do nothing, the button is disabled
+	}
 }
 
 function DisplayMessage (dictVal : String) {

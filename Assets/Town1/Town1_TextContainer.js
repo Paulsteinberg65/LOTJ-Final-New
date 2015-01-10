@@ -72,7 +72,7 @@ function Start () {
 	
 	//populate Quest text array
 	questHArray.push("Find your mother");
-	questArray.push("Your mother is waiting for you in the village. Seek her out. Move with the arrow keys and press space to talk to nearby characters.");
+	questArray.push("Your mother is waiting for you in the village. Seek her out. Move the arrow keys and use the space bar to talk with people near you and to read information signs. (Space bar to continue...)");
 	questHArray.push("Find the biologist");
 	questArray.push("Your mother suggested that you find the biologist to help figure out what happened to your father and why the forest is being destroyed. He is somewhere in this area.");
 	questHArray.push("Find your father in the forest");

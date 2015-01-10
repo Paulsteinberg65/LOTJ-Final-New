@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: intro2
-  img: {fileID: 2800000, guid: d0103797bf81af94a8467ea241ab3a34, type: 3}
+  img: {fileID: 2800000, guid: 8967d7f444bd93c4c9caa42afee83dc2, type: 3}
 --- !u!1 &1548941600
 GameObject:
   m_ObjectHideFlags: 0

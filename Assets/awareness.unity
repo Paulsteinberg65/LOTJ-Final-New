@@ -682,7 +682,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: .99000001
+    width: 1.00999999
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
@@ -704,7 +704,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708060710}
   m_LocalRotation: {x: .0157073196, y: 1.33141654e-07, z: -2.09155626e-09, w: .999876678}
-  m_LocalPosition: {x: -.181937695, y: 1.39803696, z: -9.98749161}
+  m_LocalPosition: {x: .0361711979, y: 1.39803696, z: -9.98749161}
   m_LocalScale: {x: .799992621, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1404,6 +1404,11 @@ MonoBehaviour:
   fisherSqr: {fileID: 2800000, guid: 762a371d7a29fa0449cd4542eef82600, type: 3}
   artisanSqr: {fileID: 2800000, guid: 63460ec74a703ad47bea51079a3b9c21, type: 3}
   bgImg: {fileID: 2800000, guid: 00d490cda32e9d246b0d15cc3b3cd5ad, type: 3}
+  helpImg: {fileID: 2800000, guid: 10085cd65f6208349bea3e7e78488dd4, type: 3}
+  muteImg: {fileID: 2800000, guid: 0f212c340fb0d014f8db79d5f3d9f8f3, type: 3}
+  volumeImg: {fileID: 2800000, guid: e26764bfe32035c40a95a2de632e36ce, type: 3}
+  journalImg: {fileID: 2800000, guid: 218b9088fdb2c43368246e5efbb23807, type: 3}
+  soundIconImg: {fileID: 2800000, guid: e26764bfe32035c40a95a2de632e36ce, type: 3}
 --- !u!1 &1096698405
 GameObject:
   m_ObjectHideFlags: 0

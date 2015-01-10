@@ -2,7 +2,7 @@
 import System.Collections.Generic;
 
 // Does this script currently respond to input?
-var canControl : boolean = true;
+var canControl : boolean = true; //canControl is assigned values according to GUIController's canControl(boolean) method
 var numPages = 0;
 private var talkedToDad : boolean = false;
 private var tm : Object;
@@ -250,15 +250,15 @@ function Start () {
 function Update () {
 	//code for footsteps while player is walking
 	if (sprite.Playing && jumping.jumping == false) {
-		Debug.Log("sprite.Playing = true");
 		if (!audio.isPlaying) {
 			audio.Play();
 		}
 	} else if (!sprite.Playing || jumping.jumping == true) {
-		Debug.Log("sprite.Playing = false");
 		audio.Stop();
 	}
-	Debug.Log("Hi" + myTrans.position.x + ", " + myTrans.position.y);
+	if (GLOBAL.GUIController.journalDisplay) { //disable the walking sound when looking at journal pages
+		audio.Stop();
+	}
 	//code to switch animation direction depending on facing direction
 	if (movement.velocity.x < 0.0 && grounded) {
 			if (!sprite.IsPlaying("left"))
@@ -330,7 +330,7 @@ function Update () {
 	//load the next level when the player approaches the door
 	if ((myTrans.position.x <= -7.52) && (myTrans.position.y >=5.0) && GLOBAL.questNum == 4) {
 		Application.LoadLevel("enterCave");
-		}
+	}
 	
 	//if (myTrans.position.x <= (bCollider.transform.position.x + (bCollider.size.x / 2.0)) && Application.loadedLevelName == "waterfall" && numPages == 8) {
 	//	Application.LoadLevel("waterfallCave");

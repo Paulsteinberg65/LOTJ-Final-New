@@ -79,7 +79,6 @@ function Start () {
 			Vector3(System.Math.Sign(input.x)*gridSize, System.Math.Sign(input.y)*gridSize, 0.0);
 		t = tx;
 		while (t < 1.0) {
-			var dTime = Time.fixedDeltaTime;
 			//moveSpeed = Input.GetButton("Run")? runSpeed : walkSpeed;
 			t += Time.deltaTime * (moveSpeed/gridSize) * (correctDiagonalSpeed && input.x != 0.0 && input.y != 0.0? .7071 : 1.0);
 			if (!collisionDict[(endPosition.x).ToString() + ", " + (endPosition.y).ToString()])

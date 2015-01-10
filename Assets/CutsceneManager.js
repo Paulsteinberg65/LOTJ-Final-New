@@ -85,7 +85,7 @@ function Start () {
 		TextDict.push("There are caves at the top where rebel forces used to hide during the war against the dictators.");
 		TextDict.push("If you find more pages from his research journal like the one you have, read them carefully - they may provide useful clues.  Take the path behind your parents' house.");
 		
-		nextScene = "waterfall";
+		nextScene = "enterWaterfall";
 	}
 	else if (cutscene == 2 && Application.loadedLevelName != "town3") {
 		NPCDict.push("Fisherman");

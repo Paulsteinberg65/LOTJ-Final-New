@@ -1,4 +1,5 @@
 var boo : AudioClip;
+private var GLOBAL : Object;
 var applause : AudioClip;
 var slider1Value : float = 0.0;
 var slider2Value : float = 0.0;
@@ -6,6 +7,7 @@ private var slider1Text : String;
 private var slider2Text : String;
 private var mayorText : String;
 private var subText1 : String;
+var menuButtonStyle : GUIStyle;
 private var subText2 : String;
 private var approval1 : int;
 private var approval2 : int;
@@ -18,6 +20,7 @@ private var changeScene : boolean = false;
 
 private var tc : Object;
 
+var questTextStyle : GUIStyle;
 var questionStyle : GUIStyle;
 var labelStyle : GUIStyle;
 var sliderStyle1 : GUIStyle;
@@ -30,9 +33,20 @@ var approvalThumbStyle : GUIStyle;
 var approvalLabelStyle : GUIStyle;
 
 var submitImg : Texture2D;
+private var showingHelp : boolean = false; //are we showing the help message?
+private var helpString : String = "You must come to an agreement on a system of land regulations with your fellow villagers. Move the sliders to the desired position to change your proposal, and then hit 'Propose Rule' to put it to a vote.";
+
+//images for buttons
+var helpImg : Texture2D;
+var muteImg : Texture2D;
+var volumeImg : Texture2D;
+var journalImg : Texture2D;
+var soundIconImg : Texture2D;
 
 // Use this for initialization
 function Start () {
+	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
+	menuButtonStyle = GLOBAL.menuButtonStyle;
 	tc = GameObject.Find("TextContainer").GetComponent("Rules_TextContainer");
 	ResetValues();
 }
@@ -99,6 +113,34 @@ function OnGUI () {
 		EvaluateAnswer(answer1, answer2);
 	}
 	
+	if (showingHelp) {
+		GUI.Box(Rect(Screen.width / 2 - 267, Screen.height / 2 - 100, 535, 200), helpString, questTextStyle);
+	}
+	
+	if (GUI.Button(Rect(Screen.width-32,0,32,32), helpImg, menuButtonStyle)) {
+			if (!showingHelp) {
+				showingHelp = true;
+			}
+			else {
+				showingHelp = false;
+			}
+	}
+	if (GUI.Button(Rect(Screen.width-74,0,32,32), soundIconImg, menuButtonStyle)) {
+		var volume : float = GameObject.Find("Main Camera").GetComponent("AudioListener").volume;
+		if (volume == 0) {
+			GameObject.Find("Main Camera").GetComponent("AudioListener").volume = 1.0;
+			soundIconImg = volumeImg;
+			GLOBAL.muted = false;
+		}
+		else {
+			GameObject.Find("Main Camera").GetComponent("AudioListener").volume = 0.0;
+			soundIconImg = muteImg;
+			GLOBAL.muted = true;
+		}
+	}
+	if (GUI.Button(Rect(Screen.width-116,0,32,32), journalImg, menuButtonStyle)) { //player pressed the inventory button
+		//do nothing, the button is disabled
+	}
 }
 
 function EvaluateAnswer (answer1 : int, answer2 : int) {

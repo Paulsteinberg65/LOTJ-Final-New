@@ -10414,6 +10414,10 @@ MonoBehaviour:
   startTime: 0
   secondPopUp: 0
   endCamilo: 0
+  repR: 0
+  repQ: 0
+  playerCounter: 0
+  finished: 0
 --- !u!82 &358418238
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39648,6 +39652,7 @@ MonoBehaviour:
   gridOrientation: 1
   allowDiagonals: 0
   correctDiagonalSpeed: 1
+  canControl: 1
   questHeaderStyle:
     m_Name: 
     m_Normal:

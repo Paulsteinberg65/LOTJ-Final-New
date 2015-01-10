@@ -10,17 +10,19 @@ function Start () {
 	//populate NPC dialogue dictionary
 	
 	startMsg = ["Raise awareness about the plight of the forest and encourage people to come to a community meeting to decide how to set things right. You have four campaigners who will talk with people at the village market. Click the buttons at the top left to choose your campaigner and have him or her talk with (bump into) people of the same background. Move your character up and down the column on the left to speak to all the market-goers. Press space to play the game."];
-	fisherWin = ["You did it!  The fishermen have agreed to come to your meeting."];
+	helpMsg = ["Raise awareness about the plight of the forest and encourage people to come to a community meeting to decide how to set things right. You have four campaigners who will talk with people at the village market. Click the buttons at the top left to choose your campaigner and have him or her talk with (bump into) people of the same background. Move your character up and down the column on the left to speak to all the market-goers."];
+	fisherWin = ["You did it!  The fishermen have agreed to come to your meeting. Choose another profession (upper left) to reach more people."];
 	fisherLose = ["Your meeting sounds worthwhile.  But fishermen around here, we don't join many causes.  Perhaps if you had another fisherman helping you to spread the word, we would come to your meeting."];
-	artisanWin = ["Well done!  The artisan community will come to your meeting.  Thanks to your campaigner, they want to be sure that the forest is used sustainably – and that any new rules serve the interests of the local community rather than foreign corporations."];
+	artisanWin = ["Well done!  The artisan community will come to your meeting.  Thanks to your campaigner, they want to be sure that the forest is used sustainably – and that any new rules serve the interests of the local community rather than foreign corporations. Choose another profession (upper left) to reach more people."];
 	artisanLose = ["What do you know about the struggles of artisans in this community?  These days we can't even find the hardwood species we need for furniture production, our most important source of income.  I have children to feed, you know.  I want to talk with someone who understands my craft – then maybe I'll consider attending your meeting."];
-	farmerWin = ["You did it!  The coffee farmers have agreed to come to your meeting."];
+	farmerWin = ["You did it!  The coffee farmers have agreed to come to your meeting. Choose another profession (upper left) to reach more people."];
 	farmerLose = ["Conservation?  I worry that you are going to try to preserve everything, like some sort of museum, and I won't be able to make a living.  Listen, we coffee farmers have a strong union and we stick together.  If you want us on board, have another farmer do the talking."];
-	studentWin = ["Congratulations!  Your campaigner has convinced the others to attend the meeting."];
+	studentWin = ["Congratulations!  Your campaigner has convinced the other students to attend the meeting. Choose another profession (upper left) to reach more people."];
 	studentLose = ["A meeting?  Could you send me the link on my cell phone?  Oh, you don't have this online?  Listen, young people around here care a lot about sustainability – more than you realize.  But there's no way that students are going to attend a meeting unless we're invited by our friends.  That's just how it works."];
 	allWin = ["You did it!  The coffee farmers, artisans, students and fisherman have agreed to come to your meeting."];
 	
 	msgDict["startMsg"] = startMsg;
+	msgDict["helpMsg"] = helpMsg;
 	msgDict["fisherWin"] = fisherWin;
 	msgDict["fisherLose"] = fisherLose;
 	msgDict["artisanWin"] = artisanWin;
