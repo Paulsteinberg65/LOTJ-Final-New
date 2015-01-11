@@ -111,8 +111,6 @@ function Start () {
 		NPCDict.push("Mayor");
 		NPCDict.push("Priest");
 		NPCDict.push("Priest");
-		NPCDict.push("Priest");
-		NPCDict.push("Priest");
 		
 		TextDict.push("We are shocked to hear what Dante’s men did to your father.  This time he has gone to far.  We need to run Dante and his gang of thugs out of town!");
 		TextDict.push("Hold on everyone.  We need to be smart about this.  First of all, we need to put in place new rules to govern the use of our forests.");
@@ -135,8 +133,6 @@ function Start () {
 		TextDict.push("I will speak with the other craftspeople.  The artisans are natural allies for conservation because we need sustainable wood supplies.");
 		TextDict.push("We also want to be sure that any new rules serve the interests of the local community rather than foreign corporations.");
 		TextDict.push("Come on, everyone.  We know what we need to do.  Let’s start by spreading the word in the town market.");
-		TextDict.push("Child, let me speak to you quickly before you go.");
-		TextDict.push("I am so glad that you are helping your father in his quest.  You come from a very courageous family, you know – your parents played an important role in opposing the dictators back in the 1980s.");
 		TextDict.push("If you want to get people's attention, remember: people listen to others in their peer group, who share their background and concerns.");
 		TextDict.push("In our community, that means that farmers can reach out to other farmers, hunters to other hunters, and so forth.");
 		

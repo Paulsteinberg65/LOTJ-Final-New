@@ -95,38 +95,6 @@ function Update () {
 }
 
 function NextDialogue () {
-//	currentDialogue += 1;
-//	if (currentDialogue == 2) {
-//		Biologist = ["It is good to see you. I only regret the tragic circumstances.", "Your father and I are hoping to save what's left of the forest before it's too late.", "I have been researching the ecological damage to the soil, water and wildlife.", "Your father, as a social scientist, is investigating the social dimensions of the problem. He spends a lot of time in the forest talking with farmers.", "I honestly don't know why he bothers; it seems pretty clear to me that the problem is the ignorance and greed of the local people.", "I don't mean to offend you... I know that you grew up here. But I just don't think that these uneducated farmers know what's good for them.", "For some reason they always refuse to talk to me, but maybe they'll listen to you. Let me know if you learn anything.", "It's illegal to harvest trees in the National Forest, so people wait until night. That's when your father travels through the forest talking with them and listening to their stories.", "I suggest you wait until dark to find him. Here, take a lantern."];
-//		Evita = ["I don't care where that scientist is. He looks down on the people around here - he thinks we're stupid."];
-//		Mayor = ["The biologist? He is probably working on his latest bird survey near the forest edge"];
-//		Mom = ["Have you found the biologist yet?"];
-//		Estrella = ["I hope you find the biologist."];
-//		Juana = ["I collect wild plants and sell them as traditional medicines. If this forest disappears, I will lose my income.", "John Jeffers and I sometimes collect plants together. He is probably by the forest."];
-//		FatherDiego = ["John Jeffers, the biologist - yes, I know him well. Try the edge of the forest"];
-//		Felipe = ['The biologist is studying what he calls "edge effects" - how living things at the edges of natural areas are exposed to dangers from human activities.', "Try the edge of the forest, west of the village."];
-//		Sol = ["Me, a biologist? No, although I could teach  you about fishing. Unfortunately, there are few fish left."];
-//	}
-//	if (currentDialogue == 3) {
-//		Biologist = ["Have you found your father in the forest behind me yet? Ask the farmers there which way he went."];
-//		Evita = ["I agree that you should talk to people in the forest. There are things that the American biologist just doesn't understand."];
-//		Sol = ["Be careful - it's a big forest and you could get lost."];
-//		Felipe = ["Have you found your father yet?"];
-//		FatherDiego = ["The forest you seek is to the west."];
-//		Juana = ["I think you will learn many things from the people working in the forest.", "Your father understands the importance of listening to the people."];
-//		Mom = ["The biologist asked you to look for your father in the forest? Okay, but be careful. Dante's men are around."];
-//		Estrella = ["Yes, talk to the people in the forest.", "Listen to their stories, and maybe you will solve the puzzle of why our environment is being destroyed."];
-//		Mayor = ["If you're looking for the forest, it is right next to the biologist."];
-//	}
-//	
-//	dialogueDict["Mom"] = Mom;
-//	dialogueDict["Biologist"] = Biologist;
-//	dialogueDict["Evita"] = Evita;
-//	dialogueDict["Mayor"] = Mayor;
-//	dialogueDict["Estrella"] = Estrella;
-//	dialogueDict["Juana"] = Juana;
-//	dialogueDict["FatherDiego"] = FatherDiego;
-//	dialogueDict["Felipe"] = Felipe;
-//	dialogueDict["Sol"] = Sol;
+
 
 }

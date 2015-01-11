@@ -73,6 +73,8 @@ var finished : boolean = false;
 
 //var dialogueBox : GUIStyle;		use this line when applying styles
 
+var remainingMaze = ["Camilo", "Carlos", "Gabriela", "Lita", "Manuel"];
+
 function Start () {
 	tm = player.GetComponent(TextManager);
 	if(Application.loadedLevelName != "waterfall" && Application.loadedLevelName != "waterfallCave") {
@@ -92,10 +94,7 @@ function Start () {
 	menuButtonStyle = GLOBAL.menuButtonStyle;
 	spaceBarStyle = GLOBAL.spaceBarStyle;
 	
-	Debug.Log(Application.loadedLevelName);
-	
 	if (Application.loadedLevelName == "titleCard") {
-		Debug.Log("adsfasdf");
 		showGUI = false;
 	}
 	//to make sure the right volume image loads for each level
@@ -140,7 +139,6 @@ function Update () {
 		if (journalDisplay) {
 			canControl(false);
 			if ((GLOBAL.pagesObtained[currentJournalPage] == "y") && (tc.journalDict[currentJournalPage].length-1 > journalPart)) {
-				Debug.Log(tc.journalDict[currentJournalPage]);
 				journalPart++;
 				currentJournalText = tc.journalDict[currentJournalPage][journalPart];
 			}
@@ -212,9 +210,8 @@ function Update () {
 			timer += Time.deltaTime;
 			
 			//increment counter for dante every hour
-			
-
 	}
+	
 	
 }
 function danteReset(location : int){//location = 1 for senate, 2 for house
@@ -366,7 +363,6 @@ function OnGUI () {
 	if (tm.interacting) {
 		currentString = tm.currentLine;
 		NPCName = tm.facedObject.name;
-			
 		
 		if ("Sign" in NPCName) { //this is where info signs display is done
 			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, infoBoxStyle);
@@ -377,6 +373,16 @@ function OnGUI () {
 		}
 		
 		else {
+			if (Application.loadedLevelName == "Maze") { //are we in the maze?
+				var indexNPC = System.Array.IndexOf(remainingMaze, NPCName); //what's the index of the NPC's name in the remainingMaze array?
+				Debug.Log("NPCName: " + NPCName);
+				if (indexNPC > -1) { //if indexNPC = -1, the NPC name has already been removed from remainingMaze
+					var mazeCharArray : Array = new Array(remainingMaze); //convert originial array to dynamic array so we can remove elements
+					mazeCharArray.RemoveAt(indexNPC); //since we haven't removed this NPC yet, remove it
+					remainingMaze = mazeCharArray.ToBuiltin(String) as String[]; //convert back to static array
+					Debug.Log("Splice results: " + Array(remainingMaze).Join(", "));
+				}
+			}
 			speakerTex = tc.imgDict[NPCName];
 			GUI.Box(Rect(0,Screen.height-200,Screen.width,200), currentString, dialogueTextStyle);
 			GUI.Label(Rect(0,Screen.height-200,Screen.width,200), NPCName+":", dialogueHeaderStyle);
@@ -426,11 +432,12 @@ function OnGUI () {
 		if (currentJournalPage != 8) {
 			if (GUI.Button(Rect(Screen.width*3/4,Screen.height/2,32,32),journalImg,menuButtonStyle)){
 				DisplayJournal(++currentJournalPage);
-				Debug.Log(currentJournalPage);}
+			}
 		}
 	}
 	
-	if (infoDisplay) {
+	if (infoDisplay) { //HELP MENU DISPLAY
+		
 		currentString = GLOBAL.infoDict[infoTitle];
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, infoBoxStyle);
 	}
@@ -443,12 +450,14 @@ function OnGUI () {
 function DisplayQuest () {
 	if (journalDisplay) {
 		displayQuestOnExit = true;
-		Debug.Log("Quest advanced to: " +GLOBAL.questNum);
 	}
 	else {
-		Debug.Log(GLOBAL.questNum);
 		currentQuestHeader = GLOBAL.questHArray[GLOBAL.questNum];
-		currentQuestText = GLOBAL.questArray[GLOBAL.questNum];
+		if (Application.loadedLevelName == "Maze" && Array(remainingMaze).length > 0) {
+			currentQuestText = "You still need to find: " + Array(remainingMaze).Join(", ") + "\n\n" + GLOBAL.questArray[GLOBAL.questNum];
+		} else {
+			currentQuestText = GLOBAL.questArray[GLOBAL.questNum];
+		}
 		questDisplay = true;
 		tm.questDisplay = true;
 		canControl(false);
