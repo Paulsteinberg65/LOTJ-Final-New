@@ -618,7 +618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1082702183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1116693053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,6 +1400,7 @@ MonoBehaviour:
   volumeImg: {fileID: 2800000, guid: e26764bfe32035c40a95a2de632e36ce, type: 3}
   journalImg: {fileID: 2800000, guid: b2d5866c95cf37a4f84de9e887ed5ecb, type: 3}
   soundIconImg: {fileID: 2800000, guid: e26764bfe32035c40a95a2de632e36ce, type: 3}
+  resetIconImg: {fileID: 0}
   smokeImg: {fileID: 0}
   startTime: 0
   secondPopUp: 0
@@ -1408,6 +1409,12 @@ MonoBehaviour:
   repQ: 0
   playerCounter: 0
   finished: 0
+  remainingMaze:
+  - Camilo
+  - Carlos
+  - Gabriela
+  - Lita
+  - Manuel
 --- !u!4 &1257092588
 Transform:
   m_ObjectHideFlags: 0

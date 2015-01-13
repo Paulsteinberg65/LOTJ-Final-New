@@ -102,15 +102,15 @@ function Start () {
 			//}
 
 			if (endPosition.x > 30.5 && endPosition.x < 32.5 && endPosition.y > -20.0 && endPosition.y < -18.0
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum == 8){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum == 9){
 				senateReset(0);
 			}
 			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
-				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (gui.playerCounter == 4) && GLOBAL.questNum == 9){
+				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (gui.playerCounter == 4) && GLOBAL.questNum == 10){
 				senateExit();
 			}
 			if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 10){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 11){
 				houseReset(0);
 			}
 			myTransform.rotation = Quaternion(0.0, 1.0, 0.0, 0.0);
@@ -197,7 +197,7 @@ function houseReset(location: int) {
 
 
 function Update () {
-						
+	Debug.Log("gridOrientation: " + gridOrientation);			
 	if (sprite.Playing) {
 		if (!audio.isPlaying) {
 			audio.Play();
@@ -261,39 +261,14 @@ function Update () {
 		}
 		
 	}
-	//if you're in Town3, change z position near all NPCs to stop overlap
-	else if (Application.loadedLevelName == "town3") {
-		if (myPosition.position.x == 34.0 && myPosition.position.y == 32.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 29.0 && myPosition.position.y == 32.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 42.0 && myPosition.position.y == 40.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 41.0 && myPosition.position.y == 41.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 44.0 && myPosition.position.y == 41.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 32.0 && myPosition.position.y == 33.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 20.0 && myPosition.position.y == 38.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 13.0 && myPosition.position.y == 39.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 45.0 && myPosition.position.y == 39.0) {
-				myPosition.position.z = -3.0;
-			}
-		else if (myPosition.position.x == 11.5 && myPosition.position.y == 39.0) {
-				myPosition.position.z = -3.0;
+	//if you're in capitol, fix the position of the player to stop overlap
+	else if (Application.loadedLevelName == "capitol") {
+		if (myPosition.position.x == 5.0 && myPosition.position.y == -20.0) {
+			myPosition.position.z = 0.1;
 		}
-		
+		else if (myPosition.position.x == 17.0 && myPosition.position.y == -1.0) {
+			myPosition.position.z = 0.1;
+		}
 	}
 	
 }

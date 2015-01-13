@@ -328,7 +328,7 @@ function Update () {
 	}
 	
 	//load the next level when the player approaches the door
-	if ((myTrans.position.x <= -7.52) && (myTrans.position.y >=5.0) && GLOBAL.questNum == 4) {
+	if ((myTrans.position.x <= -7.52) && (myTrans.position.y >=5.0) && GLOBAL.questNum == 5) {
 		Application.LoadLevel("enterCave");
 	}
 	
@@ -583,7 +583,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	}
 	
 	if (hit.gameObject.tag == "Door") {
-		if (Application.loadedLevelName == "waterfall" && GLOBAL.questNum == 5) {
+		if (Application.loadedLevelName == "waterfall" && GLOBAL.questNum == 6) {
 			Application.LoadLevel("enterCave");
 		}
 		if (Application.loadedLevelName == "waterfallCave" && talkedToDad) {

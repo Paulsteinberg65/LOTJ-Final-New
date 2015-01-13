@@ -17079,6 +17079,12 @@ MonoBehaviour:
   repQ: 0
   playerCounter: 0
   finished: 0
+  remainingMaze:
+  - Camilo
+  - Carlos
+  - Gabriela
+  - Lita
+  - Manuel
 --- !u!82 &358418238
 AudioSource:
   m_ObjectHideFlags: 0

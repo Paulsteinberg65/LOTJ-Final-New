@@ -1,13 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Rules/RulesGUI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GUIController.js">
     <Files>
-      <File FileName="Assets/GUIController.js" Line="21" Column="1" />
-      <File FileName="Assets/GLOBAL.js" Line="38" Column="10" />
-      <File FileName="Assets/TextManager.js" Line="84" Column="16" />
-      <File FileName="Assets/CharacterMotor.js" Line="335" Column="118" />
-      <File FileName="Assets/Rules/RulesGUI.js" Line="119" Column="2" />
-      <File FileName="Assets/Awareness/AwarenessGUI.js" Line="8" Column="1" />
+      <File FileName="Assets/PlayerMovement.js" Line="308" Column="2" />
+      <File FileName="Assets/GUIController.js" Line="318" Column="170" />
+      <File FileName="Assets/CutsceneManager.js" Line="1" Column="1" />
+      <File FileName="Assets/GLOBAL.js" Line="1" Column="1" />
+      <File FileName="Assets/PlayerMovement.js" Line="264" Column="24" />
+      <File FileName="Assets/TextManager.js" Line="348" Column="1" />
+      <File FileName="Assets/CharacterMotor.js" Line="1" Column="1" />
+      <File FileName="Assets/splashScreens/levelSelect.js" Line="1" Column="1" />
+      <File FileName="Assets/CollisionManager.js" Line="14" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

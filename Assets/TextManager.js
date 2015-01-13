@@ -211,7 +211,7 @@ function Update () {
 						Debug.Log("advancing from maze");
 					}
 					
-					if (GLOBAL.questNum == 5 && currentText == tcScript.dialogueDict["Father"]) {
+					if (GLOBAL.questNum == 6 && currentText == tcScript.dialogueDict["Father"]) {
 						GLOBAL.AdvanceQuest();
 					}
 					if (facedObject.name == "LAideZ" && gui.playerCounter == 2){
@@ -227,7 +227,7 @@ function Update () {
 						Destroy(facedObject);
 					}
 					//these add to the quiz progress counter for NPC's that don't give quizzes
-					if (facedObject.name == "Senator A" && ((GLOBAL.questNum <= 7)||(GLOBAL.questNum == 9)) ){
+					if (facedObject.name == "Senator A" && ((GLOBAL.questNum <= 8)||(GLOBAL.questNum == 10)) ){
 						GLOBAL.AdvanceQuest();
 					}
 					if (facedObject.name == "SenatorG" && GLOBAL.quizProg == 0){

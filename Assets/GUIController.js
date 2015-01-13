@@ -8,6 +8,7 @@ private var NPCName : String;
 private var speakerTex : Texture2D;
 private var questDisplay : boolean = false;
 private var jumpInfoDisplay : boolean = false; //is the GUI showing the jump info for the waterfall?
+private var resetDisplay : boolean = false; //is the GUI showing the reset info?
 var journalDisplay : boolean = false;
 private var displayQuestOnExit : boolean = false;
 private var currentQuestText : String;
@@ -42,6 +43,7 @@ var muteImg : Texture2D;
 var volumeImg : Texture2D;
 var journalImg : Texture2D;
 var soundIconImg : Texture2D;
+var resetIconImg : Texture2D;
 
 var smokeImg : Texture2D;
 
@@ -120,9 +122,9 @@ function Update () {
 		if (jumpInfoDisplay) { //are we currently showing the jumping instructions in the waterfall?
 			jumpInfoDisplay = false; //if so, stop, and allow the player to control themselves once again
 			canControl(true);
-		}
+		} //TODO: implement what happens if someone presses space while in the restart message
 		if (questDisplay || infoDisplay) { //are we currently showing quets or info?
-			if(Application.loadedLevelName == "Maze" && questDisplay){
+			if(Application.loadedLevelName == "Maze" && questDisplay && Array(remainingMaze).length == 0){
 				questDisplay = false;
 				Application.LoadLevel("searchParty1");
 			}
@@ -153,7 +155,10 @@ function Update () {
 					displayQuestOnExit = false;
 				}
 			}
-			
+		}
+		if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
+			resetDisplay = false;
+			canControl(true);
 		}
 	}
 	quiz = tm.quiz;
@@ -294,24 +299,23 @@ function OnGUI () {
 		}
 	}
 	//do not enter sign for the waterfall
-	if (Application.loadedLevelName == "waterfall" && player.transform.position.x < -7.6 && player.transform.position.y > 5.0 && GLOBAL.questNum < 4) {
+	if (Application.loadedLevelName == "waterfall" && player.transform.position.x < -7.6 && player.transform.position.y > 5.0 && GLOBAL.questNum < 5) {
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", infoBoxStyle);
 	}
 	if (Application.loadedLevelName == "capitol") { //do not enter signs for the capitol are here
-		if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
-					&& (GLOBAL.quizProg == 0) && GLOBAL.questNum < 8){
+		if (player.transform.position.x >= 30.0 && player.transform.position.x <= 33.0 && player.transform.position.y >= -20.0 && player.transform.position.y < -18.0 
+					&& (GLOBAL.quizProg == 0) && GLOBAL.questNum < 9){
 			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A.", questTextStyle);
 			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
 		}
-		else if (player.transform.position.x > 30.5 && player.transform.position.x < 32.5 && player.transform.position.y > -20.0 && player.transform.position.y < -18.0 
+		else if (player.transform.position.x >= 30.0 && player.transform.position.x <= 33.0 && player.transform.position.y >= -20.0 && player.transform.position.y < -18.0 
 					&& (GLOBAL.quizProg != 0)){
 			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Visit the other building to talk to more politicians.", questTextStyle);
 			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have already convinced the Senators", questHeaderStyle);
 		}
-		else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
-					&& (GLOBAL.quizProg < 4) && GLOBAL.questNum < 10){
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A and then visit the Senate building to the South.", questTextStyle);
-			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+		else if (player.transform.position.x > 26 && player.transform.position.x <= 29 && player.transform.position.y == -2.0
+					&& (GLOBAL.quizProg < 4) && GLOBAL.questNum < 11){
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You can't enter this building until you have talked to everyone in the building below.", infoBoxStyle);
 		}
 		else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
 					&& (GLOBAL.quizProg >= 4)){
@@ -358,6 +362,14 @@ function OnGUI () {
 				canControl(true);
 			}
 		}
+		if (GUI.Button(Rect(Screen.width-158,0,32,32), resetIconImg, menuButtonStyle)) {
+			if (!resetDisplay) {
+				resetDisplay = true;
+			} else {
+				resetDisplay = false;
+				canControl(true);
+			}			
+		}
 	}
 
 	if (tm.interacting) {
@@ -375,18 +387,16 @@ function OnGUI () {
 		else {
 			if (Application.loadedLevelName == "Maze") { //are we in the maze?
 				var indexNPC = System.Array.IndexOf(remainingMaze, NPCName); //what's the index of the NPC's name in the remainingMaze array?
-				Debug.Log("NPCName: " + NPCName);
 				if (indexNPC > -1) { //if indexNPC = -1, the NPC name has already been removed from remainingMaze
 					var mazeCharArray : Array = new Array(remainingMaze); //convert originial array to dynamic array so we can remove elements
 					mazeCharArray.RemoveAt(indexNPC); //since we haven't removed this NPC yet, remove it
 					remainingMaze = mazeCharArray.ToBuiltin(String) as String[]; //convert back to static array
-					Debug.Log("Splice results: " + Array(remainingMaze).Join(", "));
 				}
 			}
 			speakerTex = tc.imgDict[NPCName];
 			GUI.Box(Rect(0,Screen.height-200,Screen.width,200), currentString, dialogueTextStyle);
 			GUI.Label(Rect(0,Screen.height-200,Screen.width,200), NPCName+":", dialogueHeaderStyle);
-			GUI.DrawTexture(Rect(0,Screen.height-450,326,450), speakerTex);
+			GUI.DrawTexture(Rect(0,Screen.height-450,326,450), speakerTex); //TODO: assign the correct speaker images to capitol
 			GUI.Label(Rect(0,Screen.height-200,Screen.width,200), "Space bar to continue...", spaceBarStyle);
 			if ("Manuel" in NPCName && !playedManuel) {
 				audio.PlayOneShot(chainsaw);
@@ -421,6 +431,15 @@ function OnGUI () {
 		GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentQuestHeader, questHeaderStyle);
 	}
 	
+	if (resetDisplay) {
+		var resetMsg : String = "Resetting the game will undo any progress you've made so far. If you'd like to cancel, press the space bar. If you still want to reset and go back to level selection, press the button below.";
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), resetMsg, infoBoxStyle);
+		if (GUI.Button(Rect(Screen.width/2 - 15, (Screen.height * 0.75) - 60, 32, 32), resetIconImg, menuButtonStyle)) {
+			Application.LoadLevel("levelSelect");
+			GLOBAL.ResetVariables();
+		}
+	}
+	
 	if (journalDisplay) {
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentJournalText, journalStyle);
 		if (currentJournalPage != 0) {
@@ -437,7 +456,6 @@ function OnGUI () {
 	}
 	
 	if (infoDisplay) { //HELP MENU DISPLAY
-		
 		currentString = GLOBAL.infoDict[infoTitle];
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, infoBoxStyle);
 	}
@@ -454,7 +472,11 @@ function DisplayQuest () {
 	else {
 		currentQuestHeader = GLOBAL.questHArray[GLOBAL.questNum];
 		if (Application.loadedLevelName == "Maze" && Array(remainingMaze).length > 0) {
-			currentQuestText = "You still need to find: " + Array(remainingMaze).Join(", ") + "\n\n" + GLOBAL.questArray[GLOBAL.questNum];
+			currentQuestText = 
+				"You still need to find: " + Array(remainingMaze).Join(", ") + "\n\n" + GLOBAL.questArray[GLOBAL.questNum];
+		} else if (Application.loadedLevelName == "waterfall" && ((GLOBAL.numPages - GLOBAL.totalPages) + 1) > 0) {
+			currentQuestText =
+				"You still need to find " + ((GLOBAL.numPages - GLOBAL.totalPages) + 1) + " more pages.\n\n" + GLOBAL.questArray[GLOBAL.questNum];
 		} else {
 			currentQuestText = GLOBAL.questArray[GLOBAL.questNum];
 		}
@@ -469,7 +491,7 @@ function DisplayJournal (currentPage : int) {
 	journalPart = 0;
 	currentJournalPage = currentPage;
 	if (GLOBAL.pagesObtained[currentPage] == "n") {
-		currentJournalText = "You have no entries in your journal yet.";
+		currentJournalText = "You have not found this entry yet.";
 	}
 	else {
 		currentJournalText = tc.journalDict[currentPage][journalPart];

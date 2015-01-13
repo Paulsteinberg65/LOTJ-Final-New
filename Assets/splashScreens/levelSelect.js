@@ -15,6 +15,7 @@ function Start () {
 }
 
 function Update () {
+	Debug.Log("selection: " + selection);
 	if (Input.GetButtonDown("Space")) {
 		Application.LoadLevel(nextScene);
 	}
@@ -33,38 +34,46 @@ function Update () {
 				selection -= 1;
 			}
 		}
-		
-		if (selection == 0) {
-			GLOBAL.questNum = 0;
-			nextScene = "intro1";
-		} else if (selection == 1) {
-			GLOBAL.questNum = 3;
-			GLOBAL.pagesObtained[0] = "y";
-			GLOBAL.totalPages = GLOBAL.totalPages + 1;
-			nextScene = "enterWaterfall";
-		} else if (selection == 2) {
-			GLOBAL.questNum = 6;
-			for (i = 0; i < GLOBAL.pagesObtained.length; i++) {
-				GLOBAL.pagesObtained[i] = "y";
-			}
-			GLOBAL.totalPages = 9;
-			nextScene = "awareness";
-		} else if (selection == 3) {
-			GLOBAL.questNum = 6;
-			for (j = 0;j < GLOBAL.pagesObtained.length;j++) {
-				GLOBAL.pagesObtained[j] = "y";
-			}
-			GLOBAL.totalPages = 9;
-			nextScene = "rules";
-		} else if (selection == 4) {
-			GLOBAL.questNum = 7;
-			for (k = 0;k < GLOBAL.pagesObtained.length;k++) {
-				GLOBAL.pagesObtained[k] = "y";
-			}
-			GLOBAL.totalPages = 9;
-			nextScene = "capitol";
-		}
 	}
+		
+	if (selection == 0) {
+		GLOBAL.questNum = 0;
+		GLOBAL.totalPages = 0;
+		for (j = 0;j < GLOBAL.pagesObtained.length;j++) {
+			GLOBAL.pagesObtained[j] = "n";
+		}
+		nextScene = "intro1";
+	} else if (selection == 1) {
+		GLOBAL.questNum = 4;
+		for (j = 1;j < GLOBAL.pagesObtained.length;j++) {
+			GLOBAL.pagesObtained[j] = "n";
+		}
+		GLOBAL.pagesObtained[0] = "y";
+		GLOBAL.totalPages = 1;
+		nextScene = "enterWaterfall";
+	} else if (selection == 2) {
+		GLOBAL.questNum = 7;
+		for (i = 0; i < GLOBAL.pagesObtained.length; i++) {
+			GLOBAL.pagesObtained[i] = "y";
+		}
+		GLOBAL.totalPages = 9;
+		nextScene = "awareness";
+	} else if (selection == 3) {
+		GLOBAL.questNum = 7;
+		for (j = 0;j < GLOBAL.pagesObtained.length;j++) {
+			GLOBAL.pagesObtained[j] = "y";
+		}
+		GLOBAL.totalPages = 9;
+		nextScene = "rules";
+	} else if (selection == 4) {
+		GLOBAL.questNum = 8;
+		for (k = 0;k < GLOBAL.pagesObtained.length;k++) {
+			GLOBAL.pagesObtained[k] = "y";
+		}
+		GLOBAL.totalPages = 9;
+		nextScene = "capitol";
+	}
+	//}
 }
 
 function OnGUI () {

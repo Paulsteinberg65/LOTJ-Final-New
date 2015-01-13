@@ -65,8 +65,8 @@ function Start () {
 	questArray.push("Your mother suggested that you find the biologist to help figure out what happened to your father and why the forest is being destroyed. He is somewhere in this area.");
 	questHArray.push("Find your father in the forest");
 	questArray.push("The biologist feels that ignorance and greed are driving the destruction of the forest, but you suspect it's more complex than that. Find your father to learn more. There are five farmers in the forest who may be able to help you find him.");
-	//questHArray.push("Return to the village");
-	//questArray.push("Your father has been kidnapped. Go tell the villagers what has happened.");
+	questHArray.push("Return to the village");
+	questArray.push("Your father has been kidnapped. Go tell the villagers what has happened.");
 	questHArray.push("Go to the waterfall");
 	questArray.push("The search party suggested that you might find clues about what happened to your dad. If you see more pages from his research journal, read them carefully.");
 	questHArray.push("Find your father");
@@ -146,4 +146,11 @@ function AddPage (pageNum : int) {
 
 function FindGUI () {
 	GUIController = GameObject.Find("GUIController").GetComponent("GUIController");
+}
+
+function ResetVariables () { //reset variables to restart the game from levelSelect
+	//other variables like questNum, etc. are taken vare of by levelSelect script
+	quizProg = 0;
+	inSenate = false;
+	inHouse = false;
 }
