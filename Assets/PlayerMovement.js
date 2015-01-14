@@ -59,8 +59,6 @@ function Start () {
 	var moveSpeed = walkSpeed;
 	facing = "down";
 	
-	Debug.Log("I'm working!");
-	
  	collisionDict = collisionManager.GetComponent("CollisionManager").collisionDict;
 	while (true) {
 		while (input == Vector2.zero) {
@@ -196,8 +194,7 @@ function houseReset(location: int) {
 }
 
 
-function Update () {
-	Debug.Log("gridOrientation: " + gridOrientation);			
+function Update () {			
 	if (sprite.Playing) {
 		if (!audio.isPlaying) {
 			audio.Play();
@@ -267,6 +264,51 @@ function Update () {
 			myPosition.position.z = 0.1;
 		}
 		else if (myPosition.position.x == 17.0 && myPosition.position.y == -1.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 1.0 && myPosition.position.y == 2.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 4.0 && myPosition.position.y == -15.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 115.0 && myPosition.position.y == 40.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 17.0 && myPosition.position.y == -1.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 120.0 && myPosition.position.y == 62.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 17.0 && myPosition.position.y == -1.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 92.0 && myPosition.position.y == 37.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 94.0 && myPosition.position.y == 39.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 89.0 && myPosition.position.y == 39.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 100.0 && myPosition.position.y == 39.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 100.0 && myPosition.position.y == 58.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 95.0 && myPosition.position.y == -22.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 109.0 && myPosition.position.y == -2.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 122.0 && myPosition.position.y == -16.0) {
+			myPosition.position.z = 0.1;
+		}
+		else if (myPosition.position.x == 121.0 && myPosition.position.y == -22.0) {
 			myPosition.position.z = 0.1;
 		}
 	}

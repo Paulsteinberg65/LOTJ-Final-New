@@ -15,6 +15,7 @@
      public var radio : AudioClip; //piggies clip
      public var jeep : AudioClip; //jeep engine clip
      public var city : AudioClip; //city clip
+     public var legislature : AudioClip; //in building clip for the capital
      
      function Awake() 
      {
@@ -29,6 +30,9 @@
          }
          
          DontDestroyOnLoad( this.gameObject );
+     }
+     
+     function Update() {
      }
      
      //changes the music when a new level is loaded if necessary
@@ -120,10 +124,6 @@
          else if ( level == 27 ) //stop car noises for capitol
          {
          	audio.Stop();
-         }
-         else if ( level == 28 ) //play city noises for capitol
-         {
-         	audio.Stop();
          	audio.clip = city;
          	audio.Play();
          }
@@ -135,8 +135,17 @@
          return instance;
      }
      
-     function Update() 
-     {
-         //
+     function ToggleInsideAudio (inside : boolean) { //toggles the audio clips in the capital for walking inside and outside
+     	Debug.Log("HELLO I'M HERE in MusicSingleton");
+     	if (inside) {
+     		audio.Stop();
+     		audio.clip = legislature;
+     		audio.Play();
+     	} else if (!inside) {
+     		audio.Stop();
+     		audio.clip = city;
+     		audio.Play();
+     	}
      }
+     
  }

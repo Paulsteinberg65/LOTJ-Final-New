@@ -8,6 +8,7 @@ private var slider2Text : String;
 private var mayorText : String;
 private var subText1 : String;
 var menuButtonStyle : GUIStyle;
+var infoBoxStyle : GUIStyle;
 private var subText2 : String;
 private var approval1 : int;
 private var approval2 : int;
@@ -34,6 +35,7 @@ var approvalLabelStyle : GUIStyle;
 
 var submitImg : Texture2D;
 private var showingHelp : boolean = false; //are we showing the help message?
+private var resetDisplay : boolean = false;
 private var helpString : String = "You must come to an agreement on a system of land regulations with your fellow villagers. Move the sliders to the desired position to change your proposal, and then hit 'Propose Rule' to put it to a vote.";
 
 //images for buttons
@@ -42,11 +44,13 @@ var muteImg : Texture2D;
 var volumeImg : Texture2D;
 var journalImg : Texture2D;
 var soundIconImg : Texture2D;
+var resetIconImg : Texture2D;
 
 // Use this for initialization
 function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	menuButtonStyle = GLOBAL.menuButtonStyle;
+	infoBoxStyle = GLOBAL.infoBoxStyle;
 	tc = GameObject.Find("TextContainer").GetComponent("Rules_TextContainer");
 	ResetValues();
 }
@@ -62,6 +66,9 @@ function Update () {
 				ruleAccepted = false;
 				AdvanceQuestion();
 			}
+		}
+		if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
+			resetDisplay = false;
 		}
 	}
 }
@@ -138,8 +145,20 @@ function OnGUI () {
 			GLOBAL.muted = true;
 		}
 	}
-	if (GUI.Button(Rect(Screen.width-116,0,32,32), journalImg, menuButtonStyle)) { //player pressed the inventory button
-		//do nothing, the button is disabled
+	if (GUI.Button(Rect(Screen.width-116,0,32,32), resetIconImg, menuButtonStyle)) {
+		if (!resetDisplay) {
+			resetDisplay = true;
+		} else {
+			resetDisplay = false;
+		}			
+	}
+	if (resetDisplay) {
+		var resetMsg : String = "Resetting the game will undo any progress you've made so far. If you'd like to cancel, press the space bar. If you still want to reset and go back to level selection, press the button below.";
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), resetMsg, infoBoxStyle);
+		if (GUI.Button(Rect(Screen.width/2 - 15, (Screen.height * 0.75) - 60, 32, 32), resetIconImg, menuButtonStyle)) {
+			Application.LoadLevel("levelSelect");
+			GLOBAL.ResetVariables();
+		}
 	}
 }
 

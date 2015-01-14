@@ -139,7 +139,6 @@ function Start () {
 		nextScene = "enterAwareness";
 	}
 	else if (cutscene == 3 || (Application.loadedLevelName == "town3" && cutscene != 4)) {
-		cutscene = 4;
 		NPCDict.push("Police Officer");
 		NPCDict.push("Police Officer");
 		NPCDict.push("Police Officer");
@@ -163,7 +162,7 @@ function Start () {
 		TextDict.push("We must go back to the village and prepare to leave for the capital!");
 		
 		
-		nextScene = "drive1";
+		nextScene = "town3";
 		//nextScene = "town3"; UNCOMMENT IF NOT DEMO
 	}
 	else if (cutscene == 4) {

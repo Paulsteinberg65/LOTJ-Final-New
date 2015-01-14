@@ -77,6 +77,8 @@ var finished : boolean = false;
 
 var remainingMaze = ["Camilo", "Carlos", "Gabriela", "Lita", "Manuel"];
 
+private var musicPlayer : Object;
+
 function Start () {
 	tm = player.GetComponent(TextManager);
 	if(Application.loadedLevelName != "waterfall" && Application.loadedLevelName != "waterfallCave") {
@@ -87,6 +89,7 @@ function Start () {
 	}
 	tc = textContainer.GetComponent(tcName);
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
+	musicPlayer = GameObject.Find("MusicPlayer").GetComponent("MusicSingleton");
 	dialogueHeaderStyle = GLOBAL.dialogueHeaderStyle;
 	dialogueTextStyle = GLOBAL.dialogueTextStyle;
 	questHeaderStyle = GLOBAL.questHeaderStyle;
@@ -118,6 +121,13 @@ function Start () {
 }
 
 function Update () {
+	Debug.Log("GLOBAL.pagesObtained.length: " + GLOBAL.pagesObtained.length + " GLOBAL.numPages: " + GLOBAL.numPages);
+	//following elif toggles inside or outside audio in the capitol level
+	if (Application.loadedLevelName == "capitol" && (GLOBAL.inSenate || GLOBAL.inHouse) && musicPlayer.audio.clip == musicPlayer.city) {
+		musicPlayer.ToggleInsideAudio(true);
+	} else if (Application.loadedLevelName == "capitol" && (!GLOBAL.inSenate && !GLOBAL.inHouse) && musicPlayer.audio.clip == musicPlayer.legislature) {
+		musicPlayer.ToggleInsideAudio(false);
+	}
 	if (Input.GetButtonDown("Space")) { //the player has pressed space
 		if (jumpInfoDisplay) { //are we currently showing the jumping instructions in the waterfall?
 			jumpInfoDisplay = false; //if so, stop, and allow the player to control themselves once again

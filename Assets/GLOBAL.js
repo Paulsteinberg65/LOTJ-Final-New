@@ -41,7 +41,7 @@ var muted : boolean = false;
 function Start () {
 	DontDestroyOnLoad(gameObject);
 	GUIController = GameObject.Find("GUIController").GetComponent("GUIController");
-	for (var i = 1; i < numPages; i++) {
+	for (var i = 0; i < numPages; i++) {
 		pagesObtained.push("n");
 	}
 	
