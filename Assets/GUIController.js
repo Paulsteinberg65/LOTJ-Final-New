@@ -37,6 +37,7 @@ var infoBoxStyle : GUIStyle;
 var journalStyle : GUIStyle;
 var menuButtonStyle : GUIStyle;
 var spaceBarStyle : GUIStyle;
+var timerStyle: GUIStyle;
 
 var helpImg : Texture2D;
 var muteImg : Texture2D;
@@ -57,6 +58,7 @@ private var playedManuel: boolean = false;
 //TODO: STUFF FROM TIMER
 var repR: boolean = false;
 var repQ: boolean = false;
+var repE: boolean = false;
 private var tick: int = 0;
 var playerCounter: int = 0;	//number of politicians player has convinced on a given level
 private var danteCounter: int = 0;	//number of politicians dante has convinced on a given level
@@ -128,6 +130,28 @@ function Update () {
 	} else if (Application.loadedLevelName == "capitol" && (!GLOBAL.inSenate && !GLOBAL.inHouse) && musicPlayer.audio.clip == musicPlayer.legislature) {
 		musicPlayer.ToggleInsideAudio(false);
 	}
+	if ( Input.GetButtonDown("H")){
+		if (!questDisplay)
+				DisplayQuest();
+			else {
+				questDisplay = false;
+				canControl(true);
+			}
+	}
+	if (Input.GetButtonDown("M")){
+		var volume : float = GameObject.Find("Main Camera").GetComponent("AudioListener").volume;
+			if (volume == 0) {
+				GameObject.Find("Main Camera").GetComponent("AudioListener").volume = 1.0;
+				soundIconImg = volumeImg;
+				GLOBAL.muted = false;
+			}
+			else {
+				GameObject.Find("Main Camera").GetComponent("AudioListener").volume = 0.0;
+				soundIconImg = muteImg;
+				GLOBAL.muted = true;
+			}
+	}
+		
 	if (Input.GetButtonDown("Space")) { //the player has pressed space
 		if (jumpInfoDisplay) { //are we currently showing the jumping instructions in the waterfall?
 			jumpInfoDisplay = false; //if so, stop, and allow the player to control themselves once again
@@ -195,12 +219,12 @@ function Update () {
 			}
 
 			
-	  		if (danteCounter == 6 && !GLOBAL.inHouse){	//if timer runs out in senate
+	  		if (danteCounter == 6 && GLOBAL.inHouse){	//if timer runs out in senate
 				DisplayInfo("hFailure");
 				canControl(false);
 				movement.senateReset(1);
 	  		}
-	  		else if (danteCounter == 4 && !GLOBAL.inSenate) {	//if timer runs out in senate
+	  		else if (danteCounter == 4 && GLOBAL.inSenate) {	//if timer runs out in senate
 				DisplayInfo("sFailure");
 				canControl(false);
 				movement.houseReset(1);
@@ -280,60 +304,67 @@ function toggleFinish(){
 		finished = false;
 	}
 }
+
+function senateExit(){
+	movement.senateExit();
+}
 //TODO: END OF TIMER STUFF
 
 function OnGUI () {
 	//TODO: TIMER
 	if(showTime){
-		GUI.Box(Rect(Screen.width*0.5-(75*0.5),0,75,25),timerText);
-		if (!GLOBAL.inSenate){
-		GUI.Box(Rect(Screen.width*0.30-50,0,100,25), "You: "+playerCounter.ToString()+"/4");
-		GUI.Box(Rect(Screen.width*0.70-50,0,100,25), "Dante: "+danteCounter.ToString()+"/4");
+		GUI.Box(Rect(Screen.width*0.5-(75*0.5),20,75,35), "");
+		GUI.Box(Rect(Screen.width*0.5-(75*0.5),0,75,25),timerText, questHeaderStyle);
+		if (GLOBAL.inSenate){
+		GUI.Box(Rect(Screen.width*0.30-50,20,100,25), "You: "+playerCounter.ToString()+"/4");
+		GUI.Box(Rect(Screen.width*0.70-50,20,100,25), "Dante: "+danteCounter.ToString()+"/4");
 		}
-		else{
-		GUI.Box(Rect(Screen.width*0.30-50,0,100,25), "You: "+playerCounter.ToString()+"/6");
-		GUI.Box(Rect(Screen.width*0.70-50,0,100,25), "Dante: "+danteCounter.ToString()+"/6");
+		else if (GLOBAL.inHouse){
+		GUI.Box(Rect(Screen.width*0.30-50,20,100,25), "You: "+playerCounter.ToString()+"/6");
+		GUI.Box(Rect(Screen.width*0.70-50,20,100,25), "Dante: "+danteCounter.ToString()+"/6");
 		}
 	}
 	//TODO: END OF TIMER
 	//code for the do not enter signs
 	if (Application.loadedLevelName == "Town1") { //do not enter signs for Town1 are contained here
 		if (player.transform.position.x == 41.0 && player.transform.position.y == 4.0) {
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", infoBoxStyle);
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
 		} 
 		else if (player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", infoBoxStyle);
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
 		}
 		else if (player.transform.position.x == 41.0 && (player.transform.position.y == -24.0 || player.transform.position.y == -23.0)) {
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Before traveling anywhere, you should learn more about what’s going on in your village.", infoBoxStyle);
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Before traveling anywhere, you should learn more about what’s going on in your village.", questTextStyle);
 		}
 	}
 	//do not enter sign for the waterfall
 	if (Application.loadedLevelName == "waterfall" && player.transform.position.x < -7.6 && player.transform.position.y > 5.0 && GLOBAL.questNum < 5) {
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", infoBoxStyle);
+		DisplayInfo("waterfallExitBlocked");
+		//GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", infoBoxStyle);
 	}
-	if (Application.loadedLevelName == "capitol") { //do not enter signs for the capitol are here
-		if (player.transform.position.x >= 30.0 && player.transform.position.x <= 33.0 && player.transform.position.y >= -20.0 && player.transform.position.y < -18.0 
-					&& (GLOBAL.quizProg == 0) && GLOBAL.questNum < 9){
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A.", questTextStyle);
-			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
-		}
-		else if (player.transform.position.x >= 30.0 && player.transform.position.x <= 33.0 && player.transform.position.y >= -20.0 && player.transform.position.y < -18.0 
-					&& (GLOBAL.quizProg != 0)){
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Visit the other building to talk to more politicians.", questTextStyle);
-			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have already convinced the Senators", questHeaderStyle);
-		}
-		else if (player.transform.position.x > 26 && player.transform.position.x <= 29 && player.transform.position.y == -2.0
-					&& (GLOBAL.quizProg < 4) && GLOBAL.questNum < 11){
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You can't enter this building until you have talked to everyone in the building below.", infoBoxStyle);
-		}
-		else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
-					&& (GLOBAL.quizProg >= 4)){
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A before entering this building.", questTextStyle);
-			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
-		}
-	}
+//	if (Application.loadedLevelName == "capitol") { //do not enter signs for the capitol are here
+//		if (player.transform.position.x >= 30.0 && player.transform.position.x <= 33.0 && player.transform.position.y >= -20.0 && player.transform.position.y < -18.0 
+//					&& (GLOBAL.quizProg == 0) && GLOBAL.questNum < 9){
+//			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A.", questTextStyle);
+//			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+//		}
+//		else if (player.transform.position.x >= 30.0 && player.transform.position.x <= 33.0 && player.transform.position.y >= -20.0 && player.transform.position.y < -18.0 
+//					&& (GLOBAL.quizProg != 0)){
+//			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Visit the other building to talk to more politicians.", questTextStyle);
+//			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have already convinced the Senators", questHeaderStyle);
+//		}
+//		else if (player.transform.position.x > 26 && player.transform.position.x <= 29 && player.transform.position.y == -2.0
+//					&& (GLOBAL.quizProg < 4) && GLOBAL.questNum < 11){
+//			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You can't enter this building until you have talked to everyone in the building below.", infoBoxStyle);
+//		}
+//		else if (player.transform.position.x > 26 && player.transform.position.x < 29 && player.transform.position.y > -1.5 && player.transform.position.y < 0
+//					&& (GLOBAL.quizProg >= 4)){
+//			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Talk to Senator A before entering this building.", questTextStyle);
+//			GUI.Label(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You are not ready to enter here", questHeaderStyle);
+//		}
+//	}
 	
+
 	
 	
 	if (showGUI) {
@@ -351,6 +382,7 @@ function OnGUI () {
 				canControl(true);
 			}
 		}
+		
 		if (GUI.Button(Rect(Screen.width-74,0,32,32), soundIconImg, menuButtonStyle)) {
 			var volume : float = GameObject.Find("Main Camera").GetComponent("AudioListener").volume;
 			if (volume == 0) {
@@ -387,7 +419,7 @@ function OnGUI () {
 		NPCName = tm.facedObject.name;
 		
 		if ("Sign" in NPCName) { //this is where info signs display is done
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, infoBoxStyle);
+			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, questTextStyle);
 			if("BirdSign" in NPCName && !playedWarblers) {
 				audio.PlayOneShot(cerulean_warbler);
 				playedWarblers = true;
@@ -443,7 +475,7 @@ function OnGUI () {
 	
 	if (resetDisplay) {
 		var resetMsg : String = "Resetting the game will undo any progress you've made so far. If you'd like to cancel, press the space bar. If you still want to reset and go back to level selection, press the button below.";
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), resetMsg, infoBoxStyle);
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), resetMsg, questTextStyle);
 		if (GUI.Button(Rect(Screen.width/2 - 15, (Screen.height * 0.75) - 60, 32, 32), resetIconImg, menuButtonStyle)) {
 			Application.LoadLevel("levelSelect");
 			GLOBAL.ResetVariables();
@@ -451,15 +483,15 @@ function OnGUI () {
 	}
 	
 	if (journalDisplay) {
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentJournalText, journalStyle);
+		GUI.Box(Rect(Screen.width/8, Screen.height/8, Screen.width/1.33, Screen.height/1.33), currentJournalText, journalStyle);
 		if (currentJournalPage != 0) {
-			if (GUI.Button(Rect(Screen.width/4,Screen.height/2,32,32),journalImg,menuButtonStyle)){
+			if (GUI.Button(Rect(Screen.width/8,Screen.height/2,32,32),journalImg,menuButtonStyle)){
 				DisplayJournal(--currentJournalPage);
 				}
 		}
 				
 		if (currentJournalPage != 8) {
-			if (GUI.Button(Rect(Screen.width*3/4,Screen.height/2,32,32),journalImg,menuButtonStyle)){
+			if (GUI.Button(Rect(Screen.width*7/8,Screen.height/2,32,32),journalImg,menuButtonStyle)){
 				DisplayJournal(++currentJournalPage);
 			}
 		}
@@ -467,11 +499,11 @@ function OnGUI () {
 	
 	if (infoDisplay) { //HELP MENU DISPLAY
 		currentString = GLOBAL.infoDict[infoTitle];
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, infoBoxStyle);
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, questTextStyle);
 	}
 	
 	if (jumpInfoDisplay) { //show the jump info if we should be
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", infoBoxStyle);
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", questTextStyle);
 	}
 }
 

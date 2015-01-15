@@ -20,6 +20,7 @@ private var farmerRep : float = 5;
 private var fisherRep : float = 5;
 private var studentRep : float = 5;
 private var artisanRep : float = 5;
+private var scoreToWin : int = 8;
 
 
 // Use this for initialization
@@ -64,9 +65,9 @@ function OnTriggerEnter (other : Collider) {
 	var otherSprite : int = other.GetComponent(tk2dSprite).spriteId;
 	if (sameSprite(playerSprite, otherSprite)) {
 		if (playerSprite == 9) {
-			if (farmerRep < 10)
+			if (farmerRep < scoreToWin)
 				farmerRep += 1;
-			if (!farmerWin && farmerRep == 10) {
+			if (!farmerWin && farmerRep == scoreToWin) {
 				farmerWin = true;
 				if (farmerWin && studentWin && fisherWin && artisanWin)
 					guiScript.DisplayMessage("allWin");
@@ -75,9 +76,9 @@ function OnTriggerEnter (other : Collider) {
 			}
 		}
 		else if (playerSprite == 15) {
-			if (studentRep < 10)
+			if (studentRep < scoreToWin)
 				studentRep += 1;
-			if (!studentWin && studentRep == 10) {
+			if (!studentWin && studentRep == scoreToWin) {
 				studentWin = true;
 				if (farmerWin && studentWin && fisherWin && artisanWin)
 					guiScript.DisplayMessage("allWin");
@@ -86,9 +87,9 @@ function OnTriggerEnter (other : Collider) {
 			}
 		}
 		else if (playerSprite == 13) {
-			if (fisherRep < 10)
+			if (fisherRep < scoreToWin)
 				fisherRep += 1;
-			if (!fisherWin && fisherRep == 10) {
+			if (!fisherWin && fisherRep == scoreToWin) {
 				fisherWin = true;
 				if (farmerWin && studentWin && fisherWin && artisanWin)
 					guiScript.DisplayMessage("allWin");
@@ -97,9 +98,9 @@ function OnTriggerEnter (other : Collider) {
 			}
 		}
 		else if (playerSprite == 0) {
-			if (artisanRep < 10)
+			if (artisanRep < scoreToWin)
 				artisanRep += 1;
-			if (!artisanWin && artisanRep == 10) {
+			if (!artisanWin && artisanRep == scoreToWin) {
 				artisanWin = true;
 				if (farmerWin && studentWin && fisherWin && artisanWin)
 					guiScript.DisplayMessage("allWin");
@@ -112,7 +113,7 @@ function OnTriggerEnter (other : Collider) {
 	
 	else {
 		if (otherSprite >= 5 && otherSprite < 10) {
-			if (farmerRep < 10 && farmerRep > 0) {
+			if (farmerRep < scoreToWin && farmerRep > 0) {
 				audio.PlayOneShot(grunt);
 				farmerRep -=1;
 				}
@@ -122,7 +123,7 @@ function OnTriggerEnter (other : Collider) {
 			}
 		}
 		else if (otherSprite >= 15) {
-			if (studentRep < 10 && studentRep > 0){
+			if (studentRep < scoreToWin && studentRep > 0){
 				audio.PlayOneShot(grunt);
 				studentRep -=1;
 				}
@@ -132,7 +133,7 @@ function OnTriggerEnter (other : Collider) {
 			}
 		}
 		else if (otherSprite >= 10 && otherSprite < 15) {
-			if (fisherRep < 10 && fisherRep > 0){
+			if (fisherRep < scoreToWin && fisherRep > 0){
 				audio.PlayOneShot(grunt);
 				fisherRep -=1;
 				}
@@ -142,7 +143,7 @@ function OnTriggerEnter (other : Collider) {
 			}
 		}
 		else if (otherSprite < 5) {
-			if (artisanRep < 10 && artisanRep > 0){
+			if (artisanRep < scoreToWin && artisanRep > 0){
 				audio.PlayOneShot(grunt);
 				artisanRep -=1;
 				}

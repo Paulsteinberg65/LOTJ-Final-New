@@ -133,58 +133,42 @@ function Update () {
 					//	currentLineNum = currentTextLength; //don't think this is necessary for correct answer
 						currentLineNum += 2; //skips displaying the "quiz" line that activates quiz
 						currentLine = currentText[currentLineNum]; //continues text
-//						if (GLOBAL.quizProg == 1){
-//							tcScript.NextDialogue();
-//						}
-//						if (gui.playerCounter == 1 && facedObject.name == "SenatorG"){	
-//							gui.playerUp();
-//							tcScript.NextDialogue();
-//						}
-//						else if (GLOBAL.quizProg == 2){
-//							tcScript.ChangeAides(1);
-//						}
-						if (gui.playerCounter == 1 && facedObject.name == "SenatorC"){
+
+						if (gui.playerCounter == 1 && facedObject.name == "Senator C - Chair, Natural Resources Committee"){
 							gui.playerUp();
-							tcScript.ChangeAides(1);
+							tcScript.NextDialogue();
+							//tcScript.ChangeAides(1);
 						}
-						else if (gui.playerCounter == 2 && facedObject.name == "SenatorZ"){
+						else if (gui.playerCounter == 2 && facedObject.name == "Senator Z"){
 							gui.playerUp();
-							tcScript.ChangeAides(2);
+							tcScript.NextDialogue();
+							//tcScript.ChangeAides(2);
 						}
-//						else if (GLOBAL.quizProg == 3){
-//							tcScript.ChangeAides(2);
-//						}
-//						else if (gui.playerCounter == 3 ){
-//							gui.playerUp();
-//							
-//						}
-//						else if (GLOBAL.quizProg == 8){
-//							tcScript.ChangeAides(3);
-//						}
-						else if (facedObject.name == "RepH" && gui.playerCounter <= 5){
-							tcScript.ChangeAides(3);
-							gui.playerUp();
-						}
-//						else if (GLOBAL.quizProg == 5){
-//							tcScript.NextDialogue();
-//						}
-						else if (gui.playerCounter == 0 && GLOBAL.quizProg >= 5 && facedObject.name == "RepT"){
-							
+
+						else if (facedObject.name == "Representative H" && gui.playerCounter == 4){
+							//tcScript.ChangeAides(3);
 							tcScript.NextDialogue();
 							gui.playerUp();
 						}
-//						else if (GLOBAL.quizProg == 6){
-//							tcScript.NextDialogue();
-//						}
-						else if (gui.playerCounter == 1 && facedObject.name == "RepE"){
-							
+
+						else if (gui.playerCounter == 0 && facedObject.name == "Representative T"){
+							tcScript.NextDialogue();
+							gui.playerUp();
+						}
+
+						else if (gui.playerCounter < 5 && gui.playerCounter >= 1 && facedObject.name == "Representative E"){
+							if(!gui.repE){
+							gui.repE = true;
 							gui.playerUp();
 							tcScript.NextDialogue();
+								if(gui.repQ && gui.repR){
+									tcScript.NextDialogue();
+								}
+							}
 						}
 					
 					}
 					else{ //wrong answer
-						//ts.skip();
 						gui.skip();
 						currentLineNum = currentTextLength;
 						currentLine = "That's not quite right... Check the pages you have collected and try again";
@@ -214,13 +198,13 @@ function Update () {
 					if (GLOBAL.questNum == 6 && currentText == tcScript.dialogueDict["Father"]) {
 						GLOBAL.AdvanceQuest();
 					}
-					if (facedObject.name == "LAideZ" && gui.playerCounter == 2){
+					if (facedObject.name == "Legislative Aide Z" && gui.playerCounter == 2){
 						Destroy(facedObject);
 					}
-					if (facedObject.name == "LAideX" && gui.playerCounter == 3){
+					if (facedObject.name == "Legislative Aide X" && gui.playerCounter == 3){
 						Destroy(facedObject);
 					}
-					if (facedObject.name == "LAideW" && gui.playerCounter == 5){
+					if (facedObject.name == "Legislative Aide W" && gui.playerCounter == 5){
 						Destroy(facedObject);
 					}
 					if (facedObject.name == "Dante" || facedObject.name == "Dante "){
@@ -229,48 +213,52 @@ function Update () {
 					//these add to the quiz progress counter for NPC's that don't give quizzes
 					if (facedObject.name == "Senator A" && ((GLOBAL.questNum <= 8)||(GLOBAL.questNum == 10)) ){
 						GLOBAL.AdvanceQuest();
+						tcScript.NextDialogue();
 					}
-					if (facedObject.name == "SenatorG" && GLOBAL.quizProg == 0){
+					if (facedObject.name == "Senator G - Member, Natural Resources Committee" && GLOBAL.quizProg == 0){
 						Debug.Log("Should advance dialogue");
 						GLOBAL.AdvanceQuiz();
 						tcScript.NextDialogue();
 						gui.playerUp();
 					}
-					else if (facedObject.name == "SenatorX"){
-						//ts.toggleFinish(); TODO: DEPRECATED
-						//ts.stopTimer();
+					else if (facedObject.name == "Senator X - President of the Senate" && gui.playerCounter == 3){
+						tcScript.NextDialogue();
 						gui.toggleFinish();
 						gui.stopTimer();
 						GLOBAL.AdvanceQuiz();
 						GLOBAL.AdvanceQuest();
 						gui.playerUp();
-						Debug.Log("One quest #: "+GLOBAL.questNum);
+						Debug.Log("On quest #: "+GLOBAL.questNum);
+						gui.senateExit();
 					}
-					else if (facedObject.name == "RepR" && GLOBAL.quizProg >= 6 && gui.playerCounter < 6){
+					else if (facedObject.name == "Representative R" && gui.playerCounter < 5 && gui.playerCounter > 1){
 						if (!gui.repR){
 						GLOBAL.AdvanceQuiz();
 						gui.playerUp();
 						gui.repR = true;
+							if(gui.repQ && gui.repE){
+								tcScript.NextDialogue();
+							}
 						}
 					}
-					else if (facedObject.name == "RepQ" && GLOBAL.quizProg >= 7 && gui.playerCounter < 6){
+					else if (facedObject.name == "Representative Q" && gui.playerCounter < 5  && gui.playerCounter > 1){
 						if(!gui.repQ){
 						GLOBAL.AdvanceQuiz();
 						gui.playerUp();
 						gui.repQ = true;
+							if(gui.repR && gui.repE){
+								tcScript.NextDialogue();
+							}
 						}
+
 					}
-					else if (facedObject.name == "RepW"){
-						//ts.toggleFinish(); TODO: DEPRECATED
-						//ts.stopTimer();
+					else if (facedObject.name == "Representative W - Speaker of the Chamber of Representatives" && gui.playerCounter == 5){
 						gui.toggleFinish();
 						gui.stopTimer();
 						gui.playerUp();
-//						GLOBAL.AdvanceQuiz();
-//						GLOBAL.AdvanceQuest();
-						
 						gui.GameOver();
 					}
+
 					
 					//update dynamic text
 					if (Application.loadedLevelName == "Maze") {
@@ -286,8 +274,13 @@ function Update () {
 							//tcScript.dialogueDict[facedObject.name].Push(tcScript.dialogueDict["QuestComplete"]);
 						}
 					}
-					canControl(true);
-					
+//					if(!questDisplay){
+//						canControl(true);
+//					}
+//					else{
+//						
+//					}
+//					
 					
 					
 					//facedObject = null;

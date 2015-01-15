@@ -17,7 +17,7 @@ function Start () {
 					collisionDict[Mathf.RoundToInt(center.x - size.x * 0.5 + 0.5 + i).ToString() + ", " 
 						+ Mathf.RoundToInt(center.y - size.y * 0.5 + 0.5 + j).ToString()] = obstacle;
 				else
-					collisionDict[center.x.ToString() + ", " + center.y.ToString()] = obstacle;
+					collisionDict[center.x.ToString() + ", " + (center.y).ToString()] = obstacle;
 			}
 		}
 	}

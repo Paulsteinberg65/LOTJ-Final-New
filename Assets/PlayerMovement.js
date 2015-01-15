@@ -103,13 +103,29 @@ function Start () {
 				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum == 9){
 				senateReset(0);
 			}
+			else if(endPosition.x > 30.5 && endPosition.x < 32.5 && endPosition.y > -20.0 && endPosition.y < -18.0
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum < 9){
+				gui.DisplayInfo("senateBlocked1");
+			}
+			else if(endPosition.x > 30.5 && endPosition.x < 32.5 && endPosition.y > -20.0 && endPosition.y < -18.0
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && GLOBAL.questNum > 9){
+				gui.DisplayInfo("senateBlocked2");
+			}
 			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
 				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (gui.playerCounter == 4) && GLOBAL.questNum == 10){
 				senateExit();
 			}
 			if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 4) && GLOBAL.questNum == 11){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) && GLOBAL.questNum == 11){
 				houseReset(0);
+			}
+			else if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) &&  GLOBAL.questNum < 11){
+				gui.DisplayInfo("houseBlocked2");
+			}
+			else if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg < 4) &&  GLOBAL.questNum < 11){
+				gui.DisplayInfo("houseBlocked1");
 			}
 			myTransform.rotation = Quaternion(0.0, 1.0, 0.0, 0.0);
 			yield;
@@ -167,13 +183,13 @@ function senateReset(location: int) {// 0 if coming from outside, 1 if from insi
 	gui.showTimer();
 	gui.runTimer();
 	if (location == 0){
-	GLOBAL.SenateToggle();
+	GLOBAL.inSenate = true;
 	}
 }
 function senateExit(){
 	myPosition.position.x = 32;
 	myPosition.position.y = -20;
-	GLOBAL.SenateToggle();
+	GLOBAL.inSenate = false;
 	gui.hideTimer();
 }
 function houseReset(location: int) {
@@ -187,9 +203,8 @@ function houseReset(location: int) {
 	}
 	gui.showTimer();
 	gui.runTimer();
-	GLOBAL.HouseToggle();
 	if (location == 0){
-	GLOBAL.SenateToggle();
+	GLOBAL.inHouse = true;
 	}
 }
 

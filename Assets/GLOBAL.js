@@ -53,10 +53,14 @@ function Start () {
 	NPCDict["Artisan"] = artisanImg;
 	NPCDict["Police Officer"] = policeImg;
 	
+	infoDict["waterfallExitBlocked"] = "You still have more pages of your Father's journal to collect!";
 	infoDict["capital"] = "If your village is going to protect its natural resources, you will need the support of national lawmakers. You must convince them to pass a new law that empowers local communities to take part in forest governance. The national legislature is in the capital, a day's drive from here.";
 	infoDict["sFailure"] = "Dante has won over more support in the Senate than you.  Try again, paying careful attention to the pages you have collected.";
 	infoDict["hFailure"] = "Dante has won over more support in the House of Representatives than you.  Try again, paying careful attention to the pages you have collected.";
-
+	infoDict["senateBlocked1"] = "You are not ready to enter this building.  Talk to Senator A and come back.";
+	infoDict["senateBlocked2"] = "Visit the other building to talk to more politicians.  You have already convinced the Senators.";
+	infoDict["houseBlocked1"] = "You can't enter this building until you have talked to everyone in the building below.";
+	infoDict["houseBlocked2"] = "You are not ready to enter this building.  Talk to Senator A and come back.";
 	
 	//populate Quest text array
 	questHArray.push("Find your mother");
@@ -78,7 +82,7 @@ function Start () {
 	questHArray.push("Find Senator A");
 	questArray.push("");
 	questHArray.push("Lobby for change");
-	questArray.push("You still need to find Senator G - Member, Natural Resources Committee,Senator C - Chair, Natural Resources Committee,Senator Z - Head of the National Justice Party, Senator X - President of the Senate.  Convince politicians in the parliament building to revise the forestry law so that local communities can participate in forest governance.");
+	questArray.push("You still need to find: Senator G - Member, Natural Resources Committee, Senator C - Chair, Natural Resources Committee, Senator Z - Head of the National Justice Party, Senator X - President of the Senate.  Convince politicians in the parliament building to revise the forestry law so that local communities can participate in forest governance.");
 	questHArray.push("Continue lobbying for change");
 	questArray.push("There is a great deal of clamor at the capital about the need for a change in forestry legislation, but more still needs to be done!  Continue convincing politicians in the parliament building to implement these reforms before Dante convinces them otherwise!");
 	questHArray.push("You have succeeded!");

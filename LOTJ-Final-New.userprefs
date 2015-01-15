@@ -1,10 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerMovement.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TextManager.js">
     <Files>
-      <File FileName="Assets/GUIController.js" Line="328" Column="186" />
-      <File FileName="Assets/Awareness/AwarenessGUI.js" Line="118" Column="2" />
-      <File FileName="Assets/PlayerMovement.js" Line="311" Column="74" />
+      <File FileName="Assets/GUIController.js" Line="324" Column="38" />
+      <File FileName="Assets/PlayerMovement.js" Line="172" Column="11" />
+      <File FileName="Assets/TextManager.js" Line="278" Column="26" />
+      <File FileName="Assets/Capitol/Capitol_TextContainer.js" Line="231" Column="40" />
+      <File FileName="Assets/GLOBAL.js" Line="11" Column="12" />
+      <File FileName="Assets/CollisionManager.js" Line="20" Column="58" />
+      <File FileName="Assets/splashScreens/spriteSelection.js" Line="49" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
