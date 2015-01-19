@@ -18,6 +18,7 @@ var questHeaderStyle : GUIStyle;
 var questTextStyle : GUIStyle;
 var infoBoxStyle : GUIStyle;
 var journalStyle : GUIStyle;
+var journalSelectStyle : GUIStyle;
 var menuButtonStyle : GUIStyle;
 var spaceBarStyle : GUIStyle;
 

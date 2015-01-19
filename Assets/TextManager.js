@@ -281,6 +281,7 @@ function Update () {
 //						
 //					}
 //					
+					canControl(true);
 					
 					
 					//facedObject = null;

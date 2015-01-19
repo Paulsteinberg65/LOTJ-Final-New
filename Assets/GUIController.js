@@ -10,6 +10,7 @@ private var questDisplay : boolean = false;
 private var jumpInfoDisplay : boolean = false; //is the GUI showing the jump info for the waterfall?
 private var resetDisplay : boolean = false; //is the GUI showing the reset info?
 var journalDisplay : boolean = false;
+var journalUI : boolean = false;
 private var displayQuestOnExit : boolean = false;
 private var currentQuestText : String;
 private var currentQuestHeader : String;
@@ -35,9 +36,11 @@ var questHeaderStyle : GUIStyle;
 var questTextStyle : GUIStyle;
 var infoBoxStyle : GUIStyle;
 var journalStyle : GUIStyle;
+var journalSelectStyle: GUIStyle;
 var menuButtonStyle : GUIStyle;
 var spaceBarStyle : GUIStyle;
 var timerStyle: GUIStyle;
+var counterStyle: GUIStyle;
 
 var helpImg : Texture2D;
 var muteImg : Texture2D;
@@ -98,6 +101,7 @@ function Start () {
 	questTextStyle = GLOBAL.questTextStyle;
 	infoBoxStyle = GLOBAL.infoBoxStyle;
 	journalStyle = GLOBAL.journalStyle;
+	journalSelectStyle = GLOBAL.journalSelectStyle; //TODO: NEW JOURNAL
 	menuButtonStyle = GLOBAL.menuButtonStyle;
 	spaceBarStyle = GLOBAL.spaceBarStyle;
 	
@@ -123,7 +127,7 @@ function Start () {
 }
 
 function Update () {
-	Debug.Log("GLOBAL.pagesObtained.length: " + GLOBAL.pagesObtained.length + " GLOBAL.numPages: " + GLOBAL.numPages);
+	//Debug.Log("GLOBAL.pagesObtained.length: " + GLOBAL.pagesObtained.length + " GLOBAL.numPages: " + GLOBAL.numPages);
 	//following elif toggles inside or outside audio in the capitol level
 	if (Application.loadedLevelName == "capitol" && (GLOBAL.inSenate || GLOBAL.inHouse) && musicPlayer.audio.clip == musicPlayer.city) {
 		musicPlayer.ToggleInsideAudio(true);
@@ -313,15 +317,15 @@ function senateExit(){
 function OnGUI () {
 	//TODO: TIMER
 	if(showTime){
-		GUI.Box(Rect(Screen.width*0.5-(75*0.5),20,75,35), "");
-		GUI.Box(Rect(Screen.width*0.5-(75*0.5),0,75,25),timerText, questHeaderStyle);
+		GUI.Box(Rect(Screen.width*0.5-85,30,160,90), "");
+		GUI.Box(Rect(Screen.width*0.5-75,20,100,25),timerText, timerStyle);
 		if (GLOBAL.inSenate){
-		GUI.Box(Rect(Screen.width*0.30-50,20,100,25), "You: "+playerCounter.ToString()+"/4");
-		GUI.Box(Rect(Screen.width*0.70-50,20,100,25), "Dante: "+danteCounter.ToString()+"/4");
+		GUI.Box(Rect(Screen.width*0.5-75,90,100,25), "You: "+playerCounter.ToString()+"/4", counterStyle);
+		GUI.Box(Rect(Screen.width*0.5-10,90,100,25), "Dante: "+danteCounter.ToString()+"/4", counterStyle);
 		}
 		else if (GLOBAL.inHouse){
-		GUI.Box(Rect(Screen.width*0.30-50,20,100,25), "You: "+playerCounter.ToString()+"/6");
-		GUI.Box(Rect(Screen.width*0.70-50,20,100,25), "Dante: "+danteCounter.ToString()+"/6");
+		GUI.Box(Rect(Screen.width*0.5-75,90,100,25), "You: "+playerCounter.ToString()+"/6", counterStyle);
+		GUI.Box(Rect(Screen.width*0.5-10,90,100,25), "Dante: "+danteCounter.ToString()+"/6", counterStyle);
 		}
 	}
 	//TODO: END OF TIMER
@@ -396,14 +400,28 @@ function OnGUI () {
 				GLOBAL.muted = true;
 			}
 		}
+//		if (GUI.Button(Rect(Screen.width-116,0,32,32), journalImg, menuButtonStyle)) {
+//			if (!journalDisplay)
+//				DisplayJournal(currentJournalPage);
+//			else {
+//				journalDisplay = false;
+//				canControl(true);
+//			}
+//		} TODO: OLD JOURNAL DISPLAY
 		if (GUI.Button(Rect(Screen.width-116,0,32,32), journalImg, menuButtonStyle)) {
-			if (!journalDisplay)
-				DisplayJournal(currentJournalPage);
-			else {
+			if(journalDisplay){
 				journalDisplay = false;
 				canControl(true);
 			}
-		}
+			else if(journalUI){
+				journalUI = false;
+				canControl(true);
+			}
+			else{
+				DisplayJournalUI();
+			}
+			
+		} //TODO: NEW JOURNAL DISPLAY
 		if (GUI.Button(Rect(Screen.width-158,0,32,32), resetIconImg, menuButtonStyle)) {
 			if (!resetDisplay) {
 				resetDisplay = true;
@@ -484,6 +502,8 @@ function OnGUI () {
 	
 	if (journalDisplay) {
 		GUI.Box(Rect(Screen.width/8, Screen.height/8, Screen.width/1.33, Screen.height/1.33), currentJournalText, journalStyle);
+//		GUI.Box(Rect(140,Screen.height-80,Screen.width*0.7,30), "");
+//		GUI.Label(Rect(-80,Screen.height-230,Screen.width,200), "Space bar for next page. Or use the buttons to cycle through journal entries", spaceBarStyle);
 		if (currentJournalPage != 0) {
 			if (GUI.Button(Rect(Screen.width/8,Screen.height/2,32,32),journalImg,menuButtonStyle)){
 				DisplayJournal(--currentJournalPage);
@@ -494,6 +514,45 @@ function OnGUI () {
 			if (GUI.Button(Rect(Screen.width*7/8,Screen.height/2,32,32),journalImg,menuButtonStyle)){
 				DisplayJournal(++currentJournalPage);
 			}
+		}
+	}
+	if (journalUI){//TODO: NEW JOURNAL UI
+		GUI.Box(Rect(Screen.width/8, Screen.height/8, Screen.width*3/4, Screen.height*3/4+10),"");
+		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "1", journalSelectStyle)){
+			DisplayJournal(0);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "2", journalSelectStyle)){
+			DisplayJournal(1);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "3", journalSelectStyle)){
+			DisplayJournal(2);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "4", journalSelectStyle)){
+			DisplayJournal(3);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "5", journalSelectStyle)){
+			DisplayJournal(4);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "6", journalSelectStyle)){
+			DisplayJournal(5);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "7", journalSelectStyle)){
+			DisplayJournal(6);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "8", journalSelectStyle)){
+			DisplayJournal(7);
+			journalUI = false;
+		}
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "9", journalSelectStyle)){
+			DisplayJournal(8);
+			journalUI = false;
 		}
 	}
 	
@@ -542,7 +601,11 @@ function DisplayJournal (currentPage : int) {
 	canControl(false);
 	questDisplay = false;
 }
-
+function DisplayJournalUI (){ //TODO: new JOURNAL UI
+	journalUI = true;
+	canControl(false);
+	questDisplay = false;
+}
 function DisplayInfo (infoName : String) {
 	infoTitle = infoName;
 	infoDisplay = true;
