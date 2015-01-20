@@ -121,7 +121,7 @@
          	audio.clip = jeep;
          	audio.Play();
          }
-         else if ( level == 27 ) //stop car noises for capitol
+         else if ( level == 27 || level == 28 ) //stop car noises for capitol
          {
          	audio.Stop();
          	audio.clip = city;
@@ -136,7 +136,6 @@
      }
      
      function ToggleInsideAudio (inside : boolean) { //toggles the audio clips in the capital for walking inside and outside
-     	Debug.Log("HELLO I'M HERE in MusicSingleton");
      	if (inside) {
      		audio.Stop();
      		audio.clip = legislature;
