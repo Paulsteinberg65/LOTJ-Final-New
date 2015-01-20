@@ -129,7 +129,7 @@ function Update () {
 					
 					if (currentLine == "Correct!"){
 						GLOBAL.AdvanceQuiz();	//advances quiz progress
-						Debug.Log("Quiz is now on: " + GLOBAL.quizProg);
+						//Debug.Log("Quiz is now on: " + GLOBAL.quizProg); TODO: REmove
 					//	currentLineNum = currentTextLength; //don't think this is necessary for correct answer
 						currentLineNum += 2; //skips displaying the "quiz" line that activates quiz
 						currentLine = currentText[currentLineNum]; //continues text
@@ -215,7 +215,7 @@ function Update () {
 						GLOBAL.AdvanceQuest();
 						tcScript.NextDialogue();
 					}
-					if (facedObject.name == "Senator G - Member, Natural Resources Committee" && GLOBAL.quizProg == 0){
+					if (facedObject.name == "Senator G - Member, Natural Resources Committee" && gui.playerCounter == 0){
 						Debug.Log("Should advance dialogue");
 						GLOBAL.AdvanceQuiz();
 						tcScript.NextDialogue();
@@ -328,6 +328,15 @@ function canControl (val : boolean) {
 		movementScript.canControl = val;
 	if (wMovement)
 		wMovement.canControl = val;
+}
+
+function senateDialogue(){
+	tcScript.senateDialogue();
+}
+
+function houseDialogue(){
+
+	tcScript.houseDialogue();
 }
 
 function startConvo (NPC : String) {

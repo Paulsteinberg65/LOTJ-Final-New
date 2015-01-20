@@ -59,7 +59,7 @@ function Start () {
 	//populate NPC dialogue dictionary for main area
 	Mayor = ["Let's find Senator A.  He represents our region and we're old school chums.  He will help to arrange meetings with lawmakers."];
 	RepY = ["Sorry, I have to take this call."];
-	SenatorA = ["As the senator from your district, I would be honored to sponsor a new forestry law.  But I have only been in office for a year and I have little influence.  I suggest you begin in the senate."];
+	SenatorA = ["As the senator from your district, I would be honored to sponsor a new forestry law.  But I have only been in office for a year and I have little influence.  I suggest you begin in the senate.  It's the building below.", "Senator G is my good friend and he knows how things work.  One more thing: It would be unwise to bring the biologist with you.  My colleagues are wary of foreigners trying to influence domestic laws."];
 	Biologist = ["This place is pretty impressive.  The mayor says he knows someone around here?"];
 	//for post-senate text
 	
@@ -174,6 +174,49 @@ function Update () {
 //	}
 //
 //}
+
+function senateDialogue(){
+	currentDialogue = 2;
+	
+	DanteSenate = ["Well, what a surprise, our little villagers have come to the big city. So you think that lawmakers will listen to you, eh?  You think you know your way around this place?  Politics is a delicate business you know.",  "You have to understand who's connected to whom.",  "Besides, half of these guys are on my payroll!  What, you thought my influence was limited to that pathetic little hamlet of yours? I'm going to speak with them first.",  "By the end of the day, they'll understand that all of this talk of empowering local communities is a romantic little joke."];
+	LAideZ = ["This way leads to Senator Z's office.  You can't go this way without an appointment.  I suggest you speak with someone else first."];
+	SenatorC = ["Sorry, I'm in a meeting right now."];
+	SenatorG = ["Welcome, any friend of Senator A is a friend of mine.  Your community forestry law sounds like a promising idea, and I support it.",  "I work closely with Senator C on the Natural Resources Committee.  You might try her next."];
+	LAideX = ["I am sorry, but you cannot pass through here.  Senator X is not taking any appointments at this time.  I suggest you speak with other senators first."];
+	SenatorZ = ["I've heard about you.  Unfortunately, I'm going to need to see support from other senators before I can help you."];
+	SenatorX = ["Where has my secretary gone?  I'm sorry but you can't be in here right now.  Try back later."];
+	
+	dialogueDict["Dante"] = DanteSenate;
+	dialogueDict["Legislative Aide Z"] = LAideZ;
+	dialogueDict["Senator C - Chair, Natural Resources Committee"] = SenatorC;
+	dialogueDict["Senator G - Member, Natural Resources Committee"] = SenatorG;
+	dialogueDict["Legislative Aide X"] = LAideX;
+	dialogueDict["Senator Z"] = SenatorZ;
+	dialogueDict["Senator X - President of the Senate"] = SenatorX;
+}
+
+function houseDialogue(){
+	currentDialogue = 7;
+	
+	DanteRep = ["You may have won support in the senate, but you'll never find your way through here.  Lawmaking is for people of influence.  This is no place for you.  Give up, you'll never make it in time."];
+	LAideW = ["I don't see your name on Rep W's appointment calendar."];
+	RepE = ["You come from where?  Never heard of it."];
+	RepH = ["We are in a meeting right now.  Would you mind waiting outside?"];
+	RepQ = ["I'm busy at the moment"];
+	RepR = ["Come back later, perhaps next week"];
+	RepT = ["I'm surprised you found me.  They give junior lawmakers the most obscure rooms.  Senator A told me you were coming.", "So when you say you want to help local communities, what do you mean by 'local'?", "quiz", "That's correct!", "Listen carefully: the rules of the game work differently here than in the senate.",  "If you want to get your forestry law passed, you need the support of the Green Coalition.  These are lawmakers from 3 major regions of the country who have formed an alliance to promote sustainability in our country.",  "Their names are Reps Q, E, and R.  But you must move fast!"];
+	RepW = ["How did you get in here?  I'm very busy at the moment, please come back later."];
+	
+	dialogueDict["Dante "] = DanteRep;
+	dialogueDict["Legislative Aide W"] = LAideW;
+	dialogueDict["Representative E"] = RepE;
+	dialogueDict["Representative H"] = RepH;
+	dialogueDict["Representative Q"] = RepQ;
+	dialogueDict["Representative R"] = RepR;
+	dialogueDict["Representative T"] = RepT;
+	dialogueDict["Representative W - Speaker of the Chamber of Representatives"] = RepW;
+	
+}
 
 function NextDialogue () {
 	

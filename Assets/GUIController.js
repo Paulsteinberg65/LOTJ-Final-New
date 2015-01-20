@@ -161,6 +161,10 @@ function Update () {
 			jumpInfoDisplay = false; //if so, stop, and allow the player to control themselves once again
 			canControl(true);
 		} //TODO: implement what happens if someone presses space while in the restart message
+		if (infoDisplay){
+		infoDisplay = false;
+		canControl(true);
+		}
 		if (questDisplay || infoDisplay) { //are we currently showing quets or info?
 			if(Application.loadedLevelName == "Maze" && questDisplay && Array(remainingMaze).length == 0){
 				questDisplay = false;
@@ -187,6 +191,7 @@ function Update () {
 					endCamilo = Time.time;
 				}
 				journalDisplay = false;
+				running = true;
 				canControl(true);
 				if (displayQuestOnExit) {
 					DisplayQuest();
@@ -231,7 +236,7 @@ function Update () {
 	  		else if (danteCounter == 4 && GLOBAL.inSenate) {	//if timer runs out in senate
 				DisplayInfo("sFailure");
 				canControl(false);
-				movement.houseReset(1);
+				movement.senateReset(1);
 	  		}
 	//updates text to display current "time". displays success if finished with area
 	if(!finished){
@@ -260,9 +265,11 @@ function Update () {
 function danteReset(location : int){//location = 1 for senate, 2 for house
 	if (location == 1){
 		tick = 0;
+		tm.senateDialogue();
 	}
 	else{
 		tick = 4;
+		tm.houseDialogue();
 	}
 	danteCounter = 0;
 	playerCounter = 0;
@@ -317,7 +324,7 @@ function senateExit(){
 function OnGUI () {
 	//TODO: TIMER
 	if(showTime){
-		GUI.Box(Rect(Screen.width*0.5-85,30,160,90), "");
+		GUI.Box(Rect(Screen.width*0.5-95,30,180,90), "");
 		GUI.Box(Rect(Screen.width*0.5-75,20,100,25),timerText, timerStyle);
 		if (GLOBAL.inSenate){
 		GUI.Box(Rect(Screen.width*0.5-75,90,100,25), "You: "+playerCounter.ToString()+"/4", counterStyle);
@@ -411,10 +418,12 @@ function OnGUI () {
 		if (GUI.Button(Rect(Screen.width-116,0,32,32), journalImg, menuButtonStyle)) {
 			if(journalDisplay){
 				journalDisplay = false;
+				running = true;
 				canControl(true);
 			}
 			else if(journalUI){
 				journalUI = false;
+				running = true;
 				canControl(true);
 			}
 			else{
@@ -598,11 +607,13 @@ function DisplayJournal (currentPage : int) {
 		currentJournalText = tc.journalDict[currentPage][journalPart];
 	}
 	journalDisplay = true;
+	running = false;
 	canControl(false);
 	questDisplay = false;
 }
 function DisplayJournalUI (){ //TODO: new JOURNAL UI
 	journalUI = true;
+	running = false;
 	canControl(false);
 	questDisplay = false;
 }
@@ -610,6 +621,7 @@ function DisplayInfo (infoName : String) {
 	infoTitle = infoName;
 	infoDisplay = true;
 	canControl(false);
+	questDisplay = false;
 }
 
 function canControl (val : boolean) {

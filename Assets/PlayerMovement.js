@@ -182,13 +182,13 @@ function senateReset(location: int) {// 0 if coming from outside, 1 if from insi
 	gui.senateRollback();
 	gui.showTimer();
 	gui.runTimer();
-	if (location == 0){
+	//if (location == 0){//DEPRECATED
 	GLOBAL.inSenate = true;
-	}
+	//}
 }
 function senateExit(){
 	myPosition.position.x = 32;
-	myPosition.position.y = -20;
+	myPosition.position.y = -22;
 	GLOBAL.inSenate = false;
 	gui.hideTimer();
 }
@@ -196,16 +196,16 @@ function houseReset(location: int) {
 	gui.danteReset(2);
 	canControl = true;
 	myPosition.position.x = 110;
-	myPosition.position.y = 34.5;
+	myPosition.position.y = 35.5;
 	gui.houseRollback();
 	if(gui.finished){
 	gui.toggleFinish();
 	}
 	gui.showTimer();
 	gui.runTimer();
-	if (location == 0){
+	//if (location == 0){//Deprecated
 	GLOBAL.inHouse = true;
-	}
+	//}
 }
 
 
