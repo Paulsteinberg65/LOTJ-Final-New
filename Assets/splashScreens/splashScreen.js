@@ -7,8 +7,10 @@ function Start () {
 }
 
 function Update () {
-	if (Input.GetButtonDown("Space")) {
-		Application.LoadLevel(nextScene);
+	if (Application.loadedLevelName != "gameEnd2") {
+		if (Input.GetButtonDown("Space")) {
+			Application.LoadLevel(nextScene);
+		}
 	}
 }
 

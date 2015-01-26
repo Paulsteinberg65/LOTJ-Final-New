@@ -127,6 +127,11 @@
          	audio.clip = city;
          	audio.Play();
          }
+         else if (level == 29) {
+         	audio.Stop();
+         	audio.clip = secrets;
+         	audio.Play();
+         }
      }
      
      //returns the singleton instance of the music player
