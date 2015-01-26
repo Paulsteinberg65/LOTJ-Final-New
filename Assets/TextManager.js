@@ -128,6 +128,7 @@ function Update () {
 					
 					
 					if (currentLine == "Correct!"){
+						selectedQuizAnswer = 0;
 						GLOBAL.AdvanceQuiz();	//advances quiz progress
 						//Debug.Log("Quiz is now on: " + GLOBAL.quizProg); TODO: REmove
 					//	currentLineNum = currentTextLength; //don't think this is necessary for correct answer
@@ -309,6 +310,7 @@ function Update () {
 		}
 	}
 }
+
 
 function getFacedDifference () {
 	if (movementScript.facing == "left")

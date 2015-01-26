@@ -41,6 +41,8 @@ var menuButtonStyle : GUIStyle;
 var spaceBarStyle : GUIStyle;
 var timerStyle: GUIStyle;
 var counterStyle: GUIStyle;
+var quizAnswerStyle: GUIStyle;
+var sQuizAnswerStyle: GUIStyle;
 
 var helpImg : Texture2D;
 var muteImg : Texture2D;
@@ -474,22 +476,22 @@ function OnGUI () {
 		}
 	
 		if (quiz) {
-			GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/2), "");
-			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0]);
-			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+75,Screen.width/2,Screen.height/2), quizAnswers[1]);
-			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+135,Screen.width/2,Screen.height/2), quizAnswers[2]);
-			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[3]);
+			GUI.Box(Rect(Screen.width/4,Screen.height/3,Screen.width/1.75,Screen.height/2), "");
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0], quizAnswerStyle);
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+105,Screen.width/2,Screen.height/2), quizAnswers[1], quizAnswerStyle);
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[2], quizAnswerStyle);
+			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+285,Screen.width/2,Screen.height/2), quizAnswers[3], quizAnswerStyle);
 			if (sQuizAnswer == 0){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+15,Screen.width/35,Screen.height/25), "");
+				GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0], sQuizAnswerStyle);
 			}
 			else if (sQuizAnswer == 1){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+75,Screen.width/35,Screen.height/25), "");
+				GUI.Label(Rect(Screen.width/4+15,Screen.height/4+105,Screen.width/2,Screen.height/2), quizAnswers[1], sQuizAnswerStyle);
 			}
 			else if (sQuizAnswer == 2){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+135,Screen.width/35,Screen.height/25), "");
+				GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[2], sQuizAnswerStyle);
 			}
 			else if (sQuizAnswer == 3){
-				GUI.Box(Rect(Screen.width/4+10,Screen.height/4+195,Screen.width/35,Screen.height/25), "");
+				GUI.Label(Rect(Screen.width/4+15,Screen.height/4+285,Screen.width/2,Screen.height/2), quizAnswers[3], sQuizAnswerStyle);
 			}
 		}
 	}

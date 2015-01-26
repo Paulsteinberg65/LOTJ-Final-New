@@ -827,6 +827,7 @@ MonoBehaviour:
   material: {fileID: 0}
   materials:
   - {fileID: 2100000, guid: 46dc9e11662e9054392f6197c7afd937, type: 2}
+  - {fileID: 2100000, guid: 160c892bf9b8e43dca17234ad0349e76, type: 2}
   textures:
   - {fileID: 2800000, guid: 3683087530465014a92439994ec2214d, type: 3}
   allowMultipleAtlases: 0
@@ -836,7 +837,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 320
-  buildKey: 575246456
+  buildKey: 1750919957
   dataGuid: dbb002b464e510747be34505f5be285c
   managedSpriteCollection: 0
   hasPlatformData: 0

@@ -829,6 +829,7 @@ MonoBehaviour:
   premultipliedAlpha: 0
   altMaterials:
   - {fileID: 2100000, guid: 46dc9e11662e9054392f6197c7afd937, type: 2}
+  - {fileID: 2100000, guid: 160c892bf9b8e43dca17234ad0349e76, type: 2}
   atlasMaterials:
   - {fileID: 2100000, guid: 46dc9e11662e9054392f6197c7afd937, type: 2}
   atlasTextures:
