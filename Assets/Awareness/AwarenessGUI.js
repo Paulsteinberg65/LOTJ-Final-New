@@ -38,6 +38,7 @@ var resetIconImg : Texture2D;
 function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	menuButtonStyle = GLOBAL.menuButtonStyle;
+	questTextStyle = GLOBAL.questTextStyle;
 	playerSprite = player.GetComponent(tk2dSprite);
 	playerScript = player.GetComponent("AwarenessPlayer");
 	tcScript = textContainer.GetComponent("Awareness_TextContainer");
@@ -81,7 +82,7 @@ function OnGUI () {
 	GUI.HorizontalSlider(Rect(10,464,175,20),player.GetComponent("AwarenessPlayer").artisanRep,0,10, sliderStyle, thumbStyle4);
 		
 	if (showingMsg) {
-		GUI.Box(Rect(222, 200, 535, 200), currentString, questTextStyle);
+		GUI.Box(Rect(222, 200, 535, 200), currentString, infoBoxStyle);
 	}
 	
 	if (GUI.Button(Rect(Screen.width-32,0,32,32), helpImg, menuButtonStyle)) {

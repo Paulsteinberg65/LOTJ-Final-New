@@ -51,6 +51,7 @@ function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	menuButtonStyle = GLOBAL.menuButtonStyle;
 	infoBoxStyle = GLOBAL.infoBoxStyle;
+	questTextStyle = GLOBAL.questTextStyle;
 	tc = GameObject.Find("TextContainer").GetComponent("Rules_TextContainer");
 	ResetValues();
 }
