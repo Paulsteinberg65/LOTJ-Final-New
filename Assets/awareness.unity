@@ -294,8 +294,8 @@ GameObject:
   - 23: {fileID: 461496355}
   - 114: {fileID: 461496354}
   - 114: {fileID: 461496359}
-  - 65: {fileID: 461496353}
   - 82: {fileID: 461496358}
+  - 65: {fileID: 461496353}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2029,7 +2029,7 @@ Prefab:
     - target: {fileID: 11400002, guid: 5af1d67c26b862c41a5724eeae6e0eb6, type: 2}
       propertyPath: boxCollider
       value: 
-      objectReference: {fileID: 238458500}
+      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 5af1d67c26b862c41a5724eeae6e0eb6, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -121,8 +121,8 @@ QualitySettings:
     particleRaycastBudget: 4096
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
-    Android: 0
-    BlackBerry: 0
-    Standalone: 0
+    Android: 3
+    BlackBerry: 3
+    Standalone: 3
     Web: 3
-    iPhone: 0
+    iPhone: 3

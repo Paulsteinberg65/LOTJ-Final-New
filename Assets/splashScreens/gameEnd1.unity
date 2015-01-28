@@ -251,6 +251,7 @@ MonoBehaviour:
   jeep: {fileID: 8300000, guid: 78a5fb71d356e4bac837366f5f5f30b0, type: 3}
   city: {fileID: 8300000, guid: 3bb016322dd814e93982504398106f04, type: 3}
   legislature: {fileID: 0}
+  azteca: {fileID: 8300000, guid: 6eb587d532f3149649f4e70eaaaacb31, type: 3}
 --- !u!82 &730803138
 AudioSource:
   m_ObjectHideFlags: 0
@@ -259,9 +260,9 @@ AudioSource:
   m_GameObject: {fileID: 730803136}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 0e18b445d3498e640b94783893ffb2fa, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6eb587d532f3149649f4e70eaaaacb31, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .400000006
+  m_Volume: .25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -320,6 +321,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &946255818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 946255820}
+  - 131: {fileID: 946255819}
+  m_Layer: 9
+  m_Name: Background Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!131 &946255819
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946255818}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: ccff3446763964af9a573d873a6c88df, type: 3}
+  m_Color: {r: .5, g: .5, b: .5, a: .5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
+--- !u!4 &946255820
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946255818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .5, y: .5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1159323604
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +377,7 @@ GameObject:
   - 4: {fileID: 1159323606}
   - 114: {fileID: 1159323605}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,11 +391,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159323604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b1ab17725f10ae42b3a4ccb0afecc8a, type: 3}
+  m_Script: {fileID: 11500000, guid: a39b35755b9a54e3082581a3d556146d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: gameEnd2
-  img: {fileID: 2800000, guid: 2a91145c48a39f2469d7b7b0894883c9, type: 3}
+  dialogueTextStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: .996551752, g: .996551752, b: .996551752, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 325
+      m_Right: 30
+      m_Top: 50
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 0e554b93abc052d4592b24f19640140b, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 1
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  backgroundGUI: {fileID: 946255819}
+  backgroundImg: {fileID: 2800000, guid: ccff3446763964af9a573d873a6c88df, type: 3}
 --- !u!4 &1159323606
 Transform:
   m_ObjectHideFlags: 0

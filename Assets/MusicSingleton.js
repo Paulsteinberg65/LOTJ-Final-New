@@ -16,6 +16,7 @@
      public var jeep : AudioClip; //jeep engine clip
      public var city : AudioClip; //city clip
      public var legislature : AudioClip; //in building clip for the capital
+     public var azteca : AudioClip;
      
      function Awake() 
      {
@@ -127,9 +128,9 @@
          	audio.clip = city;
          	audio.Play();
          }
-         else if (level == 29) {
+         else if (level == 29 || level == 30) {
          	audio.Stop();
-         	audio.clip = secrets;
+         	audio.clip = azteca;
          	audio.Play();
          }
      }
