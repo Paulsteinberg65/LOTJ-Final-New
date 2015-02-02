@@ -37,7 +37,7 @@ var currentDialogue : int = 1;
 function Start () {
 	journalDict[0] = ["After months of research, I believe I have finally figured out how to fix this mess. There are two problems. \n\nThe first is that we need new rules to govern out forest sustainably for the benefit of the community. Right now it's a free-for-all. Everyone is in a race to take what's left from the forest before it is all gone.  \n\nBut after reading widely in the published research, I have made an important discovery: the famous 'tragedy of the commons' is misleading.  According to that theory, property owned in common by large numbers of people is doomed to be overexploited.  But I have learned that many communities around the world have put in place rules to sustainably manage their resources. \n\nWe need new rules and we need them now.  But this leads to the second problem:  Dante and his thugs would do anything to prevent--"];
 	journalDict[1] = ["Research Journal Entry January 17 \n\nWe're Contributing to a Global Extinction Crisis \n\nI have learned that the destruction taking place in our community is part of a much larger trend that has serious consequences for the health of our planet. The rate of species extinction is now more than 100 times higher than the rate prior to the appearance of humans. The most important cause of extinction is habitat destruction, such as the clearing of tropical forests for agriculture. \n\nThe tropics are home to two-thirds of the world’s species, most of which live in forests. Today only half of the original forest cover remains.", "Our forest is part of what scientists call the Mesoamerican hotspot. Biodiversity hotspots are species-rich areas facing imminent threats. These areas collectively contain 44% of the world’s plant species and 35% of all vertebrate species. At the current rate of habitat destruction, we will eventually lose about 40% of the species in hotspots throughout the tropics.",
-						"Sources: Stuart L. Pimm and Peter Raven (2000) Biodiversity - Extinction by Numbers, Nature 403 (6772): 843–45; Norman Myers et al. (2000) Biodiversity Hotspots for Conservation Priorities, Nature 403: 853–58; Rodolfo Dirzo and Peter H. Raven (2003) Global State of Biodiversity and Loss, Annual Review of Environment and Resources 28: 137–67."];
+						"My sources: Stuart L. Pimm and Peter Raven (2000) Biodiversity - Extinction by Numbers, Nature 403 (6772): 843–45; Norman Myers et al. (2000) Biodiversity Hotspots for Conservation Priorities, Nature 403: 853–58; Rodolfo Dirzo and Peter H. Raven (2003) Global State of Biodiversity and Loss, Annual Review of Environment and Resources 28: 137–67."];
 	journalDict[2] = ["Research Journal Entry February 9 \n\nThree-quarters of the world's forests are owned by governments. \n\nBut I have learned that almost a quarter of all forests in developing countries are 'common-property resources,' meaning they are owned in common by a community. \n\nMany people mistakenly believe that forests must be either managed by the government or sold to private landowners. This belief stems from Garrett Hardin’s “tragedy of the commons” argument. In a famous article published in 1968, Hardin claimed that when a resource is shared by many people, self-interest will lead to its overuse and eventual destruction. \n\nHardin was confusing common-property – in which a resource is jointly owned and managed – with open access, where it's every man for himself. Open access sounds an awful lot like our forest lately. I wonder what it takes to make common-property systems work?",
 	 "Sources: Garrett Hardin (1968) The Tragedy of the Commons, Science 162:1243–48; S.V. Ciriacy-Wantrup and Richard C. Bishop (1975) 'Common Property' as a Concept in Natural Resources Policy, Natural Resources Journal 15: 713–27."];
 	journalDict[3] = ["Research Journal Entry February 10 \n\nWhat makes for a successful common-property system? \n\nI have been reviewing the research literature, and I'm finding important insights that may help our community. To ensure sustainable management, a community must put in place rules to govern use of the forest. These include: • rules that decide who has access to the forest and when • regulations specifying how much can be harvested • procedures governing how rules are changed or modified.  \n\nWhat makes for a successful common-property system? I have been reviewing the research literature, and I'm finding important insights that may help our community. To ensure sustainable management, a community must put in place rules to govern use of the forest. These include: • rules that decide who has access to the forest and when • regulations specifying how much can be harvested • procedures governing how rules are changed or modified.", "And here's a crucial finding: Those who are subject to the rules must have a hand in making them! This is the only way to ensure the legitimacy of the system.", 
@@ -132,7 +132,7 @@ function Start () {
 	
 	quizDict["Senator C - Chair, Natural Resources Committee"] = ["A. The forests will be overexploited.  It is simply not worth it for a community to leave the trees standing because they can earn more from ranching and agriculture.", "B. Communities are likely to do a better job of protecting forests than will the national government.  After all, they live in these forests and depend on them.", 'C. When a community owns property in common, no one takes responsibility for it and it is doomed to be overexploited.  This is known as the "tragedy of the commons."', "D. Many communities have shown that they are capable of governing local forests sustainably."];
 	quizResponseDict["Senator C - Chair, Natural Resources Committee"] = ["", "", "", "Correct!"];
-	quizDict["Senator Z"] = ["A. Today species are disappearing at 100 times the rate prior to the appearance of humans.", "B. The rate of extinction today is roughly the same as it was in the past, but we're wiping out the most economically important species.", "C. Except for catastrophic events like the meteor collision that wiped out the dinosaurs, extinction does not occur naturally.", "D. I don't know..."];
+	quizDict["Senator Z"] = ["A. Today species are disappearing at 100 times the rate prior to the appearance of humans.", "B. The rate of extinction today is roughly the same as it was in the past, but we're wiping out the most economically important species.", "C. Except for catastrophic events like the meteor collision that wiped out the dinosaurs, extinction does not occur naturally.", "D. Species extinction rates will slow as people move into cities and forests grow back."];
 	quizResponseDict["Senator Z"] = ["Correct!", "", "",""];
 	quizDict["Representative T"] = ["A. The 'locals' in a community are the people who were born there.", "B. 'Local' people are those who live in the immediate area.", "C. 'Local' people are those who live nearby and depend on the forest.", "D. Depending on the specific case, different definitions of 'local' may need to be used. "];
 	quizResponseDict["Representative T"] = ["","","","Correct!"];
@@ -204,7 +204,7 @@ function houseDialogue(){
 	RepH = ["We are in a meeting right now.  Would you mind waiting outside?"];
 	RepQ = ["I'm busy at the moment"];
 	RepR = ["Come back later, perhaps next week"];
-	RepT = ["I'm surprised you found me.  They give junior lawmakers the most obscure rooms.  Senator A told me you were coming.", "So when you say you want to help local communities, what do you mean by 'local'?", "quiz", "That's correct!", "Listen carefully: the rules of the game work differently here than in the senate.",  "If you want to get your forestry law passed, you need the support of the Green Coalition.  These are lawmakers from 3 major regions of the country who have formed an alliance to promote sustainability in our country.",  "Their names are Reps Q, E, and R.  But you must move fast!"];
+	RepT = ["I'm surprised you found me.  They give junior lawmakers the most obscure rooms.  Senator A told me you were coming.", "So when you say you want to help local communities, what do you mean by 'local'?", "quiz", "That's correct!", "Listen carefully: the rules of the game work differently here than in the Senate.",  "If you want to get your forestry law passed, you need the support of the Green Coalition.  These are lawmakers from 3 major regions of the country who have formed an alliance to promote sustainability in our country.",  "Their names are Reps Q, E, and R.  But you must move fast!"];
 	RepW = ["How did you get in here?  I'm very busy at the moment, please come back later."];
 	
 	dialogueDict["Dante "] = DanteRep;
@@ -264,7 +264,7 @@ function NextDialogue () {
 		dialogueDict["Senator X - President of the Senate"] = SenatorX;
 	}
 	if(currentDialogue == 6){//after talking to senator x
-		Mayor = ["You start in the Senate.  I'll make phone calls to help arrange meetings."];
+		Mayor = ["Let's ask my friend if he has any contacts in the Chamber of Representatives."];
 		Biologist = ["Well done!"];
 		RepY = ["The Chamber of Representatives?  That's my turf.  Here's what you need to do.  Oh hold on, I need to take this call."];
 		SenatorA = ["You did it!  But you need approval from the chamber of representatives as well.  Head quickly to the other building and find Representative T.  He comes from a timber-dependant community and will be a strong supporter."];
@@ -302,20 +302,23 @@ function NextDialogue () {
 	}
 	if (currentDialogue == 10) {//After talking to RepE Q and R
 		
+		RepT = ["Nice job gaining the support of the Green Coalition!  Did you meet with the Speaker of the Chamber, Rep. W?"];
 		RepH = ["I want to be sure that you understand the big picture.  So tell me: What is  decentralization?","quiz",  "That's correct!","I want language in the bill that allows us to sell carbon credits to industrialized countries under climate change treaty, earning cash for land owners who conserve trees.  You agree?  Okay, you have my support."];
 		RepQ = ["Talk with Rep. H.  We come from the same part of the country and tend to see eye-to-eye on these things."];
 		RepR = ["Have you spoken with Rep. H?"];
-
+		LAideW = ["Let me give you some advice.  When they were college students, Rep W and Rep H marched side-by-side during the years of protest against the dictator.", "If you want Rep. W's support, first get Rep H on your side."];
 		
+		dialogueDict["Legislative Aide W"] = LAideW;
 		dialogueDict["Representative H"] = RepH;
 		dialogueDict["Representative Q"] = RepQ;
-		dialogueDict["Representative R"] = RepR;	
+		dialogueDict["Representative R"] = RepR;
+		dialogueDict["Representative T"] = RepT;	
 	}
 	if(currentDialogue == 11){//after talking to RepH
 		LAideW = ["Senator W is available now.  Here, I'll let you through."];
 		RepR = ["Where is Rep. W?"];
 		RepE = ["Hurry, see if Rep. W will talk to you now."];
-		RepH = ["Let me give you some advice.  When they were college students, Rep W and Rep H marched side-by-side during the years of protest against the dictator.", "If you want Rep. W's support, first get Rep H on your side."];
+		RepH = ["I will call ahead to tell my friend Rep W. that you are on your way."];
 		RepQ = ["Quickly, meet with Rep. W!  If he supports it, the bill will surely pass."];
 		RepW = ["By bringing this matter to the national legislature, you have demonstrated a sophisticated understanding of the fact that 'local' environmental outcomes are never truly local.",  "They are affected by larger sets of social rules including those created by national governments.  Would you happen to know what percent of the world's forests are owned by governments?", "quiz",  "That's correct!","I have something to tell you... You did it!  The new Community Forestry Law has passed.  Dante?  Oh, I was never going to let him push me around.",  "I survived 3 years in a prison cell under the dictatorship; I'm not afraid of a common thug in a suit.  My aides told me about your father's ordeal.  I have asked the judicial police to look into Dante's activities.",  "Go now, your mayor called.  He says to meet him outside."];
 		

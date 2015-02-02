@@ -1,15 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Rules/RulesGUI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/splashScreens/levelSelect.js">
     <Files>
-      <File FileName="Assets/CutsceneManager.js" Line="1" Column="1" />
-      <File FileName="Assets/splashScreens/splashScreen.js" Line="1" Column="1" />
-      <File FileName="Assets/MusicSingleton.js" Line="131" Column="45" />
-      <File FileName="Assets/splashScreens/FinalCutsceneManager.js" Line="44" Column="38" />
-      <File FileName="Assets/GLOBAL.js" Line="16" Column="1" />
-      <File FileName="Assets/GUIController.js" Line="103" Column="41" />
-      <File FileName="Assets/Rules/RulesGUI.js" Line="54" Column="41" />
-      <File FileName="Assets/Awareness/AwarenessGUI.js" Line="81" Column="60" />
+      <File FileName="Assets/PlayerMovement.js" Line="171" Column="116" />
+      <File FileName="Assets/GLOBAL.js" Line="66" Column="29" />
+      <File FileName="Assets/GUIController.js" Line="486" Column="26" />
+      <File FileName="Assets/Capitol/Capitol_TextContainer.js" Line="58" Column="2" />
+      <File FileName="Assets/splashScreens/levelSelect.js" Line="1" Column="1" />
+      <File FileName="Assets/TextManager.js" Line="68" Column="101" />
+      <File FileName="Assets/CharacterMotor.js" Line="587" Column="39" />
+      <File FileName="Assets/Rules/RulesGUI.js" Line="69" Column="6" />
+      <File FileName="Assets/CutsceneManager.js" Line="153" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -498,9 +498,9 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Padding:
-      m_Left: 50
-      m_Right: 50
-      m_Top: 50
+      m_Left: 30
+      m_Right: 30
+      m_Top: 15
       m_Bottom: 0
     m_Overflow:
       m_Left: 0
@@ -508,7 +508,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 12800000, guid: 0e554b93abc052d4592b24f19640140b, type: 3}
-    m_FontSize: 30
+    m_FontSize: 14
     m_FontStyle: 0
     m_Alignment: 1
     m_WordWrap: 1

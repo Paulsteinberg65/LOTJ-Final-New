@@ -233,7 +233,7 @@ function Update () {
 	  		if (danteCounter == 6 && GLOBAL.inHouse){	//if timer runs out in senate
 				DisplayInfo("hFailure");
 				canControl(false);
-				movement.senateReset(1);
+				movement.houseReset(1);
 	  		}
 	  		else if (danteCounter == 4 && GLOBAL.inSenate) {	//if timer runs out in senate
 				DisplayInfo("sFailure");
@@ -351,7 +351,7 @@ function OnGUI () {
 		}
 	}
 	//do not enter sign for the waterfall
-	if (Application.loadedLevelName == "waterfall" && player.transform.position.x < -7.6 && player.transform.position.y > 5.0 && GLOBAL.questNum < 5) {
+	if (Application.loadedLevelName == "waterfall" && player.transform.position.x < -7.6 && player.transform.position.y > 5.0 && player.transform.position.y < 5.5 && GLOBAL.questNum < 5) {
 		DisplayInfo("waterfallExitBlocked");
 		//GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", infoBoxStyle);
 	}
@@ -476,7 +476,9 @@ function OnGUI () {
 		}
 	
 		if (quiz) {
-			GUI.Box(Rect(Screen.width/4,Screen.height/3,Screen.width/1.75,Screen.height/2), "");
+			GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
+			GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
+			GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
 			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0], quizAnswerStyle);
 			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+105,Screen.width/2,Screen.height/2), quizAnswers[1], quizAnswerStyle);
 			GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[2], quizAnswerStyle);
@@ -529,39 +531,39 @@ function OnGUI () {
 	}
 	if (journalUI){//TODO: NEW JOURNAL UI
 		GUI.Box(Rect(Screen.width/8, Screen.height/8, Screen.width*3/4, Screen.height*3/4+10),"");
-		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "1", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "\n\nFather's Note", journalSelectStyle)){
 			DisplayJournal(0);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "2", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nWe're Contributing to a Global Extinction Crisis ", journalSelectStyle)){
 			DisplayJournal(1);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "3", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nThree-quarters of the world's forests are owned by governments.", journalSelectStyle)){
 			DisplayJournal(2);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "4", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nWhat makes for a successful common-property system? ", journalSelectStyle)){
 			DisplayJournal(3);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "5", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nA case study of community forest management in action ", journalSelectStyle)){
 			DisplayJournal(4);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "6", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nCommunity forestry is growing in importance due to political decentralization", journalSelectStyle)){
 			DisplayJournal(5);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "7", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWhat exactly is a 'local community' in the context of forest management?", journalSelectStyle)){
 			DisplayJournal(6);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "8", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWomen's participation is essential in community forestry", journalSelectStyle)){
 			DisplayJournal(7);
 			journalUI = false;
 		}
-		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "9", journalSelectStyle)){
+		if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\n\nValuing the forest", journalSelectStyle)){
 			DisplayJournal(8);
 			journalUI = false;
 		}
@@ -587,8 +589,9 @@ function DisplayQuest () {
 			currentQuestText = 
 				"You still need to find: " + Array(remainingMaze).Join(", ") + "\n\n" + GLOBAL.questArray[GLOBAL.questNum];
 		} else if (Application.loadedLevelName == "waterfall" && ((GLOBAL.numPages - GLOBAL.totalPages) + 1) > 0) {
+			currentQuestHeader = "Find the journal pages";
 			currentQuestText =
-				"You still need to find " + ((GLOBAL.numPages - GLOBAL.totalPages) + 1) + " more pages.\n\n" + GLOBAL.questArray[GLOBAL.questNum];
+				"You still need to find " + ((GLOBAL.numPages - GLOBAL.totalPages) + 1) + " more page(s).\n\n" + GLOBAL.questArray[GLOBAL.questNum];
 		} else {
 			currentQuestText = GLOBAL.questArray[GLOBAL.questNum];
 		}
@@ -597,6 +600,13 @@ function DisplayQuest () {
 		canControl(false);
 		journalDisplay = false;
 	}
+}
+
+function timerPause(){
+	running = false;
+}
+function timerUnpause(){
+	running = true;
 }
 
 function DisplayJournal (currentPage : int) {

@@ -61,12 +61,22 @@ function Update () {
 	if (Input.GetButtonDown("Space")) {
 		if (ruleAccepted) {
 			if (changeScene) {
+				if (GLOBAL.questNum == 7){
+					GLOBAL.AdvanceQuest();
+				}
+				else if (GLOBAL.questNum == 6){
+					GLOBAL.AdvanceQuest();
+					GLOBAL.AdvanceQuest();
+				}
 				Application.LoadLevel("rulesExit");
 			}
 			else {
 				ruleAccepted = false;
 				AdvanceQuestion();
 			}
+		}
+		if(showingHelp){
+			showingHelp = false;
 		}
 		if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
 			resetDisplay = false;

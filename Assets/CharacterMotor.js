@@ -583,7 +583,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	}
 	
 	if (hit.gameObject.tag == "Door") {
-		if (Application.loadedLevelName == "waterfall" && GLOBAL.questNum == 6) {
+		if (Application.loadedLevelName == "waterfall" && GLOBAL.questNum == 5) {
 			Application.LoadLevel("enterCave");
 		}
 		if (Application.loadedLevelName == "waterfallCave" && talkedToDad) {
