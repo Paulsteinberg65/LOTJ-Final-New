@@ -27,7 +27,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -62,7 +61,7 @@ MonoBehaviour:
   atlasWidth: 2048
   atlasHeight: 2048
   forceSquareAtlas: 0
-  atlasWastage: 37.8959656
+  atlasWastage: 37.8767967
   allowMultipleAtlases: 0
   textureParams:
   - name: forestdoor2
@@ -2324,7 +2323,7 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 0
     pad: 0
-    extraPadding: 0
+    extraPadding: 1
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 0

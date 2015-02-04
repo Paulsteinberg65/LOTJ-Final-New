@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AudioFader.js" />
      <Compile Include="Assets\Awareness\AwarenessGUI.js" />
      <Compile Include="Assets\Awareness\AwarenessObstacle.js" />
      <Compile Include="Assets\Awareness\AwarenessPlayer.js" />
