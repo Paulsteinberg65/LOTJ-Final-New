@@ -61,7 +61,7 @@ MonoBehaviour:
   atlasWidth: 2048
   atlasHeight: 2048
   forceSquareAtlas: 0
-  atlasWastage: 37.8767967
+  atlasWastage: 37.8574371
   allowMultipleAtlases: 0
   textureParams:
   - name: forestdoor2
@@ -2323,7 +2323,7 @@ MonoBehaviour:
     diceUnitX: 64
     diceUnitY: 0
     pad: 0
-    extraPadding: 1
+    extraPadding: 2
     source: 0
     fromSpriteSheet: 0
     hasSpriteSheetId: 0

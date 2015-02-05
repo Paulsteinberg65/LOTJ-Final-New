@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/splashScreens/FinalCutsceneManager.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GUIController.js">
     <Files>
-      <File FileName="Assets/CutsceneManager.js" Line="1" Column="1" />
-      <File FileName="Assets/splashScreens/splashScreen.js" Line="1" Column="1" />
-      <File FileName="Assets/MusicSingleton.js" Line="131" Column="45" />
-      <File FileName="Assets/splashScreens/FinalCutsceneManager.js" Line="44" Column="38" />
-      <File FileName="Assets/GLOBAL.js" Line="16" Column="1" />
+      <File FileName="Assets/GUIController.js" Line="107" Column="36" />
+      <File FileName="Assets/AudioFader.js" Line="1" Column="1" />
+      <File FileName="Assets/ZPositionManager.js" Line="23" Column="86" />
+      <File FileName="Assets/Town1/Town1_TextContainer.js" Line="26" Column="242" />
+      <File FileName="Assets/TextManager.js" Line="349" Column="15" />
+      <File FileName="Assets/PlayerMovement.js" Line="97" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

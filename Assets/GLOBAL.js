@@ -17,6 +17,7 @@ var dialogueTextStyle : GUIStyle;
 var questHeaderStyle : GUIStyle;
 var questTextStyle : GUIStyle;
 var infoBoxStyle : GUIStyle;
+var doNotEnterStyle : GUIStyle;
 var journalStyle : GUIStyle;
 var journalSelectStyle : GUIStyle;
 var menuButtonStyle : GUIStyle;

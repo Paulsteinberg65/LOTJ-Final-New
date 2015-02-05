@@ -35,6 +35,7 @@ var dialogueTextStyle : GUIStyle;
 var questHeaderStyle : GUIStyle;
 var questTextStyle : GUIStyle;
 var infoBoxStyle : GUIStyle;
+var doNotEnterStyle : GUIStyle;
 var journalStyle : GUIStyle;
 var journalSelectStyle: GUIStyle;
 var menuButtonStyle : GUIStyle;
@@ -102,6 +103,7 @@ function Start () {
 	questHeaderStyle = GLOBAL.questHeaderStyle;
 	questTextStyle = GLOBAL.questTextStyle;
 	infoBoxStyle = GLOBAL.infoBoxStyle;
+	doNotEnterStyle = GLOBAL.doNotEnterStyle;
 	journalStyle = GLOBAL.journalStyle;
 	journalSelectStyle = GLOBAL.journalSelectStyle; //TODO: NEW JOURNAL
 	menuButtonStyle = GLOBAL.menuButtonStyle;
@@ -340,14 +342,14 @@ function OnGUI () {
 	//TODO: END OF TIMER
 	//code for the do not enter signs
 	if (Application.loadedLevelName == "Town1") { //do not enter signs for Town1 are contained here
-		if (player.transform.position.x == 41.0 && player.transform.position.y == 4.0) {
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
+		if (player.transform.position.x == 41.0 && (player.transform.position.y >= 3.0 || player.transform.position.y <= 5.0)) {
+			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now.", doNotEnterStyle);
 		} 
 		else if (player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
+			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now.", doNotEnterStyle);
 		}
 		else if (player.transform.position.x == 41.0 && (player.transform.position.y == -24.0 || player.transform.position.y == -23.0)) {
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Before traveling anywhere, you should learn more about what’s going on in your village.", questTextStyle);
+			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "Before traveling anywhere, you should learn more about what’s going on in your village.", doNotEnterStyle);
 		}
 	}
 	//do not enter sign for the waterfall
@@ -448,7 +450,7 @@ function OnGUI () {
 		NPCName = tm.facedObject.name;
 		
 		if ("Sign" in NPCName) { //this is where info signs display is done
-			GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, questTextStyle);
+			GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, infoBoxStyle);
 			if("BirdSign" in NPCName && !playedWarblers) {
 				audio.PlayOneShot(cerulean_warbler);
 				playedWarblers = true;
@@ -569,11 +571,11 @@ function OnGUI () {
 	
 	if (infoDisplay) { //HELP MENU DISPLAY
 		currentString = GLOBAL.infoDict[infoTitle];
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), currentString, questTextStyle);
+		GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, infoBoxStyle);
 	}
 	
 	if (jumpInfoDisplay) { //show the jump info if we should be
-		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", questTextStyle);
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", infoBoxStyle);
 	}
 }
 

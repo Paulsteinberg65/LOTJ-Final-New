@@ -73,6 +73,7 @@
      <Compile Include="Assets\Town1\Town1_TextContainer.js" />
      <Compile Include="Assets\Town2\OnLoad.js" />
      <Compile Include="Assets\Waterfall_TextContainer.js" />
+     <Compile Include="Assets\ZPositionManager.js" />
      <Compile Include="Assets\splashScreens\FinalCutsceneManager.js" />
      <Compile Include="Assets\splashScreens\levelSelect.js" />
      <Compile Include="Assets\splashScreens\splashScreen.js" />
