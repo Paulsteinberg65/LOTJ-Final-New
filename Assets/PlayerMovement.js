@@ -108,19 +108,19 @@ function Start () {
 				gui.DisplayInfo("senateBlocked1");
 			}
 			else if(endPosition.x > 30.5 && endPosition.x < 32.5 && endPosition.y > -20.0 && endPosition.y < -18.0
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && GLOBAL.questNum > 9){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && GLOBAL.questNum > 10){
 				gui.DisplayInfo("senateBlocked2");
 			}
-			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
-				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (gui.playerCounter == 4) && GLOBAL.questNum == 10){
-				senateExit();
-			}
+//			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
+//				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (gui.playerCounter == 4) && GLOBAL.questNum >= 10){
+//				senateExit();
+//			}
 			if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) && GLOBAL.questNum == 11){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) && GLOBAL.questNum == 14){
 				houseReset(0);
 			}
 			else if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) &&  GLOBAL.questNum < 11){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) &&  GLOBAL.questNum > 11){
 				gui.DisplayInfo("houseBlocked2");
 			}
 			else if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
@@ -182,6 +182,9 @@ function senateReset(location: int) {// 0 if coming from outside, 1 if from insi
 	gui.senateRollback();
 	gui.showTimer();
 	gui.runTimer();
+	if (location == 1){
+	GLOBAL.questNum = 10;
+	}
 	//if (location == 0){//DEPRECATED
 	GLOBAL.inSenate = true;
 	//}

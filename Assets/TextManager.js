@@ -84,8 +84,9 @@ function Update () {
 			questDisplay = false;
 		}
 		else if (!interacting) {
-			if (Application.loadedLevelName == "waterfall" || Application.loadedLevelName == "waterfallCave")
+			if (Application.loadedLevelName == "waterfall" || Application.loadedLevelName == "waterfallCave"){
 				return;
+				}
 			else {
 				facedPosition = transform.position + getFacedDifference();
 				if (collisionDict) {
@@ -93,13 +94,14 @@ function Update () {
 						facedObject = collisionDict[(facedPosition.x).ToString() + ", " + (facedPosition.y).ToString()];
 						if (facedObject.tag == "NPC"  && (GLOBAL.GUIController.journalDisplay == false) && ((Time.time - GLOBAL.GUIController.endCamilo)> 2.0)) {
 							startConvo(facedObject.name);
+							//gui.timerPause();
 						}
 					}
 				}
 			}
 		}
 		else {
-		
+		//gui.timerPause();
 		Debug.Log("current dialogue = "+ tcScript.currentDialogue);
 				Debug.Log("current dialogue = "+ tcScript.currentDialogue);
 						Debug.Log("current dialogue = "+ tcScript.currentDialogue);
@@ -137,11 +139,13 @@ function Update () {
 
 						if (gui.playerCounter == 1 && facedObject.name == "Senator C - Chair, Natural Resources Committee"){
 							gui.playerUp();
+							GLOBAL.AdvanceQuest();
 							tcScript.NextDialogue();
 							//tcScript.ChangeAides(1);
 						}
 						else if (gui.playerCounter == 2 && facedObject.name == "Senator Z"){
 							gui.playerUp();
+							GLOBAL.AdvanceQuest();
 							tcScript.NextDialogue();
 							//tcScript.ChangeAides(2);
 						}
@@ -167,6 +171,12 @@ function Update () {
 								}
 							}
 						}
+						else if (facedObject.name == "Representative W - Speaker of the Chamber of Representatives" && gui.playerCounter == 5){
+						gui.toggleFinish();
+						gui.stopTimer();
+						gui.playerUp();
+						//gui.GameOver();
+						}
 					
 					}
 					else{ //wrong answer
@@ -176,6 +186,7 @@ function Update () {
 					}
 				}
 				else {
+					//gui.timerUnpause();
 					Debug.Log("End interaction");
 					interacting = false;
 					iTime = Time.time;
@@ -196,7 +207,7 @@ function Update () {
 						Debug.Log("advancing from maze");
 					}
 					
-					if (GLOBAL.questNum == 6 && currentText == tcScript.dialogueDict["Father"]) {
+					if (GLOBAL.questNum == 5 && currentText == tcScript.dialogueDict["Father"]) {
 						GLOBAL.AdvanceQuest();
 					}
 					if (facedObject.name == "Legislative Aide Z" && gui.playerCounter == 2){
@@ -208,8 +219,12 @@ function Update () {
 					if (facedObject.name == "Legislative Aide W" && gui.playerCounter == 5){
 						Destroy(facedObject);
 					}
-					if (facedObject.name == "Dante" || facedObject.name == "Dante "){
+					if (Application.loadedLevelName == "capitol" && (facedObject.name == "Dante" || facedObject.name == "Dante ")){
+						if (facedObject.name == "Dante"){
+							GLOBAL.AdvanceQuest();
+						}
 						Destroy(facedObject);
+						
 					}
 					//these add to the quiz progress counter for NPC's that don't give quizzes
 					if (facedObject.name == "Senator A" && ((GLOBAL.questNum <= 8)||(GLOBAL.questNum == 10)) ){
@@ -219,6 +234,7 @@ function Update () {
 					if (facedObject.name == "Senator G - Member, Natural Resources Committee" && gui.playerCounter == 0){
 						Debug.Log("Should advance dialogue");
 						GLOBAL.AdvanceQuiz();
+						GLOBAL.AdvanceQuest();
 						tcScript.NextDialogue();
 						gui.playerUp();
 					}
@@ -253,12 +269,10 @@ function Update () {
 						}
 
 					}
-					else if (facedObject.name == "Representative W - Speaker of the Chamber of Representatives" && gui.playerCounter == 5){
-						gui.toggleFinish();
-						gui.stopTimer();
-						gui.playerUp();
+					else if (facedObject.name == "Representative W - Speaker of the Chamber of Representatives" && gui.playerCounter == 6){
 						gui.GameOver();
-					}
+						}
+					
 
 					
 					//update dynamic text

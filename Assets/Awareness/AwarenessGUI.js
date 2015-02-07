@@ -38,6 +38,7 @@ var resetIconImg : Texture2D;
 function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	menuButtonStyle = GLOBAL.menuButtonStyle;
+	questTextStyle = GLOBAL.questTextStyle;
 	playerSprite = player.GetComponent(tk2dSprite);
 	playerScript = player.GetComponent("AwarenessPlayer");
 	tcScript = textContainer.GetComponent("Awareness_TextContainer");
@@ -65,23 +66,48 @@ function Update () {
 function OnGUI () {
 	//GUI.DrawTexture(Rect(0,0,800,600), bgImg);
 
-	if (GUI.Button(Rect(30,30,65,65), farmerSqr, buttonStyle))
-		playerSprite.spriteId = 9;
-	if (GUI.Button(Rect(105,30,65,65), studentSqr, buttonStyle))
-		playerSprite.spriteId = 15;
-	if (GUI.Button(Rect(30,105,65,65), fisherSqr, buttonStyle))
-		playerSprite.spriteId = 13;
-	if (GUI.Button(Rect(105,105,65,65), artisanSqr, buttonStyle))
-		playerSprite.spriteId = 0;
+	if (GUI.Button(Rect(30,30,65,65), farmerSqr, buttonStyle)){
+		if(!playerScript.farmerWin){
+			playerSprite.spriteId = 9;
+		}
+		else{
+			DisplayMessage("alreadyFinished");
+		}
+	}
+		
+	if (GUI.Button(Rect(105,30,65,65), studentSqr, buttonStyle)){
+		if(!playerScript.studentWin){
+			playerSprite.spriteId = 15;
+		}
+		else{
+			DisplayMessage("alreadyFinished");
+		}
+	}
+	if (GUI.Button(Rect(30,105,65,65), fisherSqr, buttonStyle)){
+		if(!playerScript.fisherWin){
+			playerSprite.spriteId = 13;
+		}
+		else{
+			DisplayMessage("alreadyFinished");
+		}
+	}
+	if (GUI.Button(Rect(105,105,65,65), artisanSqr, buttonStyle)){
+		if(!playerScript.artisanWin){
+			playerSprite.spriteId = 0;
+		}
+		else{
+			DisplayMessage("alreadyFinished");
+		}
+	}
 		
 		
-	GUI.HorizontalSlider(Rect(10,297,175,20),player.GetComponent("AwarenessPlayer").farmerRep,0,10, sliderStyle, thumbStyle1);
-	GUI.HorizontalSlider(Rect(10,352,175,20),player.GetComponent("AwarenessPlayer").studentRep,0,10, sliderStyle, thumbStyle2);
-	GUI.HorizontalSlider(Rect(10,409,175,20),player.GetComponent("AwarenessPlayer").fisherRep,0,10, sliderStyle, thumbStyle3);
-	GUI.HorizontalSlider(Rect(10,464,175,20),player.GetComponent("AwarenessPlayer").artisanRep,0,10, sliderStyle, thumbStyle4);
+	GUI.HorizontalSlider(Rect(10,297,210,20),player.GetComponent("AwarenessPlayer").farmerRep,0,10, sliderStyle, thumbStyle1);
+	GUI.HorizontalSlider(Rect(10,352,210,20),player.GetComponent("AwarenessPlayer").studentRep,0,10, sliderStyle, thumbStyle2);
+	GUI.HorizontalSlider(Rect(10,409,210,20),player.GetComponent("AwarenessPlayer").fisherRep,0,10, sliderStyle, thumbStyle3);
+	GUI.HorizontalSlider(Rect(10,464,210,20),player.GetComponent("AwarenessPlayer").artisanRep,0,10, sliderStyle, thumbStyle4);
 		
 	if (showingMsg) {
-		GUI.Box(Rect(222, 200, 535, 200), currentString, questTextStyle);
+		GUI.Box(Rect(222, 200, 535, 200), currentString, infoBoxStyle);
 	}
 	
 	if (GUI.Button(Rect(Screen.width-32,0,32,32), helpImg, menuButtonStyle)) {

@@ -20,6 +20,7 @@ function Start () {
 	studentWin = ["Congratulations!  Your campaigner has convinced the other students to attend the meeting. Choose another profession (upper left) to reach more people."];
 	studentLose = ["A meeting?  Could you send me the link on my cell phone?  Oh, you don't have this online?  Listen, young people around here care a lot about sustainability – more than you realize.  But there's no way that students are going to attend a meeting unless we're invited by our friends.  That's just how it works."];
 	allWin = ["You did it!  The coffee farmers, artisans, students and fisherman have agreed to come to your meeting."];
+	alreadyFinished = ["You have already convinced this group to attend the meeting.  Choose another character."];
 	
 	msgDict["startMsg"] = startMsg;
 	msgDict["helpMsg"] = helpMsg;
@@ -32,6 +33,7 @@ function Start () {
 	msgDict["studentWin"] = studentWin;
 	msgDict["studentLose"] = studentLose;
 	msgDict["allWin"] = allWin;
+	msgDict["alreadyFinished"] = alreadyFinished;
 	
 	
 	// sample quiz

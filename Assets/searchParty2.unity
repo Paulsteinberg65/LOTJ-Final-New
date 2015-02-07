@@ -101,6 +101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!114 &176880756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,8 +304,11 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &200680466
 Transform:
   m_ObjectHideFlags: 0
@@ -316,6 +320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &945475554
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +367,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &1078824173
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,8 +435,11 @@ Camera:
     m_Bits: 512
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &1078824178
 Transform:
   m_ObjectHideFlags: 0
@@ -442,6 +451,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &2010905946
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +489,8 @@ MonoBehaviour:
   radio: {fileID: 8300000, guid: d7e98947c3ecd4fd9a91ad9c6be88175, type: 3}
   jeep: {fileID: 8300000, guid: 78a5fb71d356e4bac837366f5f5f30b0, type: 3}
   city: {fileID: 8300000, guid: 3bb016322dd814e93982504398106f04, type: 3}
+  legislature: {fileID: 0}
+  azteca: {fileID: 0}
 --- !u!82 &2010905948
 AudioSource:
   m_ObjectHideFlags: 0
@@ -489,7 +501,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 0e18b445d3498e640b94783893ffb2fa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .400000006
+  m_Volume: .340999991
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -548,3 +560,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 4

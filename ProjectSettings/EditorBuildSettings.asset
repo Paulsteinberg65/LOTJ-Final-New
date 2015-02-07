@@ -69,9 +69,9 @@ EditorBuildSettings:
     path: Assets/splashScreens/gameEnd1.unity
   - enabled: 1
     path: Assets/splashScreens/gameEnd2.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/demoEnd.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/demoEnd2.unity
   - enabled: 0
     path: Assets/waterfall.unity
@@ -84,4 +84,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/splashScreens/titleCard.unity
   - enabled: 0
+    path: Assets/splashScreens/titleCard.unity
+  - enabled: 1
     path: Assets/splashScreens/titleCard.unity
