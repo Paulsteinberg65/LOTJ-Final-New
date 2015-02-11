@@ -56,6 +56,7 @@ function Start () {
 	NPCDict["Artisan"] = artisanImg;
 	NPCDict["Police Officer"] = policeImg;
 	
+	infoDict["town1Blocked"] = "This passage is closed for now";
 	infoDict["waterfallExitBlocked"] = "You still have more pages of your father's journal to collect!";
 	infoDict["capital"] = "If your village is going to protect its natural resources, you will need the support of national lawmakers. You must convince them to pass a new law that empowers local communities to take part in forest governance. The national legislature is in the capital, a day's drive from here.";
 	infoDict["sFailure"] = "Dante has won over more support in the Senate than you.  Try again, paying careful attention to the pages you have collected.";
