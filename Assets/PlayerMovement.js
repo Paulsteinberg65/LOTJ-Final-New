@@ -116,7 +116,7 @@ function Start () {
 				senateExit();
 			}
 			if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) && GLOBAL.questNum == 11){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && GLOBAL.questNum == 14){
 				houseReset(0);
 			}
 			else if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 

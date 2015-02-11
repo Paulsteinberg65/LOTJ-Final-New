@@ -578,7 +578,7 @@ function OnGUI () {
 	
 	if (infoDisplay) { //HELP MENU DISPLAY
 		currentString = GLOBAL.infoDict[infoTitle];
-		GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, infoBoxStyle);
+		GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, doNotEnterStyle);
 	}
 	
 	if (jumpInfoDisplay) { //show the jump info if we should be

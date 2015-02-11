@@ -227,7 +227,7 @@ function Update () {
                         
                     }
                     //these add to the quiz progress counter for NPC's that don't give quizzes
-                    if (facedObject.name == "Senator A" && ((GLOBAL.questNum <= 8)||(GLOBAL.questNum == 10)) ){
+                    if (facedObject.name == "Senator A" && ((GLOBAL.questNum == 8)||(GLOBAL.questNum == 13)) ){
                         GLOBAL.AdvanceQuest();
                         tcScript.NextDialogue();
                     }

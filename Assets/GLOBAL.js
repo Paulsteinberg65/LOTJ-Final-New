@@ -112,6 +112,9 @@ function Start () {
     questHArray.push("Continue lobbying for change");
     questArray.push("There is a great deal of clamor at the capital about the need for a change in forestry legislation, but more still needs to be done!  Continue convincing politicians in the parliament building to implement these reforms before Dante convinces them otherwise!");
     //15
+    questHArray.push("Continue lobbying for change");
+    questArray.push("There is a great deal of clamor at the capital about the need for a change in forestry legislation, but more still needs to be done!  Continue convincing politicians in the parliament building to implement these reforms before Dante convinces them otherwise!");
+    //16
     questHArray.push("You have succeeded!");
     questArray.push("The legislation has been passed! Congratulations!");
 
