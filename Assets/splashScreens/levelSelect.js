@@ -15,7 +15,6 @@ function Start () {
 }
 
 function Update () {
-	Debug.Log("selection: " + selection);
 	if (Input.GetButtonDown("Space")) {
 		Application.LoadLevel(nextScene);
 	}
@@ -73,7 +72,6 @@ function Update () {
 		GLOBAL.totalPages = 9;
 		nextScene = "capitol";
 	}
-	//}
 }
 
 function OnGUI () {

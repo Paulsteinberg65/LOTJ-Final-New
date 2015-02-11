@@ -153,4 +153,10 @@
      	}
      }
      
+     function LevelSelection () {
+     	audio.Stop();
+     	audio.clip = secrets;
+     	audio.Play();
+     }
+     
  }

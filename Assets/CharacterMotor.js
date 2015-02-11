@@ -284,8 +284,11 @@ function Update () {
 		//wallRun.enabled = true;
 	}
 	
-	if (GLOBAL.GUIController.journalDisplay) {
+	if (GLOBAL.GUIController.journalDisplay || GLOBAL.GUIController.infoDisplay || GLOBAL.GUIController.questDisplay) {
 		jumpDisabled = Time.time;
+		if (GLOBAL.GUIController.infoDisplay) {
+			movement.velocity.Set(0.0,0.0,0.0);
+		}
 	}
 	
 	if (canControl) {
@@ -446,7 +449,7 @@ private function ApplyGravityAndJumping (velocity : Vector3) {
 		}
 	
 	// Jumping
-	if (grounded && Time.time - jumpDisabled > .1) {
+	if (grounded && Time.time - jumpDisabled > .5) { //Time.time - jumpDisabled > .5 stops the player from jumping directly after reading journal
 		velocity = Jump(velocity);
 	}
 	// Air jumping (only works 0.1s or more after first jump, to protect player)

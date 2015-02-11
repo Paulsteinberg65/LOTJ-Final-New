@@ -174,39 +174,44 @@ function Start () {
 }
 */
 
+
 function senateReset(location: int) {// 0 if coming from outside, 1 if from inside
-	gui.danteReset(1);
-	canControl = true;
-	myPosition.position.x = 104;
-	myPosition.position.y = -23;
-	gui.senateRollback();
-	gui.showTimer();
-	gui.runTimer();
-	//if (location == 0){//DEPRECATED
-	GLOBAL.inSenate = true;
-	//}
+    gui.danteReset(1);
+    canControl = true;
+    myPosition.position.x = 104;
+    myPosition.position.y = -23;
+    gui.senateRollback();
+    gui.showTimer();
+    gui.runTimer();
+    if (location == 1){
+    GLOBAL.questNum = 10;
+    }
+    //if (location == 0){//DEPRECATED
+    GLOBAL.inSenate = true;
+    //}
 }
 function senateExit(){
-	myPosition.position.x = 32;
-	myPosition.position.y = -22;
-	GLOBAL.inSenate = false;
-	gui.hideTimer();
+    myPosition.position.x = 32;
+    myPosition.position.y = -22;
+    GLOBAL.inSenate = false;
+    gui.hideTimer();
 }
 function houseReset(location: int) {
-	gui.danteReset(2);
-	canControl = true;
-	myPosition.position.x = 110;
-	myPosition.position.y = 35.5;
-	gui.houseRollback();
-	if(gui.finished){
-	gui.toggleFinish();
-	}
-	gui.showTimer();
-	gui.runTimer();
-	//if (location == 0){//Deprecated
-	GLOBAL.inHouse = true;
-	//}
+    gui.danteReset(2);
+    canControl = true;
+    myPosition.position.x = 110;
+    myPosition.position.y = 35.5;
+    gui.houseRollback();
+    if(gui.finished){
+    gui.toggleFinish();
+    }
+    gui.showTimer();
+    gui.runTimer();
+    //if (location == 0){//Deprecated
+    GLOBAL.inHouse = true;
+    //}
 }
+
 
 
 function Update () {			

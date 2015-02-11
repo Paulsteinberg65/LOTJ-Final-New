@@ -43,7 +43,7 @@ function Start () {
 	dialogueDict["Mayor"] = Mayor;
 	dialogueDict["Estrella"] = Estrella;
 	dialogueDict["Juana"] = Juana;
-	dialogueDict["FatherDiego"] = FatherDiego;
+	dialogueDict["Father Diego"] = FatherDiego;
 	dialogueDict["Felipe"] = Felipe;
 	dialogueDict["Sol"] = Sol;
 	
@@ -61,7 +61,7 @@ function Start () {
 	imgDict["Mayor"] = mayorImg;
 	imgDict["Estrella"] = estrellaImg;
 	imgDict["Juana"] = juanaImg;
-	imgDict["FatherDiego"] = fatherDiegoImg;
+	imgDict["Father Diego"] = fatherDiegoImg;
 	imgDict["Felipe"] = felipeImg;
 	imgDict["Sol"] = solImg;
 	
@@ -122,7 +122,7 @@ function NextDialogue () {
 	dialogueDict["Mayor"] = Mayor;
 	dialogueDict["Estrella"] = Estrella;
 	dialogueDict["Juana"] = Juana;
-	dialogueDict["FatherDiego"] = FatherDiego;
+	dialogueDict["Father Diego"] = FatherDiego;
 	dialogueDict["Felipe"] = Felipe;
 	dialogueDict["Sol"] = Sol;
 

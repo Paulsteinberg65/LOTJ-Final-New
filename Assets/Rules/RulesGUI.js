@@ -46,32 +46,46 @@ var journalImg : Texture2D;
 var soundIconImg : Texture2D;
 var resetIconImg : Texture2D;
 
+private var musicPlayer : Object;
+
 // Use this for initialization
 function Start () {
 	GLOBAL = GameObject.Find("GLOBAL").GetComponent("GLOBAL");
 	menuButtonStyle = GLOBAL.menuButtonStyle;
 	infoBoxStyle = GLOBAL.infoBoxStyle;
 	tc = GameObject.Find("TextContainer").GetComponent("Rules_TextContainer");
+	musicPlayer = GameObject.Find("MusicPlayer").GetComponent("MusicSingleton");
 	ResetValues();
 }
 
 // Update is called once per frame
 function Update () {
-	if (Input.GetButtonDown("Space")) {
-		if (ruleAccepted) {
-			if (changeScene) {
-				Application.LoadLevel("rulesExit");
-			}
-			else {
-				ruleAccepted = false;
-				AdvanceQuestion();
-			}
-		}
-		if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
-			resetDisplay = false;
-		}
-	}
+    if (Input.GetButtonDown("Space")) {
+        if (ruleAccepted) {
+            if (changeScene) {
+                if (GLOBAL.questNum == 7){
+                    GLOBAL.AdvanceQuest();
+                }
+                else if (GLOBAL.questNum == 6){
+                    GLOBAL.AdvanceQuest();
+                    GLOBAL.AdvanceQuest();
+                }
+                Application.LoadLevel("rulesExit");
+            }
+            else {
+                ruleAccepted = false;
+                AdvanceQuestion();
+            }
+        }
+        if(showingHelp){
+            showingHelp = false;
+        }
+        if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
+            resetDisplay = false;
+        }
+    }
 }
+
 
 function OnGUI () {
 	//question displays
@@ -157,6 +171,7 @@ function OnGUI () {
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), resetMsg, infoBoxStyle);
 		if (GUI.Button(Rect(Screen.width/2 - 15, (Screen.height * 0.75) - 60, 32, 32), resetIconImg, menuButtonStyle)) {
 			Application.LoadLevel("levelSelect");
+			musicPlayer.LevelSelection(); //have musicsingleton stop music and reset it to Secrets Revealed
 			GLOBAL.ResetVariables();
 		}
 	}
