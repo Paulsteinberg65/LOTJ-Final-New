@@ -26,6 +26,7 @@ private var wMovement : Object;
 private var showGUI : boolean = true;
 private var infoTitle;
 private var infoDisplay : boolean = false;
+private var doNotInfoDisplay : boolean = false;
 
 var quiz : boolean = false;
 var sQuizAnswer : int = 0;
@@ -173,7 +174,11 @@ function Update () {
 			infoDisplay = false;
 			canControl(true);
 		}
-		if (questDisplay || infoDisplay) { //are we currently showing quets or info?
+		if (doNotInfoDisplay){
+			doNotInfoDisplay = false;
+			canControl(true);
+		}
+		if (questDisplay || infoDisplay||doNotInfoDisplay) { //are we currently showing quets or info?
 			if(Application.loadedLevelName == "Maze" && questDisplay && Array(remainingMaze).length == 0){
 				questDisplay = false;
 				Application.LoadLevel("searchParty1");
@@ -346,8 +351,9 @@ function OnGUI () {
 	//TODO: END OF TIMER
 	//code for the do not enter signs
 	if (Application.loadedLevelName == "Town1") { //do not enter signs for Town1 are contained here
-		if (player.transform.position.x == 41.0 && (player.transform.position.y >= 3.0 || player.transform.position.y <= 5.0)) {
-			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now.", doNotEnterStyle);
+		if (player.transform.position.x == 41.0 && (player.transform.position.y >= 3.0 && player.transform.position.y <= 5.0)) {
+			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now .", doNotEnterStyle);
+			//DisplayInfo("town1Blocked");
 		} 
 		else if (player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
 			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now.", doNotEnterStyle);
@@ -581,6 +587,11 @@ function OnGUI () {
 		GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, infoBoxStyle);
 	}
 	
+	if (doNotInfoDisplay) { //HELP MENU DISPLAY
+		currentString = GLOBAL.infoDict[infoTitle];
+		GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, doNotEnterStyle);
+	}
+	
 	if (jumpInfoDisplay) { //show the jump info if we should be
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", infoBoxStyle);
 	}
@@ -632,6 +643,12 @@ function DisplayJournalUI (){ //TODO: new JOURNAL UI
 function DisplayInfo (infoName : String) {
 	infoTitle = infoName;
 	infoDisplay = true;
+	canControl(false);
+	questDisplay = false;
+}
+function DisplayNotEnterInfo (infoName : String) {
+	infoTitle = infoName;
+	doNotInfoDisplay = true;
 	canControl(false);
 	questDisplay = false;
 }

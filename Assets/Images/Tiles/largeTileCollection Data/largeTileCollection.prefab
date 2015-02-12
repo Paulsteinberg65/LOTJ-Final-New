@@ -598,7 +598,7 @@ MonoBehaviour:
     colliderIndicesBack: 
     colliderConvex: 0
     colliderSmoothSphereCollisions: 0
-  - name: carSaved
+  - name: carSaved2
     boundsData:
     - {x: 0, y: 0, z: 0}
     - {x: 1.5625, y: .3125, z: 0}
@@ -621,7 +621,7 @@ MonoBehaviour:
     indices: 000000000300000001000000020000000300000000000000
     material: {fileID: 2100000, guid: daba9a1f1ea9cab4683d48cef7a2a38e, type: 2}
     materialId: 0
-    sourceTextureGUID: 033cd84a849771d46bb6907b891bdb41
+    sourceTextureGUID: 3602465df78724db49045501c8119023
     extractRegion: 0
     regionX: 0
     regionY: 0
@@ -648,7 +648,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 320
-  buildKey: 296535956
+  buildKey: 1584977397
   dataGuid: 4c18a45b90cd9f54880a3142b89bab65
   managedSpriteCollection: 0
   hasPlatformData: 0

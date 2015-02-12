@@ -27,6 +27,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,11 +65,11 @@ MonoBehaviour:
   atlasWastage: 37.8574371
   allowMultipleAtlases: 0
   textureParams:
-  - name: forestdoor2
+  - name: forestdoor2-1
     disableTrimming: 0
     additive: 0
     scale: {x: 1, y: 1, z: 1}
-    texture: {fileID: 2800000, guid: 17c3c2b4cfa94bc469dd6adf74e0931c, type: 3}
+    texture: {fileID: 2800000, guid: 6e617b86a849e4fa2813920f42148941, type: 3}
     materialId: 0
     anchor: 4
     anchorX: 100

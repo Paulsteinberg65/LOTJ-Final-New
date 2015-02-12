@@ -27,6 +27,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,7 +43,7 @@ MonoBehaviour:
   materialIdsValid: 1
   needMaterialInstance: 0
   spriteDefinitions:
-  - name: forestdoor2
+  - name: forestdoor2-1
     boundsData:
     - {x: 0, y: 0, z: 0}
     - {x: .625, y: .3125, z: 0}
@@ -65,7 +66,7 @@ MonoBehaviour:
     indices: 000000000300000001000000020000000300000000000000
     material: {fileID: 2100000, guid: 5863cff64be7d5f4f93a81090b61974e, type: 2}
     materialId: 0
-    sourceTextureGUID: 17c3c2b4cfa94bc469dd6adf74e0931c
+    sourceTextureGUID: 6e617b86a849e4fa2813920f42148941
     extractRegion: 0
     regionX: 0
     regionY: 0
@@ -4014,7 +4015,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 1
   halfTargetHeight: 320
-  buildKey: 726030841
+  buildKey: 1178353284
   dataGuid: e0fb1158fbd474242a20ada20a160ffe
   managedSpriteCollection: 0
   hasPlatformData: 0

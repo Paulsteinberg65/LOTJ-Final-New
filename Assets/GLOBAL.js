@@ -56,6 +56,7 @@ function Start () {
 	NPCDict["Artisan"] = artisanImg;
 	NPCDict["Police Officer"] = policeImg;
 	
+	infoDict["town1Blocked"] = "This passage is closed for now";
 	infoDict["waterfallExitBlocked"] = "You still have more pages of your father's journal to collect!";
 	infoDict["capital"] = "If your village is going to protect its natural resources, you will need the support of national lawmakers. You must convince them to pass a new law that empowers local communities to take part in forest governance. The national legislature is in the capital, a day's drive from here.";
 	infoDict["sFailure"] = "Dante has won over more support in the Senate than you.  Try again, paying careful attention to the pages you have collected.";
@@ -110,8 +111,11 @@ function Start () {
     questArray.push("You still need to find: Senator X - President of the Senate.  Convince politicians in the parliament building to revise the forestry law so that local communities can participate in forest governance.");
     //14
     questHArray.push("Continue lobbying for change");
-    questArray.push("There is a great deal of clamor at the capital about the need for a change in forestry legislation, but more still needs to be done!  Continue convincing politicians in the parliament building to implement these reforms before Dante convinces them otherwise!");
+    questArray.push("There is a great deal of clamor at the capital about the need for a change in forestry legislation, but more still needs to be done!  Go outside and speak to Senator A for instructions on where to go next.");
     //15
+    questHArray.push("Continue lobbying for change");
+    questArray.push("There is a great deal of clamor at the capital about the need for a change in forestry legislation, but more still needs to be done!  Continue convincing politicians in the parliament building to implement these reforms before Dante convinces them otherwise!");
+    //16
     questHArray.push("You have succeeded!");
     questArray.push("The legislation has been passed! Congratulations!");
 
