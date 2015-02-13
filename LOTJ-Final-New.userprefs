@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MusicSingleton.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GUIController.js">
     <Files>
-      <File FileName="Assets/PlayerMovement.js" Line="214" Column="1" />
-      <File FileName="Assets/splashScreens/levelSelect.js" Line="74" Column="3" />
-      <File FileName="Assets/GLOBAL.js" Line="127" Column="10" />
-      <File FileName="Assets/GUIController.js" Line="518" Column="4" />
-      <File FileName="Assets/Awareness/AwarenessGUI.js" Line="152" Column="42" />
-      <File FileName="Assets/Rules/RulesGUI.js" Line="57" Column="78" />
+      <File FileName="Assets/GUIController.js" Line="690" Column="2" />
+      <File FileName="Assets/PlayerMovement.js" Line="1" Column="1" />
+      <File FileName="Assets/splashScreens/levelSelect.js" Line="1" Column="1" />
+      <File FileName="Assets/GLOBAL.js" Line="1" Column="1" />
+      <File FileName="Assets/GUIController.js" Line="401" Column="4" />
+      <File FileName="Assets/Awareness/AwarenessGUI.js" Line="1" Column="1" />
+      <File FileName="Assets/Rules/RulesGUI.js" Line="1" Column="1" />
       <File FileName="Assets/MusicSingleton.js" Line="160" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>

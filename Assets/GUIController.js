@@ -88,6 +88,9 @@ var remainingMaze = ["Camilo", "Carlos", "Gabriela", "Lita", "Manuel"];
 
 private var musicPlayer : Object;
 
+private var spacedTown1 : boolean = false;
+private var spacedWaterfall : boolean = false;
+
 function Start () {
 	tm = player.GetComponent(TextManager);
 	if(Application.loadedLevelName != "waterfall" && Application.loadedLevelName != "waterfallCave") {
@@ -346,20 +349,59 @@ function OnGUI () {
 	//TODO: END OF TIMER
 	//code for the do not enter signs
 	if (Application.loadedLevelName == "Town1") { //do not enter signs for Town1 are contained here
-		if (player.transform.position.x == 41.0 && (player.transform.position.y >= 3.0 || player.transform.position.y <= 5.0)) {
-			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now.", doNotEnterStyle);
+		if (player.transform.position.x == 41.0 && (player.transform.position.y >= 3.0 && player.transform.position.y <= 5.0)) {
+			if (Input.GetButtonDown("Space")) {
+				spacedTown1 = true;
+			}
+			else if (spacedTown1) {
+				//do nothing, don't want the sign to display
+			}
+			else {
+				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
+			}
 		} 
 		else if (player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
-			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now.", doNotEnterStyle);
+			if (Input.GetButtonDown("Space")) {
+				spacedTown1 = true;
+			}
+			else if (spacedTown1) {
+				//do nothing, don't want the sign to display
+			}
+			else {
+				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
+			}
 		}
 		else if (player.transform.position.x == 41.0 && (player.transform.position.y == -24.0 || player.transform.position.y == -23.0)) {
-			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "Before traveling anywhere, you should learn more about what’s going on in your village.", doNotEnterStyle);
+			if (Input.GetButtonDown("Space")) {
+				spacedTown1 = true;
+			}
+			else if (spacedTown1) {
+				//do nothing, don't want the sign to display
+			}
+			else {
+				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Before traveling anywhere, you should learn more about what’s going on in your village.", questTextStyle);
+			}
+		}
+		else {
+			spacedTown1 = false;
 		}
 	}
 	//do not enter sign for the waterfall
-	if (Application.loadedLevelName == "waterfall" && player.transform.position.x < -7.62 && player.transform.position.y > 5.0 && GLOBAL.questNum < 5) {
-		GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "You can't leave yet. There are still more pages of your father's journal to collect!", doNotEnterStyle);
-		//GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You still have more pages of your Father's journal to collect!", infoBoxStyle);
+	if (Application.loadedLevelName == "waterfall") {
+		if (player.transform.position.x < -7.62 && player.transform.position.y > 5.0 && GLOBAL.questNum < 5) {
+			if (Input.GetButtonDown("Space")) {
+				spacedWaterfall = true;
+			}
+			else if (spacedWaterfall) {
+				//do nothing, don't want the sign to display
+			}
+			else {
+				GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "You can't leave yet. There are still more pages of your father's journal to collect!", doNotEnterStyle);
+			}
+		}
+		else {
+			spacedWaterfall = false;
+		}
 	}
 //	if (Application.loadedLevelName == "capitol") { //do not enter signs for the capitol are here
 //		if (player.transform.position.x >= 30.0 && player.transform.position.x <= 33.0 && player.transform.position.y >= -20.0 && player.transform.position.y < -18.0 
