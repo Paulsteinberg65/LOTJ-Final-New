@@ -131,6 +131,7 @@ function Start () {
 				gui.DisplayNotEnterInfo("houseBlocked1");
 				//gui.DisplayNotEnterInfo("houseBlocked1");
 			}
+	
 			myTransform.rotation = Quaternion(0.0, 1.0, 0.0, 0.0);
 			yield;
 

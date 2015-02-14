@@ -65,6 +65,8 @@ function Start () {
 	infoDict["senateBlocked2"] = "Visit the other building to talk to more politicians.  You have already convinced the Senators.";
 	infoDict["houseBlocked1"] = "You can't enter this building until you have talked to everyone in the building below.";
 	infoDict["houseBlocked2"] = "You are not ready to enter this building.  Talk to Senator A and come back.";
+	infoDict["town1blocked1"] = "This passage is closed for now.";
+	infoDict["town1blocked2"] = "Before traveling anywhere, you should learn more about what’s going on in your village.";
 	
 	//populate Quest text array
     //0

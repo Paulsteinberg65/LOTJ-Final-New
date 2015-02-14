@@ -210,6 +210,10 @@ function Update () {
 					DisplayQuest();
 					displayQuestOnExit = false;
 				}
+				else{
+					DisplayJournalUI();
+				}
+				
 			}
 		}
 		if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
@@ -351,15 +355,17 @@ function OnGUI () {
 	//TODO: END OF TIMER
 	//code for the do not enter signs
 	if (Application.loadedLevelName == "Town1") { //do not enter signs for Town1 are contained here
-		if (player.transform.position.x == 41.0 && (player.transform.position.y >= 3.0 && player.transform.position.y <= 5.0)) {
+		if (player.transform.position.x == 41.0 && (player.transform.position.y >= 3.0 || player.transform.position.y <= 5.0)) {
 			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now .", doNotEnterStyle);
-			//DisplayInfo("town1Blocked");
+			//DisplayNotEnterInfo("town1blocked1");
 		} 
 		else if (player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
 			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "This passage is closed for now.", doNotEnterStyle);
+			//DisplayNotEnterInfo("town1blocked1");
 		}
 		else if (player.transform.position.x == 41.0 && (player.transform.position.y == -24.0 || player.transform.position.y == -23.0)) {
 			GUI.Box(Rect((Screen.width/4)+25, (Screen.height/4)+50, (Screen.width/2)-50, (Screen.height/2)-100), "Before traveling anywhere, you should learn more about what’s going on in your village.", doNotEnterStyle);
+			//DisplayNotEnterInfo("town1blocked2");
 		}
 	}
 	//do not enter sign for the waterfall
@@ -544,41 +550,113 @@ function OnGUI () {
 	}
 	if (journalUI){//TODO: NEW JOURNAL UI
         GUI.Box(Rect(Screen.width/8, Screen.height/8, Screen.width*3/4, Screen.height*3/4+10),"");
-        if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "\n\nFather's Note", journalSelectStyle)){
-            DisplayJournal(0);
-            journalUI = false;
+        if ((GLOBAL.pagesObtained[0] == "y")){
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "\n\nFather's Note", journalSelectStyle)){
+            	DisplayJournal(0);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nWe're Contributing to a Global Extinction Crisis ", journalSelectStyle)){
-            DisplayJournal(1);
-            journalUI = false;
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(0);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nThree-quarters of the world's forests are owned by governments.", journalSelectStyle)){
-            DisplayJournal(2);
-            journalUI = false;
+        if((GLOBAL.pagesObtained[1] == "y")){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nWe're Contributing to a Global Extinction Crisis ", journalSelectStyle)){
+            	DisplayJournal(1);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nWhat makes for a successful common-property system? ", journalSelectStyle)){
-            DisplayJournal(3);
-            journalUI = false;
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(1);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nA case study of community forest management in action ", journalSelectStyle)){
-            DisplayJournal(4);
-            journalUI = false;
+        if(GLOBAL.pagesObtained[2] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nThree-quarters of the world's forests are owned by governments.", journalSelectStyle)){
+            	DisplayJournal(2);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nCommunity forestry is growing in importance due to political decentralization", journalSelectStyle)){
-            DisplayJournal(5);
-            journalUI = false;
+        else {
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(2);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWhat exactly is a 'local community' in the context of forest management?", journalSelectStyle)){
-            DisplayJournal(6);
-            journalUI = false;
+        if(GLOBAL.pagesObtained[3] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nWhat makes for a successful common-property system? ", journalSelectStyle)){
+            	DisplayJournal(3);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWomen's participation is essential in community forestry", journalSelectStyle)){
-            DisplayJournal(7);
-            journalUI = false;
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(3);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\n\nValuing the forest", journalSelectStyle)){
-            DisplayJournal(8);
-            journalUI = false;
+        if(GLOBAL.pagesObtained[4] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nA case study of community forest management in action ", journalSelectStyle)){
+            	DisplayJournal(4);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(4);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[5] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nCommunity forestry is growing in importance due to political decentralization", journalSelectStyle)){
+        	    DisplayJournal(5);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+        	    DisplayJournal(5);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[6] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWhat exactly is a 'local community' in the context of forest management?", journalSelectStyle)){
+            	DisplayJournal(6);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(6);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[7] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWomen's participation is essential in community forestry", journalSelectStyle)){
+            	DisplayJournal(7);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(7);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[8] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\n\nValuing the forest", journalSelectStyle)){
+           		DisplayJournal(8);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+           		DisplayJournal(8);
+            	journalUI = false;
+        	}
         }
     }
 	
