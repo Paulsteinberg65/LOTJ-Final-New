@@ -210,6 +210,11 @@ function Update () {
 				canControl(true);
 			}
 		}
+			if(journalUI){
+				journalUI = false;
+				running = true;
+				canControl(true);
+		}
 		if (journalDisplay) {
 			canControl(false);
 			if ((GLOBAL.pagesObtained[currentJournalPage] == "y") && (tc.journalDict[currentJournalPage].length-1 > journalPart)) {
@@ -233,6 +238,7 @@ function Update () {
 				
 			}
 		}
+
 		if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
 			resetDisplay = false;
 			canControl(true);

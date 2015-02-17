@@ -105,11 +105,18 @@ function OnGUI () {
     }
 
 		
-		
+	if(player.GetComponent("AwarenessPlayer").farmerRep != 0){
 	GUI.HorizontalSlider(Rect(10,297,210,20),player.GetComponent("AwarenessPlayer").farmerRep,0,10, sliderStyle, thumbStyle1);
+	}
+	if(player.GetComponent("AwarenessPlayer").studentRep != 0){
 	GUI.HorizontalSlider(Rect(10,352,210,20),player.GetComponent("AwarenessPlayer").studentRep,0,10, sliderStyle, thumbStyle2);
+	}
+	if(player.GetComponent("AwarenessPlayer").fisherRep != 0){
 	GUI.HorizontalSlider(Rect(10,409,210,20),player.GetComponent("AwarenessPlayer").fisherRep,0,10, sliderStyle, thumbStyle3);
+	}
+	if(player.GetComponent("AwarenessPlayer").artisanRep != 0){
 	GUI.HorizontalSlider(Rect(10,464,210,20),player.GetComponent("AwarenessPlayer").artisanRep,0,10, sliderStyle, thumbStyle4);
+	}
 		
 	if (showingMsg) {
 		GUI.Box(Rect(222, 200, 535, 200), currentString, questTextStyle);
