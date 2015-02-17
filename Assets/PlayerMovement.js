@@ -187,10 +187,13 @@ function senateReset(location: int) {// 0 if coming from outside, 1 if from insi
     myPosition.position.y = -23;
     gui.senateRollback();
     gui.showTimer();
-    gui.runTimer();
+    gui.runTimer();//BRYAN TODO: only run timer if entrance
     if (location == 1){
     GLOBAL.questNum = 10;
     }
+//    else{//BRYAN TODO: only run timer if entrance
+//    gui.runTimer();
+//    }
     //if (location == 0){//DEPRECATED
     GLOBAL.inSenate = true;
     //}
@@ -211,7 +214,10 @@ function houseReset(location: int) {
     gui.toggleFinish();
     }
     gui.showTimer();
+    //if(location==0){//BRYAN TODO: only run timer if entrance
     gui.runTimer();
+   // }
+    //gui.runTimer();
     //if (location == 0){//Deprecated
     GLOBAL.inHouse = true;
     //}

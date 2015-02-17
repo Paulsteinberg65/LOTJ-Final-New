@@ -7,6 +7,7 @@ private var currentString : String;
 private var NPCName : String;
 private var speakerTex : Texture2D;
 private var questDisplay : boolean = false;
+private var capInfoDisplay : boolean = false;
 private var jumpInfoDisplay : boolean = false; //is the GUI showing the jump info for the waterfall?
 private var resetDisplay : boolean = false; //is the GUI showing the reset info?
 var journalDisplay : boolean = false;
@@ -131,6 +132,10 @@ function Start () {
 		jumpInfoDisplay = true;
 		canControl(false);
 	}
+	else if (Application.loadedLevelName == "capitol"){
+		capInfoDisplay = true;
+		canControl(false);
+	}
 }
 
 function Update () {
@@ -170,6 +175,10 @@ function Update () {
 			jumpInfoDisplay = false; //if so, stop, and allow the player to control themselves once again
 			canControl(true);
 		} //TODO: implement what happens if someone presses space while in the restart message
+		if(capInfoDisplay){
+			capInfoDisplay = false;
+			canControl(true);
+		}
 		if (infoDisplay){
 			infoDisplay = false;
 			canControl(true);
@@ -188,6 +197,14 @@ function Update () {
 				infoDisplay = false;
 				Application.LoadLevel("capitol");
 			}
+//			if (infoDisplay && infoTitle == "sFailure") {//BRYAN TODO: RUN TIMER FOR FAILURE
+//				infoDisplay = false;
+//				runTimer();
+//			}
+//			if (infoDisplay && infoTitle == "hFailure") {
+//				infoDisplay = false;
+//				runTimer();
+//			}
 			infoDisplay = false;
 			if(!journalDisplay){
 				canControl(true);
@@ -494,9 +511,11 @@ function OnGUI () {
 		}
 	
 		if (quiz) {
-            GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
-            GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
-            GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
+			
+            GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
+            GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
+            GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
+            GUI.Label(Rect(Screen.width/4+5,Screen.height/4.25-5,Screen.width/2,Screen.height/2), "Use arrow keys to move and select answer with space..", quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0], quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+105,Screen.width/2,Screen.height/2), quizAnswers[1], quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[2], quizAnswerStyle);
@@ -672,6 +691,9 @@ function OnGUI () {
 	
 	if (jumpInfoDisplay) { //show the jump info if we should be
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", infoBoxStyle);
+	}
+	if (capInfoDisplay) { //show the cap info if we should be
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have arrived in the capital.  It is now up to you to convince politicians in the parliament building to revise the forestry law so that local communities can participate in forest governance.  Go find Senator A to get started.", infoBoxStyle);
 	}
 }
 
