@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GUIController.js">
     <Files>
-      <File FileName="Assets/GUIController.js" Line="747" Column="8" />
+      <File FileName="Assets/GUIController.js" Line="800" Column="2" />
+      <File FileName="Assets/GUIController.js" Line="800" Column="2" />
       <File FileName="Assets/PlayerMovement.js" Line="1" Column="1" />
       <File FileName="Assets/Capitol/Capitol_TextContainer.js" Line="1" Column="1" />
       <File FileName="Assets/Waterfall_TextContainer.js" Line="1" Column="1" />

@@ -182,7 +182,15 @@ function Update () {
 			infoDisplay = false;
 			canControl(true);
 		}
-		if (questDisplay || infoDisplay) { //are we currently showing quets or info?
+		if (capInfoDisplay){
+			capInfoDisplay = false;
+			canControl(true);
+		}
+		if (doNotInfoDisplay){
+		doNotInfoDisplay = false;
+		canControl(true);
+		}
+		if (questDisplay || infoDisplay||doNotInfoDisplay) { //are we currently showing quets or info?
 			if(Application.loadedLevelName == "Maze" && questDisplay && Array(remainingMaze).length == 0){
 				questDisplay = false;
 				Application.LoadLevel("searchParty1");
@@ -197,6 +205,11 @@ function Update () {
 				canControl(true);
 			}
 		}
+		if(journalUI){ 
+ 							journalUI = false; 
+ 							running = true; 
+ 							canControl(true); 
+ 					} 
 		if (journalDisplay) {
 			canControl(false);
 			if ((GLOBAL.pagesObtained[currentJournalPage] == "y") && (tc.journalDict[currentJournalPage].length-1 > journalPart)) {
@@ -214,8 +227,12 @@ function Update () {
 					DisplayQuest();
 					displayQuestOnExit = false;
 				}
+				else{
+				DisplayJournalUI();
+				}
 			}
 		}
+		
 		if (resetDisplay) { //if we're displaying the reset info and the player presses space, make it go away and give control back
 			resetDisplay = false;
 			canControl(true);
