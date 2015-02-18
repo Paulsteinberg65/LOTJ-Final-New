@@ -106,10 +106,10 @@ function OnGUI () {
 
 		
 		
-	GUI.HorizontalSlider(Rect(10,297,210,20),player.GetComponent("AwarenessPlayer").farmerRep,0,10, sliderStyle, thumbStyle1);
-	GUI.HorizontalSlider(Rect(10,352,210,20),player.GetComponent("AwarenessPlayer").studentRep,0,10, sliderStyle, thumbStyle2);
-	GUI.HorizontalSlider(Rect(10,409,210,20),player.GetComponent("AwarenessPlayer").fisherRep,0,10, sliderStyle, thumbStyle3);
-	GUI.HorizontalSlider(Rect(10,464,210,20),player.GetComponent("AwarenessPlayer").artisanRep,0,10, sliderStyle, thumbStyle4);
+	GUI.HorizontalSlider(Rect(30,297,185,20),player.GetComponent("AwarenessPlayer").farmerRep,0,10, sliderStyle, thumbStyle1);
+	GUI.HorizontalSlider(Rect(30,352,185,20),player.GetComponent("AwarenessPlayer").studentRep,0,10, sliderStyle, thumbStyle2);
+	GUI.HorizontalSlider(Rect(30,409,185,20),player.GetComponent("AwarenessPlayer").fisherRep,0,10, sliderStyle, thumbStyle3);
+	GUI.HorizontalSlider(Rect(30,464,185,20),player.GetComponent("AwarenessPlayer").artisanRep,0,10, sliderStyle, thumbStyle4);
 		
 	if (showingMsg) {
 		GUI.Box(Rect(222, 200, 535, 200), currentString, questTextStyle);
