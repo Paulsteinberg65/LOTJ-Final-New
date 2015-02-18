@@ -105,28 +105,33 @@ function Start () {
 			}
 			else if(endPosition.x > 30.5 && endPosition.x < 32.5 && endPosition.y > -20.0 && endPosition.y < -18.0
 				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg == 0) && GLOBAL.questNum < 9){
-				gui.DisplayInfo("senateBlocked1");
+				gui.DisplayNotEnterInfo("senateBlocked1");
+				//gui.DisplayInfo("senateBlocked1");
 			}
 			else if(endPosition.x > 30.5 && endPosition.x < 32.5 && endPosition.y > -20.0 && endPosition.y < -18.0
 				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && GLOBAL.questNum > 9){
-				gui.DisplayInfo("senateBlocked2");
+				gui.DisplayNotEnterInfo("senateBlocked2");
+				//gui.DisplayInfo("senateBlocked2");
 			}
 			if (endPosition.x > 103 && endPosition.x < 106 && endPosition.y > -25 && endPosition.y < -22 
 				&& input.y == -1.0 && Application.loadedLevelName == "capitol" && (gui.playerCounter == 4) && GLOBAL.questNum == 10){
 				senateExit();
 			}
 			if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
-				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) && GLOBAL.questNum == 11){
+				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && GLOBAL.questNum == 14){
 				houseReset(0);
 			}
 			else if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
 				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg >= 4) &&  GLOBAL.questNum < 11){
-				gui.DisplayInfo("houseBlocked2");
+				gui.DisplayNotEnterInfo("houseBlocked2");
+				//gui.DisplayInfo("houseBlocked2");
 			}
 			else if (endPosition.x > 26 && endPosition.x < 29 && endPosition.y > -1.5 && endPosition.y < 1 
 				&& input.y == 1.0 && Application.loadedLevelName == "capitol" && (GLOBAL.quizProg < 4) &&  GLOBAL.questNum < 11){
-				gui.DisplayInfo("houseBlocked1");
+				gui.DisplayNotEnterInfo("houseBlocked1");
+				//gui.DisplayNotEnterInfo("houseBlocked1");
 			}
+	
 			myTransform.rotation = Quaternion(0.0, 1.0, 0.0, 0.0);
 			yield;
 
@@ -182,10 +187,13 @@ function senateReset(location: int) {// 0 if coming from outside, 1 if from insi
     myPosition.position.y = -23;
     gui.senateRollback();
     gui.showTimer();
-    gui.runTimer();
+    gui.runTimer();//BRYAN TODO: only run timer if entrance
     if (location == 1){
     GLOBAL.questNum = 10;
     }
+//    else{//BRYAN TODO: only run timer if entrance
+//    gui.runTimer();
+//    }
     //if (location == 0){//DEPRECATED
     GLOBAL.inSenate = true;
     //}
@@ -206,7 +214,10 @@ function houseReset(location: int) {
     gui.toggleFinish();
     }
     gui.showTimer();
+    //if(location==0){//BRYAN TODO: only run timer if entrance
     gui.runTimer();
+   // }
+    //gui.runTimer();
     //if (location == 0){//Deprecated
     GLOBAL.inHouse = true;
     //}

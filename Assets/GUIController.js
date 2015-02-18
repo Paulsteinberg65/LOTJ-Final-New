@@ -7,6 +7,7 @@ private var currentString : String;
 private var NPCName : String;
 private var speakerTex : Texture2D;
 private var questDisplay : boolean = false;
+private var capInfoDisplay : boolean = false;
 private var jumpInfoDisplay : boolean = false; //is the GUI showing the jump info for the waterfall?
 private var resetDisplay : boolean = false; //is the GUI showing the reset info?
 var journalDisplay : boolean = false;
@@ -26,6 +27,7 @@ private var wMovement : Object;
 private var showGUI : boolean = true;
 private var infoTitle;
 private var infoDisplay : boolean = false;
+private var doNotInfoDisplay : boolean = false;
 
 var quiz : boolean = false;
 var sQuizAnswer : int = 0;
@@ -131,6 +133,10 @@ function Start () {
 	}
 	else if (Application.loadedLevelName == "waterfall") { //should the jump info be displayed?
 		jumpInfoDisplay = true;
+		canControl(false);
+	}
+	else if (Application.loadedLevelName == "capitol"){
+		capInfoDisplay = true;
 		canControl(false);
 	}
 }
@@ -522,11 +528,12 @@ function OnGUI () {
 				playedManuel = true;
 			}
 		}
-	
-		if (quiz) {
-            GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
-            GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
-            GUI.Box(Rect(Screen.width/4,Screen.height/4,Screen.width/1.75,Screen.height/1.6), "");
+		
+        if (quiz) {
+            GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
+            GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
+            GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
+            GUI.Label(Rect(Screen.width/4+5,Screen.height/4.25-5,Screen.width/2,Screen.height/2), "Use arrow keys to move and select answer with space..", quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0], quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+105,Screen.width/2,Screen.height/2), quizAnswers[1], quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[2], quizAnswerStyle);
@@ -580,41 +587,113 @@ function OnGUI () {
 	}
 	if (journalUI){//TODO: NEW JOURNAL UI
         GUI.Box(Rect(Screen.width/8, Screen.height/8, Screen.width*3/4, Screen.height*3/4+10),"");
-        if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "\n\nFather's Note", journalSelectStyle)){
-            DisplayJournal(0);
-            journalUI = false;
+        if ((GLOBAL.pagesObtained[0] == "y")){
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "\n\nFather's Note", journalSelectStyle)){
+            	DisplayJournal(0);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nWe're Contributing to a Global Extinction Crisis ", journalSelectStyle)){
-            DisplayJournal(1);
-            journalUI = false;
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+25, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(0);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nThree-quarters of the world's forests are owned by governments.", journalSelectStyle)){
-            DisplayJournal(2);
-            journalUI = false;
+        if((GLOBAL.pagesObtained[1] == "y")){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nWe're Contributing to a Global Extinction Crisis ", journalSelectStyle)){
+            	DisplayJournal(1);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nWhat makes for a successful common-property system? ", journalSelectStyle)){
-            DisplayJournal(3);
-            journalUI = false;
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+25, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(1);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nA case study of community forest management in action ", journalSelectStyle)){
-            DisplayJournal(4);
-            journalUI = false;
+        if(GLOBAL.pagesObtained[2] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "\nThree-quarters of the world's forests are owned by governments.", journalSelectStyle)){
+            	DisplayJournal(2);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nCommunity forestry is growing in importance due to political decentralization", journalSelectStyle)){
-            DisplayJournal(5);
-            journalUI = false;
+        else {
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+25, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(2);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWhat exactly is a 'local community' in the context of forest management?", journalSelectStyle)){
-            DisplayJournal(6);
-            journalUI = false;
+        if(GLOBAL.pagesObtained[3] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nWhat makes for a successful common-property system? ", journalSelectStyle)){
+            	DisplayJournal(3);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWomen's participation is essential in community forestry", journalSelectStyle)){
-            DisplayJournal(7);
-            journalUI = false;
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(3);
+            	journalUI = false;
+        	}
         }
-        if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\n\nValuing the forest", journalSelectStyle)){
-            DisplayJournal(8);
-            journalUI = false;
+        if(GLOBAL.pagesObtained[4] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nA case study of community forest management in action ", journalSelectStyle)){
+            	DisplayJournal(4);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(4);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[5] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "\nCommunity forestry is growing in importance due to political decentralization", journalSelectStyle)){
+        	    DisplayJournal(5);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height/5)+50, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+        	    DisplayJournal(5);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[6] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWhat exactly is a 'local community' in the context of forest management?", journalSelectStyle)){
+            	DisplayJournal(6);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+30, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(6);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[7] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\nWomen's participation is essential in community forestry", journalSelectStyle)){
+            	DisplayJournal(7);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width/5)+60, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+            	DisplayJournal(7);
+            	journalUI = false;
+        	}
+        }
+        if(GLOBAL.pagesObtained[8] == "y"){
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "\n\nValuing the forest", journalSelectStyle)){
+           		DisplayJournal(8);
+            	journalUI = false;
+        	}
+        }
+        else{
+        	if(GUI.Button(Rect(Screen.width/8+(Screen.width*2/5)+90, Screen.height/8+(Screen.height*2/5)+75, Screen.width/5, Screen.height/5), "", journalSelectStyle)){
+           		DisplayJournal(8);
+            	journalUI = false;
+        	}
         }
     }
 	
@@ -623,8 +702,16 @@ function OnGUI () {
 		GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, infoBoxStyle);
 	}
 	
+	if (doNotInfoDisplay) { //HELP MENU DISPLAY
+		currentString = GLOBAL.infoDict[infoTitle];
+		GUI.Box(Rect((Screen.width/4)-20, (Screen.height/4)-20, (Screen.width/2)+40, (Screen.height/2+40)), currentString, doNotEnterStyle);
+	}
+	
 	if (jumpInfoDisplay) { //show the jump info if we should be
 		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Your father's journal pages are scattered around the waterfall. Use the space bar to jump and find all the pages.", infoBoxStyle);
+	}
+	if (capInfoDisplay) { //show the cap info if we should be
+		GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "You have arrived in the capital.  It is now up to you to convince politicians in the parliament building to revise the forestry law so that local communities can participate in forest governance.  Go find Senator A to get started.", infoBoxStyle);
 	}
 }
 
@@ -674,6 +761,12 @@ function DisplayJournalUI (){ //TODO: new JOURNAL UI
 function DisplayInfo (infoName : String) {
 	infoTitle = infoName;
 	infoDisplay = true;
+	canControl(false);
+	questDisplay = false;
+}
+function DisplayNotEnterInfo (infoName : String) {
+	infoTitle = infoName;
+	doNotInfoDisplay = true;
 	canControl(false);
 	questDisplay = false;
 }
