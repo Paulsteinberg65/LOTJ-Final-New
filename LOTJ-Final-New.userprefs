@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Waterfall_TextContainer.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GUIController.js">
     <Files>
-      <File FileName="Assets/GUIController.js" Line="772" Column="2" />
-      <File FileName="Assets/PlayerMovement.js" Line="24" Column="2" />
-      <File FileName="Assets/Capitol/Capitol_TextContainer.js" Line="330" Column="2" />
-      <File FileName="Assets/Waterfall_TextContainer.js" Line="69" Column="2" />
+      <File FileName="Assets/GUIController.js" Line="747" Column="8" />
+      <File FileName="Assets/PlayerMovement.js" Line="1" Column="1" />
+      <File FileName="Assets/Capitol/Capitol_TextContainer.js" Line="1" Column="1" />
+      <File FileName="Assets/Waterfall_TextContainer.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
