@@ -796,5 +796,5 @@ function canControl (val : boolean) {
 }
 
 function GameOver (){
-	Application.LoadLevel("demoEnd");
+	Application.LoadLevel("gameEnd1");
 }
