@@ -43,12 +43,12 @@ function Update () {
 
 function OnGUI () {
 	GUI.DrawTexture(Rect(0,0,Screen.width,Screen.height), img);
-	GUI.DrawTexture(Rect(Screen.width/2-Screen.width/7,Screen.height*4/5,Screen.width/3.5,Screen.height/6), textImg);
+	GUI.DrawTexture(Rect(Screen.width/2-Screen.width/6,Screen.height*4/5,Screen.width/3,Screen.height/6), textImg);
 	if (selection == 0) {
 		GUI.DrawTexture(Rect(23.5,174.0,Screen.width/2.275,Screen.height/1.40), boyimg);
-		GUI.DrawTexture(Rect(Screen.width/2-Screen.width/7,Screen.height*4/5,Screen.width/3.5,Screen.height/6), textImg);
+		GUI.DrawTexture(Rect(Screen.width/2-Screen.width/6,Screen.height*4/5,Screen.width/3,Screen.height/6), textImg);
 	} else if (selection == 1) {
 		GUI.DrawTexture(Rect(Screen.width/1.78,148.5,Screen.width/2.98,Screen.height/1.525), girlimg);
-		GUI.DrawTexture(Rect(Screen.width/2-Screen.width/7,Screen.height*4/5,Screen.width/3.5,Screen.height/6), textImg);
+		GUI.DrawTexture(Rect(Screen.width/2-Screen.width/6,Screen.height*4/5,Screen.width/3,Screen.height/6), textImg);
 	}
 }

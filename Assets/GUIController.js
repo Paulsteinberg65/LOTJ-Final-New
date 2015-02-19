@@ -550,7 +550,7 @@ function OnGUI () {
             GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
             GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
             GUI.Box(Rect(Screen.width/4,Screen.height/4.25-10,Screen.width/1.75,Screen.height/1.5+10), "");
-            GUI.Label(Rect(Screen.width/4+5,Screen.height/4.25-5,Screen.width/2,Screen.height/2), "Use arrow keys to move and select answer with space..", quizAnswerStyle);
+            GUI.Label(Rect(Screen.width/4+5,Screen.height/4.25-5,Screen.width/2,Screen.height/2), "Use arrow keys to move and select answer with spacebar.", quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+15,Screen.width/2,Screen.height/2), quizAnswers[0], quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+105,Screen.width/2,Screen.height/2), quizAnswers[1], quizAnswerStyle);
             GUI.Label(Rect(Screen.width/4+15,Screen.height/4+195,Screen.width/2,Screen.height/2), quizAnswers[2], quizAnswerStyle);
