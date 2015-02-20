@@ -380,7 +380,7 @@ function OnGUI () {
 				//do nothing, don't want the sign to display
 			}
 			else {
-				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
+				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", doNotEnterStyle);
 			}
 		} 
 		else if (player.transform.position.x == -5.0 && player.transform.position.y == -23.0 && GLOBAL.questNum < 2) {
@@ -391,7 +391,7 @@ function OnGUI () {
 				//do nothing, don't want the sign to display
 			}
 			else {
-				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", questTextStyle);
+				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "This passage is closed for now.", doNotEnterStyle);
 			}
 		}
 		else if (player.transform.position.x == 41.0 && (player.transform.position.y == -24.0 || player.transform.position.y == -23.0)) {
@@ -402,7 +402,7 @@ function OnGUI () {
 				//do nothing, don't want the sign to display
 			}
 			else {
-				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Before traveling anywhere, you should learn more about what’s going on in your village.", questTextStyle);
+				GUI.Box(Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "Before traveling anywhere, you should learn more about what’s going on in your village.", doNotEnterStyle);
 			}
 		}
 		else {
