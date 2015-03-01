@@ -93,42 +93,42 @@
          	audio.clip = meeting;
          	audio.Play();
          }
-         else if ( level == 21 && audio.clip != meeting)
+         else if ( level == 22 && audio.clip != meeting)
          {
          	audio.Stop();
          	audio.volume = 0.4;
          	audio.clip = meeting;
          	audio.Play();
          }
-         else if ( level == 22 ) //play siren noises for the police officer
+         else if ( level == 23 ) //play siren noises for the police officer
          {
          	audio.Stop();
          	audio.clip = coppers;
          	audio.Play();
          }
-         else if ( level == 23 ) //play cop chatter for the police officer
+         else if ( level == 24 ) //play cop chatter for the police officer
          {
          	audio.Stop();
          	audio.clip = radio;
          	audio.Play();
          }
-         else if ( level == 24 ) //play new music for town3
+         else if ( level == 25 ) //play new music for town3
          {
          	audio.Stop();                       //I'M TRAPPED IN JAVASCRIPT AND I CAN'T GET OUT. SEND FOR STEPHEN HAWKING, HE'LL KNOW WHAT TO DO
          }
-         else if ( level == 25 ) //play car noise for driving scenes
+         else if ( level == 26 ) //play car noise for driving scenes
          {
          	audio.Stop();
          	audio.clip = jeep;
          	audio.Play();
          }
-         else if ( level == 27 || level == 28 ) //stop car noises for capitol
+         else if ( level == 28 || level == 29 ) //stop car noises for capitol
          {
          	audio.Stop();
          	audio.clip = city;
          	audio.Play();
          }
-         else if (level == 29 || level == 30) {
+         else if (level == 30) {
          	audio.Stop();
          	audio.clip = azteca;
          	audio.Play();
